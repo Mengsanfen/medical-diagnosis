@@ -1,0 +1,461 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>“医”智视界</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static '/img/doctor1.png' %}" rel="icon">
+    <link href="{% static '/img/doctor.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    
+    <!-- Main CSS File -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <style>
+        /* 自定义科技感样式 */
+        :root {
+            --tech-blue: #00a8ff;
+            --tech-purple: #9c27b0;
+            --gradient-bg: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px var(--tech-blue),
+                         0 0 20px var(--tech-blue),
+                         0 0 30px var(--tech-blue);
+            animation: neon-pulse 1.5s infinite alternate;
+        }
+
+        .btn-hover-effect {
+            background: var(--gradient-bg);
+            padding: 15px 40px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .btn-hover-effect::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(255,255,255,0.3),
+                transparent
+            );
+            transition: left 0.6s;
+        }
+
+        .hover-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+
+
+        @keyframes neon-pulse {
+            from { opacity: 0.8; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 加载动画 -->
+<div id="loader">
+    <div class="loading-spinner"></div>
+</div>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div id="logo">
+            <h1><a href="#" class="text-gradient">PATHOLOGY</a></h1>
+        </div>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="#hero">主页</a></li>
+                <li><a class="nav-link scrollto" href="#features">细胞检测</a></li>
+                <li><a class="nav-link scrollto" href="#data">“医智”数据</a></li>
+                <li><a class="nav-link scrollto" href="#more-features">医学病理检测</a></li>
+                <li><a class="nav-link scrollto" href="#pricing">“医智”小贴士</a></li>
+                <li><a class="nav-link scrollto" href="#team">开发团队</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-text" data-aos="zoom-out">
+        <h2 class="neon-text">“医“智视界</h2>
+        <div class="typewriter-container">
+            <p class="typewriter">智能医疗可视化综合平台</p>
+        </div>
+        <a href="#features" class="btn-hover-effect scrollto">进入医疗智慧</a>
+    </div>
+    <div id="particles-js"></div>
+</section>
+
+<main id="main">
+
+    <!-- ======= 口罩检测 ======= -->
+    <section id="features">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-4">
+                    <div class="section-header">
+                        <h3 class="section-title">细胞检测</h3>
+                        <span class="section-divider"></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-5 features-img">
+                    <img src="{% static 'img/hong5.png' %}" alt="" data-aos="fade-right">
+                </div>
+                <div class="col-lg-8 col-md-7 ">
+                    <div class="row">
+                        <div class="box" data-aos="fade-up">
+                            <div class="icon"><img src="{% static 'img/icon/doctor.png' %}" alt=""></div>
+                            <h4 class="title"><a href="/mask/">血细胞检测入口</a></h4>
+                            <p class="description">
+                                通过yolov目标检测算法进行血细胞识别，上传一张图片最终将识别结果展示到页面</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Featuress Section -->
+
+    <hr>
+    <!-- ======= 疫情大数据 ======= -->
+    <div id="data">
+        <section id="features" style="margin-bottom: 60px">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="section-header">
+                            <h3 class="section-title">疾病大数据</h3>
+                            <span class="section-divider"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-7 ">
+                        <div class="row">
+                            <div class="box" data-aos="fade-up">
+                                <div class="icon"><img src="{% static 'img/icon/data.png' %}" alt=""></div>
+                                <h4 class="title"><a href="/screen">基于echarts的数据统计</a></h4>
+                                <p class="description">
+                                    通过网络接口事实获取获取数据，利用python进行数据处理，将后端数据返回进行图表渲染</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5 features-img">
+                        <img class="advanced-feature-img-right wow fadeInRight"
+                             src="{% static 'img/data2.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Featuress Section -->
+    </div>
+
+
+    <!-- ======= 白肺检测======= -->
+    <section id="more-features" class="section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h3 class="section-title">病理检测</h3>
+                <span class="section-divider"></span>
+                <p class="section-description">
+                    病理图像分类是一项先进的技术应用，旨在通过深度学习和图像分析技术自动识别和分类病理切片图像中的不同类型的细胞和组织，从而辅助医生进行更快速、准确的疾病诊断。</p>
+            </div>
+
+            <div class="row gy-4">
+
+                <div class="col-lg-6">
+                    <div class="box">
+                        <div class="icon"><i class="bi bi-book"></i></div>
+                        <h4 class="title"><a href="/lungkonw/">病理小科普</a></h4>
+                        <p class="description">揭秘病理图像分类：AI如何助力疾病诊断</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="box">
+                        <div class="icon"><i class="bi bi-binoculars"></i></div>
+                        <h4 class="title"><a href="/lung/">病理检测</a></h4>
+                        <p class="description">基于深度学习卷积神经网络的病理检测模型</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section><!-- End More Features Section -->
+    <!-- ======= Call To Action Section ======= -->
+
+    <section id="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 text-center text-lg-start">
+                    <h3 class="cta-title">“携手‘健康守护’，共筑生命质量——行动起来，为您的健康负责！</h3>
+                    <p class="cta-text"> 积极参与，主动监测 : 请珍视每一次细胞检测和病理图像分析的机会，它们如同生命航程中的导航灯，精准揭示体内细微变化，帮助您提前预警潜在疾病风险。定期检测，主动掌握自身健康状况，是对生命的尊重，更是对未来的负责。
+                    </p>
+                    <p class="cta-text">
+                        明智选择，健康生活 : 浏览我们的健康贴士模块，让科学知识成为您日常生活的良师益友。无论是均衡饮食的智慧、规律作息的艺术，还是运动锻炼的乐趣、心理调适的秘诀，每一则贴士都蕴含着提升生命质量的关键密码。选择健康的生活方式，让每一天都充满活力与希望。</p>
+                    <p class="cta-text">
+                        共享传递，共筑健康社区 : “独行快，众行远”。邀请身边的亲友共同参与“健康守护”项目，分享实用的健康知识，交流健康心得，形成积极向上的健康风尚。让我们携手构建一个相互支持、共同进步的健康社区，让每一个个体的力量汇聚成推动全民健康的强大洪流。</p>
+                    <p class="cta-text"> 持续学习，与时俱进 : 健康知识日新月异，我们鼓励您保持敏锐的学习态度，关注项目更新，紧跟医学前沿。无论是新的检测技术解读，还是前沿科研成果的应用，都将助您站在健康守护的最前沿，从容应对生命旅途中可能出现的挑战。</p>
+                    <p class="cta-text"> 尊重生命，关爱他人 : 健康不仅关乎个人，更关乎社会福祉。在关注自身健康的同时，让我们将关爱的目光投向需要帮助的人群，用实际行动传递温暖，弘扬人道精神。每个人都是健康中国建设的一份子，我们的共同努力，将铸就一个更加健康、和谐的社会。</p>
+                    <p class="cta-text">
+                        亲爱的用户们，健康之路，始于足下。让我们响应“健康守护”的呼唤，立即行动起来，为自己的健康负责，为家人的幸福努力，为社会的繁荣贡献力量！因为，只有健康，才能赋予生活最美的色彩；只有健康，才能让我们无惧风雨，勇往直前。共赴“健康守护”之旅，让生命之花在悉心呵护下绚丽绽放！</p>
+
+                </div>
+                {#                <div class="col-lg-3 cta-btn-container text-center">#}
+                {#                    <a class="cta-btn align-middle" href="#">Call To Action</a>#}
+                {#                </div>#}
+            </div>
+
+        </div>
+    </section><!-- End Call To Action Section -->
+    <!-- ======= 疫情贴士 ======= -->
+    <section id="pricing" class="section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h3 class="section-title">"医"智贴士</h3>
+                <span class="section-divider"></span>
+                <p class="section-description">为您提供健康医智生活指南</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="box featured">
+                        <h3>健康贴士</h3>
+                        {#                        <h4><sup>$</sup>0<span> month</span></h4>#}
+                        <ul>
+
+
+                            <li><i class="bi bi-check-circle"></i> 疾病预防和早期诊断</li>
+                            <li><i class="bi bi-check-circle"></i> 健康生活习惯的培养</li>
+                            <li><i class="bi bi-check-circle"></i> 定期体检和筛查</li>
+                            <li><i class="bi bi-check-circle"></i> 睡眠健康</li>
+                            <li><i class="bi bi-check-circle"></i> 心理健康</li>
+                        </ul>
+                        <a href="/health/" class="get-started-btn">Get Started</a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="box featured">
+                        <h3>药品科普</h3>
+                        {#                        <h4><sup>$</sup>49<span> month</span></h4>#}
+                        <ul>
+                            <li><i class="bi bi-check-circle"></i> 药品基础知识普及</li>
+                            <li><i class="bi bi-check-circle"></i> 药品使用注意事项</li>
+                            <li><i class="bi bi-check-circle"></i> 药品安全与合理用药</li>
+                            <li><i class="bi bi-check-circle"></i> 药品分类</li>
+                        </ul>
+                        <a href="/medical/" class="get-started-btn">Get Started</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="box featured">
+                        <h3>“医”智指南</h3>
+                        {#                        <h4><sup>$</sup>29<span> month</span></h4>#}
+                        <ul>
+                            <li><i class="bi bi-check-circle"></i> 健康生活方式与药物协同效应</li>
+                            <li><i class="bi bi-check-circle"></i> 药品使用常见误区解答</li>
+                            <li><i class="bi bi-check-circle"></i>  药物相互作用与副作用预防</li>
+                            <li><i class="bi bi-check-circle"></i> 药品存储与携带指南</li>
+                            <li><i class="bi bi-check-circle"></i> 用药时间与饮食搭配贴士</li>
+                        </ul>
+                        <a href="/protect/" class="get-started-btn">Get Started</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Pricing Section -->
+
+    <!-- ======= 团队成员 ======= -->
+    <section id="team" class="section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h3 class="section-title">开发团队</h3>
+                <span class="section-divider"></span>
+                <p class="section-description">创新引领健康，技术守护生命 —— "医“智视界平台，与您同行每一步</p>
+            </div>
+
+            <div class="row" style="margin-left: 250px">
+                <div class="col-lg-3 col-md-6" style=" ">
+                    <div class="member">
+                        <div class="pic"><img src="{% static 'img/head/na01.png' %}" alt="">
+                        </div>
+                        <h4>王宇翔</h4>
+                        <span>Chief Executive Officer</span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-wechat"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-tencent-qq"></i></a>
+                            <a href=""><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" style="">
+                    <div class="member">
+                        <div class="pic"><img src="{% static 'img/head/na02.jpg' %}" alt="">
+                        </div>
+                        <h4>张丽娜</h4>
+                        <span>Chief Executive Officer</span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-wechat"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-tencent-qq"></i></a>
+                            <a href=""><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" style=" ">
+                    <div class="member">
+                        <div class="pic"><img src="{% static 'img/head/na03.png' %}" alt="">
+                        </div>
+                        <h4>王宇翔</h4>
+                        <span>Chief Executive Officer</span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-wechat"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-tencent-qq"></i></a>
+                            <a href=""><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section><!-- End Team Section -->
+
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-lg-start text-center">
+                <div class="copyright">
+                    &copy; Copyright <strong>PATHOLOGY</strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    Designed by <a href="https://blog.csdn.net/m0_72256122?type=blog">延安大学：王宇翔</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+                    <a href="#intro" class="scrollto">主页</a>
+                    <a href="#about" class="scrollto">关于</a>
+                    <a href="#">隐私政策</a>
+                    <a href="#">使用条款</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</footer><!-- End  Footer -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-chevron-up"></i></a>
+
+
+<!-- Vendor JS Files -->
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+
+<!-- 粒子特效库 -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+    // 页面加载动画
+    window.addEventListener('load', () => {
+        document.getElementById('loader').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('loader').style.display = 'none';
+        }, 500);
+    });
+
+    // 粒子特效初始化
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 80 },
+            color: { value: '#00a8ff' },
+            shape: { type: 'circle' },
+            opacity: { value: 0.5 },
+            size: { value: 3 },
+            move: {
+                enable: true,
+                speed: 2,
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'out',
+            }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: { enable: true, mode: 'repulse' },
+                onclick: { enable: true, mode: 'push' }
+            }
+        }
+    });
+
+
+
+    // 导航栏交互效果
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('mouseover', () => {
+            link.style.transform = 'scale(1.1)';
+        });
+        link.addEventListener('mouseout', () => {
+            link.style.transform = 'scale(1)';
+        });
+    });
+</script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

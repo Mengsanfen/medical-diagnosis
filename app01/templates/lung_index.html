@@ -1,0 +1,159 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container" style="margin-bottom: 100px;">
+        <div class="container ">
+            <div class="row justify-content-evenly">
+                <div class="col-sm-5">
+                    <div class="card" style="width: 35rem; height: 420px">
+                        <div class="card-body">
+                            <img id="image" src="{% static '/img/doctor1.png' %}"
+                                 class="rounded card-img-top d-block" alt="输入图片"
+                                 style="height: 380px">
+                        </div>
+                    </div>
+                    <label for="formFile" class="form-label">请选择一张图片</label>
+                    <form method="post" id="imgform" enctype="multipart/form-data" action="/lung/upload/">
+                        <div class="input-group">
+                            <input type="file" class="form-control" id="uploadImage"
+                                   aria-describedby="inputGroupFileAddon" aria-label="Upload"
+                                   onchange="selectImage(this);">
+                            <button class="btn btn-outline-info" type="button" onclick="gosubmit()" id="imgbtn">上传
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-5">
+                    {#                    <div class="card" style="width: 35rem; height: 420px">#}
+                    {#                        <div class="card-body">#}
+                    {#                            <img src="{% static '/img/doctor.png' %}" class="rounded mx-auto d-block"#}
+                    {#                                 id="outputImage"#}
+                    {#                                 alt="输出图片" style="height: 380px; width: 32rem;">#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+                    <div class="card" style="width: 35rem; height: 420px">
+
+                        <div class="card-body">
+                            <table class="table table-success">
+                                <thead>
+                                <tr>
+                                    <th scope="col">名称</th>
+                                    <th scope="col">返回参数</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>名称:</td>
+                                    <td colspan="2" id="rname">~</td>
+                                </tr>
+                                <tr>
+                                    <td>置信度:</td>
+                                    <td colspan="2" id="rtrust">~</td>
+                                </tr>
+                                <tr>
+                                    <td>类别:</td>
+                                    <td colspan="2" id="rtype">~</td>
+                                </tr>
+                                <tr>
+                                    <td>tips:</td>
+                                    <td colspan="2" id="rtip" style="width: 60%">~</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <h5 class="card-title" style="color: #cf1a57">Tips:</h5>
+                            <p class="card-text" style="color: #06ae16">
+                                识别类型说明:   </p>
+                            <p class="card-text" style="color: #0bb35f">
+                                0 为正常  
+                                1 为锯齿状  
+                                2 为腺癌  
+                                3 为腺瘤 </p>
+                            （模型诊断存在一定误差，请以实际诊断结果为准）
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <label for="formFile" class="form-label">结果展示</label>
+
+                    <div class="input-group">
+                        <button class="btn btn-outline-info " type="button" onclick="FlushImg();">检测
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+
+    <script type="text/javascript">
+        var image = '';
+
+        function selectImage(file) {
+            if (!file.files || !file.files[0]) {
+                alert("未选择任何文件")
+                return;
+            }
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                document.getElementById('image').src = evt.target.result;
+                image = evt.target.result;
+            }
+            reader.readAsDataURL(file.files[0]);
+        }
+    </script>
+    <script type="text/javascript">
+        function gosubmit() {
+            var formdata = new FormData();
+            //formdata.append('name', 'uploadImage');
+            formdata.append('uploadImage', $('#uploadImage').get(0).files[0]);
+            //formdata.append('recid', str);
+            $.ajax({
+                url: '/lung/upload/',
+                type: 'post',
+                contentType: false,
+                data: formdata,
+                processData: false,
+                success: function (info) {
+                    if (info.status) {
+                        alert("上传成功");
+                    } else {
+                        alert("上传失败");
+                    }
+                    console.log(info)
+
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            });
+        }
+    </script>
+    <script>
+        function FlushImg() {
+            $.ajax({
+                url: "/lung/detect/",
+                type: 'GET',
+                dataType: '',
+                success: function (data) {
+                    console.log(data);
+                    $('#rname').text(data.name)
+                    $('#rtrust').text(data.rate)
+                    $('#rtype').text(data.kind)
+                    $('#rtip').text(data.tips)
+                },
+            })
+        }
+    </script>
+{% endblock %}

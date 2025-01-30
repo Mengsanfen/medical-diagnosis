@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container" style="margin-bottom: 100px;">
+        <div class="container ">
+            <div class="row justify-content-evenly">
+                <div class="col-sm-5">
+                    <div class="card" style="width: 35rem; height: 420px">
+                        <div class="card-body">
+                            <img id="image" src="{% static '/img/hong4.png' %}" class="rounded card-img-top d-block" alt="输入图片"
+                                 style="height: 380px">
+                        </div>
+                    </div>
+                    <label for="formFile" class="form-label">请选择一张图片</label>
+                    <form method="post" id="imgform" enctype="multipart/form-data" action="/mask/upload/">
+                        <div class="input-group">
+                            <input type="file" class="form-control" id="uploadImage"
+                                   aria-describedby="inputGroupFileAddon" aria-label="Upload"
+                                   onchange="selectImage(this);">
+                            <button class="btn btn-outline-info" type="button" onclick="gosubmit()" id="imgbtn">上传
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-5">
+                    <div class="card" style="width: 35rem; height: 420px">
+                        <div class="card-body">
+                            <img src="{% static '/img/phone.png'%}" class="rounded mx-auto d-block"
+                                 id="outputImage"
+                                 alt="输出图片" style="height: 380px; width: 32rem;">
+                        </div>
+                    </div>
+                    <label for="formFile" class="form-label">结果展示</label>
+
+                    <div class="input-group">
+                        <button class="btn btn-outline-info " type="button" onclick="FlushImg();">检测
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+
+    <script type="text/javascript">
+        var image = '';
+
+        function selectImage(file) {
+            if (!file.files || !file.files[0]) {
+                alert("未选择任何文件")
+                return;
+            }
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                document.getElementById('image').src = evt.target.result;
+                image = evt.target.result;
+            }
+            reader.readAsDataURL(file.files[0]);
+        }
+    </script>
+    <script type="text/javascript">
+        function gosubmit() {
+            var formdata = new FormData();
+            //formdata.append('name', 'uploadImage');
+            formdata.append('uploadImage', $('#uploadImage').get(0).files[0]);
+            //formdata.append('recid', str);
+            $.ajax({
+                url: '/mask/upload/',
+                type: 'post',
+                contentType: false,
+                data: formdata,
+                processData: false,
+                success: function (info) {
+                    if (info.status) {
+                        alert("上传成功");
+                    } else {
+                        alert("上传失败");
+                    }
+                    console.log(info)
+
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            });
+        }
+    </script>
+    <script>
+        function FlushImg() {
+            $.ajax({
+                url: "/mask/img/",
+                type: 'GET',
+                dataType: '',
+                success: function (data) {
+                    console.log(data);
+                    $('#outputImage').attr('src', "data:image/png;base64," + data)
+
+                    {#var obj = document.getElementById("outputImage");#}
+                    {#obj.src = "data:image/png;base64," + data;#}
+                },
+            })
+        }
+    </script>
+{% endblock %}

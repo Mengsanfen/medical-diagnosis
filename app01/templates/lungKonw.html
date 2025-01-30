@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <img src="{% static '/img/lung/ren.png' %}">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">揭秘病理图像分类：AI如何助力疾病诊断</h5>
+                    <p class="card-text">1. 什么是病理图像分类？</p>
+                    <p class="card-text">
+                        病理图像分类是一种利用AI技术，特别是深度学习算法，来自动识别和分类病理切片图像中的细胞和组织类型的过程。这个过程可以帮助医生快速识别出正常与异常细胞，从而提高疾病诊断的准确性和效率。</p>
+                    <p class="card-text">2. 它是如何工作的？</p>
+                    <p class="card-text">首先，病理学家会从疑似病变的组织中取出一小块样本，制成薄片并染色，以便在显微镜下观察。然后，这些经过处理的样本会被扫描成高分辨率的数字图像。AI算法接着会对这些图像进行分析，识别出图像中的特定模式和特征，并将它们与已知的病理特征进行比较，从而对样本进行分类。</p>
+                    <p class="card-text">3. 它的优势在哪里？</p>
+                    <p class="card-text"> 与传统的病理学诊断相比，AI辅助的病理图像分类可以提供更快的诊断结果，减少人为误差，并能够处理大量的数据。此外，它还可以帮助医生发现难以用肉眼观察到的细微变化，为精准医疗提供支持。</p>
+                    <p class="card-text">4. 它的应用前景如何？</p>
+                    <p class="card-text">
+                        病理图像分类模块不仅能够提高临床诊断的效率，还可以用于癌症筛查、疾病监测和科学研究。随着技术的不断进步，未来它可能会成为病理诊断的标准工具之一，为全球医疗健康事业做出更大的贡献。</p>
+                    
+                    {#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+
+
+{% endblock %}

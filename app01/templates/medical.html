@@ -1,0 +1,131 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <img src="{% static '/img/medical.png' %}">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="请输入药品名称"
+                       aria-label="Recipient's username" aria-describedby="button-addon2" id="me">
+
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        onclick="bindEvent();"
+                >查询
+                </button>
+            </div>
+            <div class="card" style="margin-top: 30px">
+                <div class="card-body">
+                    <h5 class="card-title">药物分类</h5>
+                    <p class="card-text">
+                        化学药：由人工合成的化合物组成，如阿司匹林等。
+                        天然药物：从天然物质中提取或制成，如植物、动物或微生物等。
+                        生物制品：由活体组织或细胞分离出的物质，如疫苗、血清等。
+                        中药材：采用天然材料进行炮制，如人参、枸杞等。
+                    </p>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 25px">
+                <div class="card-body">
+                    <h5 class="card-title">药物作用和副作用</h5>
+                    <p class="card-text">
+                        药物作用：药物对人体产生的期望效果，如止痛、杀菌、降血压等。
+                        药物副作用：药物对人体产生的非期望效果，如恶心、头晕、过敏等。不同药物有不同的副作用，需根据医生指示使用。
+                    </p>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 25px">
+                <div class="card-body">
+                    <h5 class="card-title">药物使用注意事项</h5>
+                    <p class="card-text">
+                        遵循医生的处方和用药指导，严格按照用药方法、剂量、时间等使用药物。
+                        不要随意停药或更改用药方法，必要时应咨询医生。
+                        不要与其他药物同时使用，以免发生不良反应。
+                        了解药物的储存条件，避免阳光直射或高温、潮湿等条件。
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="medicalModalLabel">药品信息</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!--
+                {'code': 200,
+                'msg': 'success',
+                'result': {
+                'list': [
+                {'title': '阿奇霉素',
+                'content': '\t\t【别名】 希舒美 、因培康、爱米琦、瑞奇、齐诺、博抗、泰力特、明齐欣、洛奇、抒罗康、红树、舒美特、天琪、赛乐欣、浦乐齐、丽珠齐乐、顺风康奇、英琦星、阿齐红素、阿红霉素,阿泽红霉素<br /><br />【外文名】Azithromycin ,Zithromax<br /><br />【适应症】 <br />本品适用于敏感细菌所引起的下列感染：中耳炎、鼻窦炎、咽炎、扁桃体炎等上呼吸道感染；支气管炎、肺炎等下呼吸道感染 皮肤和软组织感染。 沙眼衣原体所致单纯性生殖器感染。 非重耐药淋球菌所致的单纯性生殖器感染（需排除梅毒螺旋体的合并感染）。 <br /><br />【用量用法】 <br />以阿奇霉素片剂治疗感染性疾病，其疗程及使用方法如下： 成人：沙眼衣原体或敏感淋球菌所致性传播疾病，仅需单次口服本品１．０ｇ。 对其他感染的治疗：总剂量１．５ｇ，分三次服药，每日次服用本品０．５ｇ。 <br /><br />【注意事项】 <br />病人对本品的耐受性良好，不良反应发生率较低，因不良反应而中断治疗约０．３％。 不良反应中消化道反应占多，主要症状包括腹泻（稀便），上腹部不适（痛或痉挛），恶心、呕吐、偶见腹胀。一般为轻至中度。对阿奇霉素或其他大环内酯类抗生素有过敏的病人，禁忌使用阿奇霉素片剂。 <br /><br />【规格】  片剂（胶囊）250mg, 500mg. <br /> <br />\t\t\t'}]}}
+
+                -->
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <p id="medicalcontent">未查询到相应药品信息</p>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+
+
+        function bindEvent() {
+            let aname = $('#me').val();
+            {#alert(aname);#}
+            $.ajax({
+                type: "post",
+                async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+                url: "/medical/data/",    //请求发送到TestServlet处
+                data: {'name': aname},
+                dataType: "json",        //返回数据形式为json
+                success: function (res) {
+                    //请求成功时执行该函数内容，result即为服务器返回的json对象
+                    if (res.code == 200) {
+                        console.log(res);
+                        $("#medicalModalLabel").text(res.result.list[0].title);
+                        $("#medicalcontent").html(res.result.list[0].content);
+                    } else {
+                        $("#medicalModalLabel").text("NULL");
+                        
+                    }
+                },
+                error: function (errorMsg) {
+                    //请求失败时执行该函数
+                    console.log(errorMsg);
+                    alert("请求数据失败!");
+                }
+            })
+        }
+
+
+    </script>
+
+{% endblock %}

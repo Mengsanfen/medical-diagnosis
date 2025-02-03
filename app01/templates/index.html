@@ -105,6 +105,8 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto active" href="#hero">主页</a></li>
+                <!-- ADDED AI问诊导航项 -->
+                <li><a class="nav-link scrollto" href="#ai-diagnosis">AI问诊</a></li>
                 <li><a class="nav-link scrollto" href="#features">细胞检测</a></li>
                 <li><a class="nav-link scrollto" href="#data">“医智”数据</a></li>
                 <li><a class="nav-link scrollto" href="#more-features">医学病理检测</a></li>
@@ -130,7 +132,41 @@
 
 <main id="main">
 
-    <!-- ======= 口罩检测 ======= -->
+        <!-- ADDED AI问诊模块 -->
+    <!-- ======= AI问诊 ======= -->
+    <div id="ai-diagnosis">
+        <section id="features" style="margin-bottom: 60px">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="section-header">
+                            <h3 class="section-title">AI智能问诊</h3>
+                            <span class="section-divider"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-7 ">
+                        <div class="row">
+                            <div class="box" data-aos="fade-up">
+                                <div class="icon"><img src="{% static 'img/icon/data.png' %}" alt=""></div>
+                                <h4 class="title"><a href="/ai-chat">立即开始智能问诊</a></h4>
+                                <p class="description">
+                                    基于医疗大语言模型的智能问诊系统，通过症状描述获取初步诊断建议，7×24小时在线医疗咨询服务</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5 features-img">
+                        <img class="advanced-feature-img-right wow fadeInRight"
+                             src="{% static 'img/data2.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Featuress Section -->
+    </div>
+
+
+    <hr>
+    
+    <!-- ======= 细胞检测 ======= -->
     <section id="features">
         <div class="container" data-aos="fade-up">
             <div class="row">

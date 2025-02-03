@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+{% extends 'layout.html' %}
+{% load static %}
+{% block css %}
+
+{% endblock %}
+
+    <div class="container" style="margin-bottom: 100px;">
+        <div class="container ">
+            <div class="row justify-content-evenly">
+                <div class="col-sm-5">
+                    <div class="card" style="width: 35rem; height: 420px">
+                        <div class="card-body">
+                            <img id="image" src="{% static '/img/hong4.png' %}" class="rounded card-img-top d-block" alt="输入图片"
+                                 style="height: 380px">
+                        </div>
+                    </div>
+                    <label for="formFile" class="form-label">请选择一张图片</label>
+                    <form method="post" id="imgform" enctype="multipart/form-data" action="/mask/upload/">
+                        <div class="input-group">
+                            <input type="file" class="form-control" id="uploadImage"
+                                   aria-describedby="inputGroupFileAddon" aria-label="Upload"
+                                   onchange="selectImage(this);">
+                            <button class="btn btn-outline-info" type="button" onclick="gosubmit()" id="imgbtn">上传
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-5">
+                    <div class="card" style="width: 35rem; height: 420px">
+                        <div class="card-body">
+                            <img src="{% static '/img/phone.png'%}" class="rounded mx-auto d-block"
+                                 id="outputImage"
+                                 alt="输出图片" style="height: 380px; width: 32rem;">
+                        </div>
+                    </div>
+                    <label for="formFile" class="form-label">结果展示</label>
+
+                    <div class="input-group">
+                        <button class="btn btn-outline-info " type="button" onclick="FlushImg();">检测
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+

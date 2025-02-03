@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app01.views import index, mask, screen, lung, tips
+from app01.views import index, mask, screen, lung, tips, chat
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', index.index),
+    #ai问诊
+    path('ai-chat/', chat.ai_chat, name='ai_chat'),  # AI问诊主界面
+    path('ai-chat/process/', chat.ai_process, name='ai_process'),  # 问诊处理接口
     #口罩检测==》细胞检测
     path('mask/', mask.mask_index),
     path('mask/upload/', mask.mask_upload),
@@ -37,4 +40,5 @@ urlpatterns = [
     path('medical/data/', tips.get_medical),
     path('health/', tips.health),
     path('protect/', tips.protect),
+
 ]

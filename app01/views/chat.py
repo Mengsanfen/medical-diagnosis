@@ -32,15 +32,14 @@ class WsParam:
         self.api_secret = api_secret
 
         # 使用标准库解析URL
-        parsed_url = urlparse(spark_url)
-        self.host = parsed_url.hostname
-        self.path = parsed_url.path
+        self.host = urlparse(spark_url).netloc
+        self.path = urlparse(spark_url).path
         self.spark_url = spark_url
 
     def create_url(self):
         """生成带鉴权的URL"""
         # 生成RFC1123格式时间戳
-        now = datetime.now()
+        now = datetime.now()  # 使用UTC时间
         date = format_date_time(mktime(now.timetuple()))
 
         # 拼接签名串
@@ -54,14 +53,12 @@ class WsParam:
         ).digest()
 
         # Base64编码
-        signature_sha_base64 = base64.b64encode(signature_sha).decode('utf-8')
+        signature_sha_base64 = base64.b64encode(signature_sha).decode(encoding='utf-8')
 
         # 构造Authorization
-        authorization_origin = (
-            f'api_key="{self.api_key}", algorithm="hmac-sha256", '
-            f'headers="host date request-line", signature="{signature_sha_base64}"'
-        )
-        authorization = base64.b64encode(authorization_origin.encode('utf-8')).decode('utf-8')
+        authorization_origin = f'api_key="{self.api_key}", algorithm="hmac-sha256", headers="host date request-line", signature="{signature_sha_base64}"'
+
+        authorization = base64.b64encode(authorization_origin.encode('utf-8')).decode(encoding='utf-8')
 
         # 生成最终URL
         params = {
@@ -70,12 +67,15 @@ class WsParam:
             "host": self.host
         }
 
+        # 拼接鉴权参数，生成url
+        url = self.spark_url + '?' + urlencode(params)
+
         # 调试输出
         print(f"签名原始字符串:\n{signature_origin}")
         print(f"生成签名: {signature_sha_base64}")
-        print(f"完整URL: {self.spark_url}?{urlencode(params)}")
+        print(f"完整URL: " + url)
 
-        return f"{self.spark_url}?{urlencode(params)}"
+        return url
 
 
 def gen_params(appid, query, domain="4.0Ultra"):
@@ -112,6 +112,9 @@ def ai_process(request):
             API_KEY = config.get('API_KEY')
             API_SECRET = config.get('API_SECRET')
 
+            SPARK_URL = config.get('SPARK_URL')
+            domain = config.get('DOMAIN')
+
             if not all([APPID, API_KEY, API_SECRET]):
                 logger.error("讯飞配置缺失: APPID=%s, API_KEY=%s***", APPID, API_KEY[:3])
                 return JsonResponse({"error": "服务配置错误"}, status=500)
@@ -123,8 +126,8 @@ def ai_process(request):
                 return JsonResponse({"error": "输入内容不能为空"}, status=400)
 
             # 生成WebSocket URL
-            SPARK_URL = "wss://spark-api.xf-yun.com/v4.0/chat"
             ws_param = WsParam(APPID, API_KEY, API_SECRET, SPARK_URL)
+            websocket.enableTrace(False)
             ws_url = ws_param.create_url()
             logger.debug("生成WebSocket URL: %s", ws_url)
 
@@ -135,62 +138,133 @@ def ai_process(request):
 
             # 创建响应生成器
             def response_generator():
-                data_queue = queue.Queue()  # 线程安全队列
-                event = threading.Event()
+                """流式响应生成器（完整修复版）"""
+                data_queue = queue.Queue()  # 线程安全数据队列
+                event = threading.Event()  # 控制事件
+                ws_thread = None  # WebSocket线程引用
 
-                # WebSocket回调函数改造
+                # WebSocket回调函数 ======================================
                 def on_message(ws, message):
+                    print(message)
                     try:
                         data = json.loads(message)
-                        if data["header"]["code"] != 0:
-                            error = f"[{data['header']['code']}] {data['header']['message']}"
-                            data_queue.put({'error': error})
+                        header_code = data["header"]["code"]
+
+                        # 错误处理
+                        if header_code != 0:
+                            error_msg = f"[{header_code}] {data['header']['message']}"
+                            data_queue.put({'type': 'error', 'content': error_msg})
                             event.set()
-                        else:
-                            content = data["payload"]["choices"]["text"][0]["content"]
-                            status = data["payload"]["choices"]["status"]
-                            data_queue.put({'content': content, 'status': status})
-                            if status == 2:
-                                event.set()
+                            return
+
+                        # 正常处理
+                        choices = data["payload"]["choices"]
+                        content = choices["text"][0]["content"]
+                        status = choices["status"]
+
+                        data_queue.put({
+                            'type': 'data',
+                            'content': content,
+                            'status': status
+                        })
+
+                        # 最终消息标记
+                        if status == 2:
+                            data_queue.put({'type': 'done'})
+                            event.set()
+
                     except Exception as e:
-                        data_queue.put({'error': str(e)})
+                        data_queue.put({'type': 'error', 'content': str(e)})
                         event.set()
 
+                # 收到websocket错误的处理
                 def on_error(ws, error):
-                    data_queue.put({'error': f"连接错误: {str(error)}"})
+                    data_queue.put({'type': 'error', 'content': f"WebSocket错误: {str(error)}"})
                     event.set()
+                    print("### error:", error)
 
-                def on_close(ws, *args):
+                # 收到websocket关闭的处理
+                def on_close(ws, close_status_code, close_msg):
                     if not event.is_set():
+                        data_queue.put({'type': 'error', 'content': "连接意外关闭"})
+                        event.set()
+                        print("### closed ###")
+
+                # 收到websocket连接建立的处理
+                def on_open(ws):
+                    try:
+                        logger.debug("正在发送请求参数...")
+                        ws.send(json.dumps(gen_params(APPID, user_input)))
+                    except Exception as e:
+                        data_queue.put({'type': 'error', 'content': str(e)})
                         event.set()
 
-                def on_open(ws):
-                    ws.send(json.dumps(gen_params(APPID, user_input)))
-
-                # 创建WebSocket连接
+                # WebSocket连接初始化 ====================================
                 ws = websocket.WebSocketApp(
                     ws_url,
                     on_open=on_open,
-                    on_message=lambda ws, msg: [chunk for chunk in on_message(ws, msg)],
+                    on_message=on_message,
                     on_error=on_error,
                     on_close=on_close
                 )
 
-                # 在后台线程运行WebSocket
+                # 启动WebSocket线程 =====================================
                 ws_thread = threading.Thread(
                     target=ws.run_forever,
                     kwargs={'sslopt': {"cert_reqs": ssl.CERT_NONE}}
                 )
                 ws_thread.start()
 
-                # 等待事件完成或超时（30秒）
-                event.wait(timeout=30)
+                # 流式响应主循环 ========================================
+                try:
+                    buffer = ""  # 用于合并分段内容
+                    while True:
+                        # 处理超时
+                        if not event.wait(timeout=30):
+                            data_queue.put({'type': 'error', 'content': '请求超时'})
+                            break
 
-                if not event.is_set():
-                    yield "data: {\"error\": \"请求超时\"}\n\n"
+                        # 处理队列数据
+                        try:
+                            item = data_queue.get_nowait()
 
-                ws.close()
-                ws_thread.join()
+                            if item['type'] == 'error':
+                                yield f"data: {json.dumps({'error': item['content']})}\n\n"
+                                break
+
+                            elif item['type'] == 'data':
+                                # 合并分段内容
+                                buffer += item['content']
+
+                                # 如果有换行符则分次发送
+                                while '\n' in buffer:
+                                    line, buffer = buffer.split('\n', 1)
+                                    yield f"data: {json.dumps({'response': line})}\n\n"
+
+                                # 发送当前缓冲区内容
+                                if buffer:
+                                    yield f"data: {json.dumps({'response': buffer})}\n\n"
+                                    buffer = ""
+
+                            elif item['type'] == 'done':
+                                # 发送最终缓冲内容
+                                if buffer:
+                                    yield f"data: {json.dumps({'response': buffer})}\n\n"
+                                break
+
+                        except queue.Empty:
+                            if not ws_thread.is_alive():
+                                break
+                            continue
+
+                finally:
+                    # 清理资源
+                    ws.close()
+                    ws_thread.join(timeout=1)
+
+                    # 最终超时检查
+                    if buffer:
+                        yield f"data: {json.dumps({'response': buffer})}\n\n"
 
             return StreamingHttpResponse(
                 response_generator(),

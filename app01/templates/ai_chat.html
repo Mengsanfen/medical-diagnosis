@@ -125,17 +125,21 @@
     const typingIndicator = document.getElementById('typing-indicator');
 
     // 添加消息到聊天框
-    function addMessage(content, isUser, id=null) {
+    function addMessage(content, isUser) {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
-        if (id) messageDiv.id = id;
         
         const contentDiv = document.createElement('div');
         contentDiv.className = 'message-content';
-        contentDiv.innerHTML = `<p>${content}</p>`;
         
+        const pElem = document.createElement('p');
+        pElem.innerHTML = formatContent(content);
+        
+        contentDiv.appendChild(pElem);
         messageDiv.appendChild(contentDiv);
         chatMessages.appendChild(messageDiv);
+        
+        // 自动滚动到最新消息
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
@@ -161,18 +165,18 @@
             const reader = response.body.getReader();
             const decoder = new TextDecoder();
             let buffer = '';
-            let lastMessageId = null;
+            let lastMessageElem = null;
     
             while (true) {
                 const { done, value } = await reader.read();
                 if (done) break;
     
                 buffer += decoder.decode(value, { stream: true });
-                let parts = buffer.split('\n\n');
-                buffer = parts.pop() || '';
+                const chunks = buffer.split('\n\n');
+                buffer = chunks.pop() || '';
     
-                for (const part of parts) {
-                    const match = part.match(/data: ({.*})/);
+                for (const chunk of chunks) {
+                    const match = chunk.match(/data: ({.*})/);
                     if (match) {
                         try {
                             const data = JSON.parse(match[1]);
@@ -180,19 +184,13 @@
                                 addMessage(`错误：${data.error}`, false);
                                 return;
                             }
-                            
-                            // 更新消息
-                            const messages = document.getElementById('chat-messages');
-                            if (lastMessageId && document.getElementById(lastMessageId)) {
-                                const elem = document.getElementById(lastMessageId);
-                                elem.innerHTML += data.response.replace(/\n/g, '<br>');
+    
+                            // 创建或更新消息
+                            if (!lastMessageElem) {
+                                lastMessageElem = createNewMessageElement(data.response);
                             } else {
-                                lastMessageId = 'msg-' + Date.now();
-                                addMessage(data.response, false, lastMessageId);
+                                updateMessageElement(lastMessageElem, data.response);
                             }
-                            
-                            // 自动滚动
-                            messages.scrollTop = messages.scrollHeight;
                         } catch (e) {
                             console.error('解析错误:', e);
                         }
@@ -204,6 +202,56 @@
         } finally {
             typingIndicator.style.display = 'none';
         }
+    }
+    
+    // 创建新消息元素
+    function createNewMessageElement(content) {
+        const messageId = 'msg-' + Date.now();
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message bot-message';
+        messageDiv.id = messageId;
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        
+        const pElem = document.createElement('p');
+        pElem.innerHTML = formatContent(content);
+        
+        contentDiv.appendChild(pElem);
+        messageDiv.appendChild(contentDiv);
+        chatMessages.appendChild(messageDiv);
+        
+        // 自动滚动
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        return pElem; // 返回p元素用于后续更新
+    }
+    
+    // 更新已有消息元素
+    function updateMessageElement(targetElem, newContent) {
+        targetElem.innerHTML += formatContent(newContent);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // 格式化内容（处理加粗等Markdown语法）
+    function formatContent(content) {
+        // 处理加粗语法（**xxx** → <strong>xxx</strong>）
+        content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        
+        // 处理换行（\n → <br>）
+        content = content.replace(/\n/g, '<br>');
+        
+        // 防止XSS攻击（仅允许安全标签）
+        const allowedTags = { 
+            'strong': true, 
+            'br': true, 
+            'em': true, 
+            'p': true 
+        };
+        
+        return content.replace(/</g, '&lt;').replace(/>/g, '&gt;') // 先转义所有标签
+                     .replace(/&lt;(strong|br|em|p)&gt;/g, '<$1>') // 放行允许的标签
+                     .replace(/&lt;\/(strong|br|em|p)&gt;/g, '</$1>');
     }
 
     // 事件监听

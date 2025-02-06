@@ -28,6 +28,7 @@ class Ws_Param(object):
         self.APPID = APPID
         self.APIKey = APIKey
         self.APISecret = APISecret
+
         self.host = urlparse(gpt_url).netloc
         self.path = urlparse(gpt_url).path
         self.gpt_url = gpt_url
@@ -44,7 +45,8 @@ class Ws_Param(object):
         signature_origin += "GET " + self.path + " HTTP/1.1"
 
         # 进行hmac-sha256进行加密
-        signature_sha = hmac.new(self.APISecret.encode('utf-8'), signature_origin.encode('utf-8'),
+        signature_sha = hmac.new(self.APISecret.encode('utf-8'),
+                                 signature_origin.encode('utf-8'),
                                  digestmod=hashlib.sha256).digest()
 
         signature_sha_base64 = base64.b64encode(signature_sha).decode(encoding='utf-8')
@@ -148,14 +150,8 @@ if __name__ == "__main__":
         appid="2cd7b888",
         api_secret="ZmE2YmFiY2ViNzEzMjc5YzllN2EzZTU4",
         api_key="9e059a9d07231fbefc85fd16da02d999",
-        #appid、api_secret、api_key三个服务认证信息请前往开放平台控制台查看（https://console.xfyun.cn/services/bm35）
-        # Spark_url="wss://spark-api.xf-yun.com/v3.5/chat",      # Max环境的地址
+
 		Spark_url = "wss://spark-api.xf-yun.com/v4.0/chat",  # 4.0Ultra环境的地址
-        # Spark_url = "wss://spark-api.xf-yun.com/v3.1/chat"  # Pro环境的地址
-        # Spark_url = "wss://spark-api.xf-yun.com/v1.1/chat"  # Lite环境的地址
-        #domain="generalv3.5",     # Max版本
 		domain = "4.0Ultra",     # 4.0Ultra 版本
-        # domain = "generalv3"    # Pro版本
-        # domain = "lite"      # Lite版本址
         query="给我写一篇100字的作文"
     )

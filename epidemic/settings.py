@@ -121,6 +121,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 讯飞星火的API
 SPARK_CONFIG = {
     "APPID": "2cd7b888",
-    "API_KEY": "ZmE2YmFiY2ViNzEzMjc5YzllN2EzZTU4",
-    "API_SECRET": "9e059a9d07231fbefc85fd16da02d999"
+    "API_KEY": "9e059a9d07231fbefc85fd16da02d999",
+    "API_SECRET": "ZmE2YmFiY2ViNzEzMjc5YzllN2EzZTU4",
+    "SPARK_URL": "wss://spark-api.xf-yun.com/v4.0/chat",
+    "DOMAIN": "4.0Ultra"
 }

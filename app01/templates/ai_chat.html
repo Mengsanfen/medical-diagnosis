@@ -1,51 +1,216 @@
 <!DOCTYPE html>
 <html lang="cn">
-
 {% extends 'layout.html' %}
 {% load static %}
 {% block css %}
+<style>
+    /* 聊天容器样式 */
+    .chat-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        background: rgba(159, 159, 159, 0.07);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 0 20px rgba(205, 205, 205, 0.88);
+    }
 
+    /* 聊天消息区域 */
+    .chat-messages {
+        height: 60vh;
+        overflow-y: auto;
+        padding: 20px;
+        background: rgba(44, 139, 45, 0.16);
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* 消息气泡 */
+    .message {
+        margin: 15px 0;
+        display: flex;
+        align-items: start;
+        gap: 50px;
+    }
+
+    .user-message {
+        justify-content: flex-end;
+    }
+
+    .bot-message {
+        justify-content: flex-start;
+    }
+
+    .message-content {
+        max-width: 70%;
+        padding: 15px 20px;
+        border-radius: 15px;
+        position: relative;
+    }
+
+    .user-message .message-content {
+        background: rgba(255, 255, 255, 0.84);
+        box-shadow: 0 0 20px rgba(125, 125, 125, 0.45);
+        color: #101010;
+    }
+
+    .bot-message .message-content {
+        background: rgba(111, 148, 138, 0.38);
+        box-shadow: 0 0 20px rgba(125, 125, 125, 0.45);
+    }
+
+    /* 输入区域 */
+    .input-container {
+        display: flex;
+        gap: 10px;
+        position: relative;
+    }
+
+    #user-input {
+        flex-grow: 1;
+        padding: 15px 20px;
+        background: rgba(107, 58, 58, 0.05);
+        border: 1px solid var(--tech-blue);
+        border-radius: 30px;
+        color: #000000;
+        font-size: 16px;
+    }
+
+    #send-btn {
+        padding: 15px 30px;
+        background: var(--gradient-bg);
+        border: none;
+        border-radius: 30px;
+        color: #000000;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    #send-btn:hover {
+        transform: scale(1.05);
+    }
+
+    /* 加载状态 */
+    .typing-indicator {
+        display: none;
+        padding: 10px;
+        color: var(--tech-blue);
+    }
+</style>
 {% endblock %}
 
-    <div class="container" style="margin-bottom: 100px;">
-        <div class="container ">
-            <div class="row justify-content-evenly">
-                <div class="col-sm-5">
-                    <div class="card" style="width: 35rem; height: 420px">
-                        <div class="card-body">
-                            <img id="image" src="{% static '/img/hong4.png' %}" class="rounded card-img-top d-block" alt="输入图片"
-                                 style="height: 380px">
-                        </div>
-                    </div>
-                    <label for="formFile" class="form-label">请选择一张图片</label>
-                    <form method="post" id="imgform" enctype="multipart/form-data" action="/mask/upload/">
-                        <div class="input-group">
-                            <input type="file" class="form-control" id="uploadImage"
-                                   aria-describedby="inputGroupFileAddon" aria-label="Upload"
-                                   onchange="selectImage(this);">
-                            <button class="btn btn-outline-info" type="button" onclick="gosubmit()" id="imgbtn">上传
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-sm-5">
-                    <div class="card" style="width: 35rem; height: 420px">
-                        <div class="card-body">
-                            <img src="{% static '/img/phone.png'%}" class="rounded mx-auto d-block"
-                                 id="outputImage"
-                                 alt="输出图片" style="height: 380px; width: 32rem;">
-                        </div>
-                    </div>
-                    <label for="formFile" class="form-label">结果展示</label>
-
-                    <div class="input-group">
-                        <button class="btn btn-outline-info " type="button" onclick="FlushImg();">检测
-                        </button>
-                    </div>
-
-
-                </div>
+{% block content %}
+<div class="chat-container">
+    <div class="chat-messages" id="chat-messages">
+        <!-- 初始欢迎消息 -->
+        <div class="message bot-message">
+            <div class="message-content">
+                <p>您好！我是医疗AI助手，请问您有哪些症状需要咨询？</p>
             </div>
         </div>
     </div>
+    
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="描述您的症状（例如：头痛、发烧等）...">
+        <button id="send-btn">发送</button>
+    </div>
+    <div class="typing-indicator" id="typing-indicator">AI正在思考...</div>
+</div>
+{% endblock %}
 
+{% block js %}
+<script>
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+    const typingIndicator = document.getElementById('typing-indicator');
+
+    // 添加消息到聊天框
+    function addMessage(content, isUser, id=null) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        if (id) messageDiv.id = id;
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        contentDiv.innerHTML = `<p>${content}</p>`;
+        
+        messageDiv.appendChild(contentDiv);
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // 处理用户输入
+    async function handleSend() {
+        const query = userInput.value.trim();
+        if (!query) return;
+    
+        userInput.value = '';
+        addMessage(query, true);
+        typingIndicator.style.display = 'block';
+    
+        try {
+            const response = await fetch('/ai-chat/process/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ message: query })
+            });
+    
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = '';
+            let lastMessageId = null;
+    
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+    
+                buffer += decoder.decode(value, { stream: true });
+                let parts = buffer.split('\n\n');
+                buffer = parts.pop() || '';
+    
+                for (const part of parts) {
+                    const match = part.match(/data: ({.*})/);
+                    if (match) {
+                        try {
+                            const data = JSON.parse(match[1]);
+                            if (data.error) {
+                                addMessage(`错误：${data.error}`, false);
+                                return;
+                            }
+                            
+                            // 更新消息
+                            const messages = document.getElementById('chat-messages');
+                            if (lastMessageId && document.getElementById(lastMessageId)) {
+                                const elem = document.getElementById(lastMessageId);
+                                elem.innerHTML += data.response.replace(/\n/g, '<br>');
+                            } else {
+                                lastMessageId = 'msg-' + Date.now();
+                                addMessage(data.response, false, lastMessageId);
+                            }
+                            
+                            // 自动滚动
+                            messages.scrollTop = messages.scrollHeight;
+                        } catch (e) {
+                            console.error('解析错误:', e);
+                        }
+                    }
+                }
+            }
+        } catch (error) {
+            addMessage(`请求失败：${error.message}`, false);
+        } finally {
+            typingIndicator.style.display = 'none';
+        }
+    }
+
+    // 事件监听
+    sendBtn.addEventListener('click', handleSend);
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleSend();
+    });
+</script>
+{% endblock %}
+</html>

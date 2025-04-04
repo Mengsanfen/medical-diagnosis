@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="394dbeec-ab71-4284-b211-d73cc1732b86" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/epidemic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DM-AI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent/silicon_agent.html" beforeDir="false" afterPath="$PROJECT_DIR$/agent_study/silicon_agent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/static/plugins/echart/echarts.js" beforeDir="false" afterPath="$PROJECT_DIR$/app01/static/plugins/echart/echarts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/ai_chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/ai_chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/clearml_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/clearml_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/hpo.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/hpo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/yolo/utils/loggers/wandb/sweep.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/yolo/utils/loggers/wandb/sweep.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/epidemic/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/epidemic/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/epidemic/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/epidemic/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/epidemic/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2v9J5vDvWnCB0GnJJiVPTtqiQDF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Django Server.DM-AI.executor": "Run",
+    "JavaScript Debug.ai_chat.html.executor": "Run",
+    "JavaScript Debug.silicon_agent.html.executor": "Run",
+    "Python.Siliconflow_langchain.executor": "Run",
+    "Python.data_process.executor": "Run",
+    "Python.deepseek_langchain.executor": "Run",
+    "Python.gradio_01_base.executor": "Run",
+    "Python.gradio_02_chat_interface.executor": "Run",
+    "Python.langchain_06_ConversationChain.executor": "Run",
+    "Python.langchain_07_memory.executor": "Run",
+    "Python.langchain_10_agent.executor": "Run",
+    "Python.langchain_11_agent_plus.executor": "Run",
+    "Python.langchain_12_memory.executor": "Run",
+    "Python.langchain_13_output_parser.executor": "Run",
+    "Python.langchain_14_output_prompt.executor": "Run",
+    "Python.langchain_GraphCypherQAChain.executor": "Run",
+    "Python.openai_01_base.executor": "Run",
+    "Python.openai_02_siliconflow_stream.executor": "Run",
+    "Python.sparkAPI.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.utils.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.customizations",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Django Server.DM-AI">
+    <configuration name="ai_chat.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/DM-AI/app01/templates/ai_chat.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="silicon_agent.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/DM-AI/agent_study/silicon_agent.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="deepseek_langchain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DM-AI" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/agent_study" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/agent_study/deepseek_langchain.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sparkAPI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DM-AI" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app01/chat" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app01/chat/sparkAPI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DM-AI" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app01/chat" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app01/chat/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DM-AI" type="Python.DjangoServer" factoryName="Django server">
+      <module name="DM-AI" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="DM-AI.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.sparkAPI" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="JavaScript Debug.ai_chat.html" />
+        <item itemvalue="Python.deepseek_langchain" />
+        <item itemvalue="JavaScript Debug.silicon_agent.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-5a2391486177-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="394dbeec-ab71-4284-b211-d73cc1732b86" name="Changes" comment="" />
+      <created>1743551178513</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743551178513</updated>
+      <workItem from="1743551180488" duration="42052000" />
+      <workItem from="1743616249021" duration="9466000" />
+      <workItem from="1743698477792" duration="16123000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DM_AI$langchain_07_memory.coverage" NAME="langchain_07_memory Coverage Results" MODIFIED="1743596724190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$langchain_10_agent.coverage" NAME="langchain_10_agent Coverage Results" MODIFIED="1743579929415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$langchain_13_output_parser.coverage" NAME="langchain_13_output_parser Coverage Results" MODIFIED="1743586612388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$langchain_11_agent_plus.coverage" NAME="langchain_11_agent_plus Coverage Results" MODIFIED="1743582774343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$openai_02_siliconflow_stream.coverage" NAME="openai_02_siliconflow_stream Coverage Results" MODIFIED="1743556994173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$openai_01_base.coverage" NAME="openai_01_base Coverage Results" MODIFIED="1743556855900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$utils.coverage" NAME="utils Coverage Results" MODIFIED="1743617660610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent_project" />
+    <SUITE FILE_PATH="coverage/DM_AI$data_process.coverage" NAME="data_process Coverage Results" MODIFIED="1743728872263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent_project" />
+    <SUITE FILE_PATH="coverage/DM_AI$gradio_02_chat_interface.coverage" NAME="gradio_02_chat_interface Coverage Results" MODIFIED="1743597789494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$langchain_12_memory.coverage" NAME="langchain_12_memory Coverage Results" MODIFIED="1743583542834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$deepseek_langchain.coverage" NAME="deepseek_langchain Coverage Results" MODIFIED="1743729273384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent_study" />
+    <SUITE FILE_PATH="coverage/DM_AI$gradio_01_base.coverage" NAME="gradio_01_base Coverage Results" MODIFIED="1743596092918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$Siliconflow_langchain.coverage" NAME="Siliconflow_langchain Coverage Results" MODIFIED="1743617597046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent_study" />
+    <SUITE FILE_PATH="coverage/DM_AI$test.coverage" NAME="test Coverage Results" MODIFIED="1743733112376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app01/chat" />
+    <SUITE FILE_PATH="coverage/DM_AI$langchain_GraphCypherQAChain.coverage" NAME="langchain_GraphCypherQAChain Coverage Results" MODIFIED="1743589187346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$langchain_14_output_prompt.coverage" NAME="langchain_14_output_prompt Coverage Results" MODIFIED="1743587555007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$langchain_06_ConversationChain.coverage" NAME="langchain_06_ConversationChain Coverage Results" MODIFIED="1743596794035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent" />
+    <SUITE FILE_PATH="coverage/DM_AI$sparkAPI.coverage" NAME="sparkAPI Coverage Results" MODIFIED="1743733128416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app01/chat" />
+  </component>
+</project>

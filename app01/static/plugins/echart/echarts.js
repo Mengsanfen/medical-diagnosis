@@ -21301,10 +21301,10 @@
     // window.printTask = function (task: any, prefix: string, extra: { [key: string]: unknown }): void {
     //     window.ecTaskUID == null && (window.ecTaskUID = 0);
     //     task.uidDebug == null && (task.uidDebug = `task_${window.ecTaskUID++}`);
-    //     task.agent && task.agent.uidDebug == null && (task.agent.uidDebug = `task_${window.ecTaskUID++}`);
+    //     task.agent_study && task.agent_study.uidDebug == null && (task.agent_study.uidDebug = `task_${window.ecTaskUID++}`);
     //     let props = [];
     //     if (task.__pipeline) {
-    //         let val = `${task.__idxInPipeline}/${task.__pipeline.tail.__idxInPipeline} ${task.agent ? '(stub)' : ''}`;
+    //         let val = `${task.__idxInPipeline}/${task.__pipeline.tail.__idxInPipeline} ${task.agent_study ? '(stub)' : ''}`;
     //         props.push({text: '__idxInPipeline/total', value: val});
     //     } else {
     //         let stubCount = 0;
@@ -21314,8 +21314,8 @@
     //     props.push({text: 'uid', value: task.uidDebug});
     //     if (task.__pipeline) {
     //         props.push({text: 'pipelineId', value: task.__pipeline.id});
-    //         task.agent && props.push(
-    //             {text: 'stubFor', value: task.agent.uidDebug}
+    //         task.agent_study && props.push(
+    //             {text: 'stubFor', value: task.agent_study.uidDebug}
     //         );
     //     }
     //     props.push(

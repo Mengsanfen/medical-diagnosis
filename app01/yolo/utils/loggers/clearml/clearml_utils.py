@@ -99,7 +99,7 @@ class ClearmlLogger:
             self.task.connect(hyp, name='Hyperparameters')
             self.task.connect(opt, name='Args')
 
-            # Make sure the code is easily remotely runnable by setting the docker image to use by the remote agent
+            # Make sure the code is easily remotely runnable by setting the docker image to use by the remote agent_study
             self.task.set_base_docker("ultralytics/yolov5:latest",
                                       docker_arguments='--ipc=host -e="CLEARML_AGENT_SKIP_PYTHON_ENV_INSTALL=1"',
                                       docker_setup_bash_script='pip install clearml')

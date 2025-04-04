@@ -70,7 +70,7 @@ optimizer = HyperParameterOptimizer(
 
 # report every 10 seconds, this is way too often, but we are testing here
 optimizer.set_report_period(10 / 60)
-# You can also use the line below instead to run all the optimizer tasks locally, without using queues or agent
+# You can also use the line below instead to run all the optimizer tasks locally, without using queues or agent_study
 # an_optimizer.start_locally(job_complete_callback=job_complete_callback)
 # set the time limit for the optimization process (2 hours)
 optimizer.set_time_limit(in_minutes=120.0)

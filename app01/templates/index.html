@@ -87,6 +87,7 @@
             50% { transform: translateY(-10px); }
         }
     </style>
+    
 </head>
 
 <body>
@@ -100,7 +101,7 @@
 <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container d-flex justify-content-between align-items-center">
         <div id="logo">
-            <h1><a href="#" class="text-gradient">PATHOLOGY</a></h1>
+            <h1><a href="#" class="text-gradient">DreamMed</a></h1>
         </div>
         <nav id="navbar" class="navbar">
             <ul>
@@ -121,7 +122,7 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero">
     <div class="hero-text" data-aos="zoom-out">
-        <h2 class="neon-text">“医“智视界</h2>
+        <h2 class="neon-text">梦医智联</h2>
         <div class="typewriter-container">
             <p class="typewriter">智能医疗可视化综合平台</p>
         </div>
@@ -352,7 +353,7 @@
             <div class="section-header">
                 <h3 class="section-title">开发团队</h3>
                 <span class="section-divider"></span>
-                <p class="section-description">创新引领健康，技术守护生命 —— "医“智视界平台，与您同行每一步</p>
+                <p class="section-description">创新引领健康，技术守护生命 —— 梦医智联平台，与您同行每一步</p>
             </div>
 
             <div class="row" style="margin-left: 70px">
@@ -427,10 +428,10 @@
         <div class="row">
             <div class="col-lg-6 text-lg-start text-center">
                 <div class="copyright">
-                    &copy; Copyright <strong>PATHOLOGY</strong>. All Rights Reserved
+                    &copy; Copyright <strong>DreamMed</strong>. All Rights Reserved
                 </div>
                 <div class="credits">
-                    Designed by <a href="https://blog.csdn.net/m0_72256122?type=blog">延安大学：王宇翔</a>
+                    Designed by <a href="https://github.com/SFmeng">延安大学：王宇翔</a>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -502,10 +503,62 @@
             link.style.transform = 'scale(1)';
         });
     });
+    
 </script>
+
 
 <!-- Template Main JS File -->
 <script src="{% static 'js/main.js' %}"></script>
+
+
+<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
+<script>
+  new CozeWebSDK.WebChatClient({
+    config: {
+      bot_id: '7489007335110164532',
+      isIframe: false,
+    },
+    auth: {
+      type: 'token',
+      token: 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ',
+      onRefreshToken: function () {
+        return 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ'
+      }
+    },
+    userInfo: {
+    id: 'wyx0110',
+    url: 'https://c-ssl.dtstatic.com/uploads/blog/202303/19/20230319221800_5a5f2.thumb.1000_0.jpg',
+    nickname: '三分梦',
+    },
+    ui:{
+        base:{
+            icon:'https://s1.chu0.com/src/img/png/2b/2b5819f91e4e4bb7add03e6978caf38b.png?imageMogr2/auto-orient/thumbnail/!487x487r/gravity/Center/crop/487x487/quality/85/%7CimageView2/2/w/487%7Cwatermark/3/image/aHR0cHM6Ly9zMS5jaHUwLmNvbS93YXRlcm1hcmsvbWlkZGxlLUwxMC5wbmc_ZT0yMDUxMDIwODAwJnRva2VuPTFzcm5aR0xLWjBBcWx6NmRrN3lGNFNraVlmNGVQLVlyRU9kTTFzb2I6bXpXRUo0eExGNVQzeXo1c2YtdTZySE1fb0xJPQ==/dissolve/100/gravity/Center/dx/-16/dy/-16&e=2051020800&token=1srnZGLKZ0Aqlz6dk7yF4SkiYf4eP-YrEOdM1sob:pdzihmxRj-eGjpLMr3w4ZyGoIAo=',
+            zIndex: 1000,
+        },
+        asstBtn: {
+          isNeed: true,    // 是否在页面右下角展示悬浮球
+        },
+        footer: {
+            isShow: true,
+            expressionText: 'Designed by {{'延安大学：王宇翔'}}',
+            linkvars: {
+                name: {
+                    text: '三分梦',
+                    link: 'https://github.com/SFmeng'
+                }
+            }
+        },
+        chatBot: {
+            title: "灵枢智诊",
+            uploadable: true,
+            width: 400,
+        }
+
+    },
+
+  });
+</script>
+
 
 </body>
 </html>

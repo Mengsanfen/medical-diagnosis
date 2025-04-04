@@ -187,7 +187,7 @@ In short: every experiment tracked by the experiment manager contains enough inf
 
 You can turn any machine (a cloud VM, a local GPU machine, your own laptop ... ) into a ClearML agent by simply running:
 ```bash
-clearml-agent daemon --queue <queues_to_listen_to> [--docker]
+clearml-agent_study daemon --queue <queues_to_listen_to> [--docker]
 ```
 
 ### Cloning, Editing And Enqueuing

@@ -5,32 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="394dbeec-ab71-4284-b211-d73cc1732b86" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/epidemic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DM-AI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agent/silicon_agent.html" beforeDir="false" afterPath="$PROJECT_DIR$/agent_study/silicon_agent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/plugins/echart/echarts.js" beforeDir="false" afterPath="$PROJECT_DIR$/app01/static/plugins/echart/echarts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/templates/ai_chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/ai_chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/clearml_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/clearml_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/hpo.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/yolo/utils/loggers/clearml/hpo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/yolo/utils/loggers/wandb/sweep.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/yolo/utils/loggers/wandb/sweep.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/epidemic/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/epidemic/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/epidemic/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/epidemic/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/epidemic/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/.gradio/flagged/dataset1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/Siliconflow_langchain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/deepseek_langchain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/deepseek会话api示例模板/请求示例.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/gradio_01_base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/gradio_02_chat_interface.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/langchain_02_prompt_llmchain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/langchain_04_fewshot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/langchain_05_sequential.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/langchain_06_ConversationChain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/langchain_07_memory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/langchain_10_agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/langchain_11_agent_plus.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/langchain_12_memory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/langchain_13_output_parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/langchain_14_output_prompt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/langchain_GraphCypherQAChain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/openai_01_base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/openai_02_siliconflow_stream.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/openai_03_tiktoken.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/openai_04_multi_round.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/agent_study/参考.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +221,7 @@
       <updated>1743551178513</updated>
       <workItem from="1743551180488" duration="42052000" />
       <workItem from="1743616249021" duration="9466000" />
-      <workItem from="1743698477792" duration="16123000" />
+      <workItem from="1743698477792" duration="16282000" />
     </task>
     <servers />
   </component>

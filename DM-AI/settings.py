@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-70v)qdfkoflzgo-z^qrlk-!4(#vk7aw36g7c4p5(dieu!*+^ji
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['124.223.23.212','175.178.63.230', '127.0.0.1','10.212.137.126','localhost']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -127,7 +127,25 @@ SPARK_CONFIG = {
     "DOMAIN": "4.0Ultra"
 }
 
-# 修改配置项名称为全大写格式（关键修正）
+# 缓存
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'diagnosis-cache',
+    }
+}
+
+
+# deepseek的API
+# 添加环境变量
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
+BASE_URL = os.getenv("BASE_URL")
+
+# 目标检测的API
 OBJECT_DETECTION = {
     "API_KEY": "OXBmYzRyMHl6bWYzYnh6ZDVzdDEwOnFnUkV6R1JVeklDM2NBYVFmemp2blhSNXpaMVJ0enZS",
     "URL": "https://api.va.landing.ai/v1/tools/agentic-object-detection",

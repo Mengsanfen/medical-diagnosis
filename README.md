@@ -2,3 +2,16 @@
 品牌符号：DM-AI 
 ----
 本项目针对医疗影像和电子病历数据，结合 目标检测、分类、自然语言分析、时序预测 等技术，提供 白肺检测、皮肤病分类、医学报告智能生成、疾病发展趋势预测等功能，并通过 ECharts 数据可视化 让医生和惠者更直观地查看数据。
+
+1. 首先，需要安装依赖包：
+
+2. 数据迁移
+```bash
+python manage.py makemigrations
+python manage.py migrate``
+```
+
+3. 运行项目
+```bash
+python manage.py runserver
+```

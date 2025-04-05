@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app01.views import index, mask, screen, lung, tips, chat, cell
+from app01.views import index, mask, screen, lung, tips, chat, cell, agent
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -24,6 +24,9 @@ urlpatterns = [
     #ai问诊
     path('ai-chat/', chat.ai_chat, name='ai_chat'),  # AI问诊主界面
     path('ai-chat/process/', chat.ai_process, name='ai_process'),  # 问诊处理接口
+
+    # agent-deepseek
+    path('agent/', agent.ai_diagnosis, name="ai_diagnosis"),
     #口罩检测==》细胞检测
     path('mask/', mask.mask_index),
     path('mask/upload/', mask.mask_upload),

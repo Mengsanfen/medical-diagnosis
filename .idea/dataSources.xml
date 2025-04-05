@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Django default" uuid="e17e7153-3832-4087-bcc6-42a1ee50afe7">
+    <data-source source="LOCAL" name="Django default" uuid="26d95628-5036-48a0-a8dc-b02e5d0a20fe">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
-      <remarks>$PROJECT_DIR$/DM-AI/settings.py</remarks>
+      <remarks>$PROJECT_DIR$/epidemic/settings.py</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:D:\Codes\Python\medical-diagnosis\db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>

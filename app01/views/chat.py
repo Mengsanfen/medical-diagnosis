@@ -127,7 +127,7 @@ def ai_process(request):
             domain = config.get('DOMAIN')
 
             if not all([APPID, API_KEY, API_SECRET]):
-                logger.error("讯飞配置缺失: APPID=%s, API_KEY=%s***", APPID, API_KEY[:3])
+                logger.error("配置缺失: APPID=%s, API_KEY=%s***", APPID, API_KEY[:3])
                 return JsonResponse({"error": "服务配置错误"}, status=500)
 
             # 解析请求

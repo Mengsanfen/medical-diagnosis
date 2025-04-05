@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app01.views import index, mask, screen, lung, tips, chat
+from app01.views import index, mask, screen, lung, tips, chat, cell
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -28,6 +28,10 @@ urlpatterns = [
     path('mask/', mask.mask_index),
     path('mask/upload/', mask.mask_upload),
     path('mask/img/', mask.mask_img),
+
+    # 细胞检测 用api版
+    path('cell/', cell.index, name='cell_index'),
+    path('cell/detect/', cell.detect, name='cell_detect'),
 
     # 白肺分类==》癌症图像分类
     path('screen/', screen.index),

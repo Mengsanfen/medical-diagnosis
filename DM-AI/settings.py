@@ -126,3 +126,9 @@ SPARK_CONFIG = {
     "SPARK_URL": "wss://spark-api.xf-yun.com/v4.0/chat",
     "DOMAIN": "4.0Ultra"
 }
+
+# 修改配置项名称为全大写格式（关键修正）
+OBJECT_DETECTION = {
+    "API_KEY": "OXBmYzRyMHl6bWYzYnh6ZDVzdDEwOnFnUkV6R1JVeklDM2NBYVFmemp2blhSNXpaMVJ0enZS",
+    "URL": "https://api.va.landing.ai/v1/tools/agentic-object-detection",
+}

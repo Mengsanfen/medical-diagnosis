@@ -5,3 +5,5 @@ def index(request):
     return render(request, 'index.html')
 
 
+def entrance(request):
+    return render(request, 'entrance.html')

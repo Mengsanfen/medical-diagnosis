@@ -41,7 +41,7 @@
     <div class="container d-flex justify-content-between align-items-center">
 
         <div id="logo">
-            <h1><a href="/">DreamMed</a></h1>
+            <h1><a href="#">DreamMed</a></h1>
         </div>
 
         <nav id="navbar" class="navbar">
@@ -121,7 +121,54 @@
 
 
 {#<script src="{% static 'plugins/bootstrap-5.2.3-dist/js/bootstrap.bundle.js' %}"></script>#}
+<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
+<script>
+  new CozeWebSDK.WebChatClient({
+    config: {
+      bot_id: '7489007335110164532',
+      isIframe: false,
+    },
+    auth: {
+      type: 'token',
+      token: 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ',
+      onRefreshToken: function () {
+        return 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ'
+      }
+    },
+    userInfo: {
+    id: 'wyx0110',
+    url: 'https://c-ssl.dtstatic.com/uploads/blog/202303/19/20230319221800_5a5f2.thumb.1000_0.jpg',
+    nickname: '三分梦',
+    },
+    ui:{
+        base:{
+            {#icon:'https://s1.chu0.com/src/img/png/2b/2b5819f91e4e4bb7add03e6978caf38b.png?imageMogr2/auto-orient/thumbnail/!487x487r/gravity/Center/crop/487x487/quality/85/%7CimageView2/2/w/487%7Cwatermark/3/image/aHR0cHM6Ly9zMS5jaHUwLmNvbS93YXRlcm1hcmsvbWlkZGxlLUwxMC5wbmc_ZT0yMDUxMDIwODAwJnRva2VuPTFzcm5aR0xLWjBBcWx6NmRrN3lGNFNraVlmNGVQLVlyRU9kTTFzb2I6bXpXRUo0eExGNVQzeXo1c2YtdTZySE1fb0xJPQ==/dissolve/100/gravity/Center/dx/-16/dy/-16&e=2051020800&token=1srnZGLKZ0Aqlz6dk7yF4SkiYf4eP-YrEOdM1sob:pdzihmxRj-eGjpLMr3w4ZyGoIAo=',#}
+            icon:'{% static '/img/250406/骷髅医生.png'%}',
+            zIndex: 1000,
+        },
+        asstBtn: {
+          isNeed: true,    // 是否在页面右下角展示悬浮球
+        },
+        footer: {
+            isShow: true,
+            expressionText: 'Designed by {{'延安大学：王宇翔'}}',
+            linkvars: {
+                name: {
+                    text: '三分梦',
+                    link: 'https://github.com/SFmeng'
+                }
+            }
+        },
+        chatBot: {
+            title: "灵枢智诊",
+            uploadable: true,
+            width: 400,
+        }
 
+    },
+
+  });
+</script>
 {% block js %}
 
 {% endblock %}

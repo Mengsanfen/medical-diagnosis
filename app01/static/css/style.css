@@ -392,7 +392,7 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(45deg, rgba(5, 148, 129, 0.8), rgba(188, 197, 196, 0.8)), url("../img/stay_health.png") center top no-repeat;
+  background: linear-gradient(45deg, rgba(5, 148, 129, 0.8), rgba(188, 197, 196, 0.8)), url("../img/250406/bg1.png") center top no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -1323,8 +1323,8 @@ section {
   font-size: 14px;
 }
 
-#contact .php-email-form input::focus,
-#contact .php-email-form textarea::focus {
+#contact .php-email-form input:focus,
+#contact .php-email-form textarea:focus {
   background-color: #1dc8cd;
 }
 

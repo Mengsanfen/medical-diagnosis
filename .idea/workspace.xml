@@ -5,33 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb46b976-79ff-4e6b-ab7c-51acb4c587d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app01/static/img/agent1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/static/img/agent2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/static/img/agent3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/static/img/agent4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/static/img/agent5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/static/img/agent6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/static/img/agent7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/templates/agent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/views/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DM-AI.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app01/templates/entrance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app01/templates/health_11.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DM-AI/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DM-AI/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent_study/deepseek_langchain.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent_study/deepseek_langchain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/chat/sparkAPI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/chat/test.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app01/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app01/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/agent.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/agent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/health.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/health.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app01/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/medical.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/medical.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/views/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/views/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/views/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/views/index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,29 +58,59 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "Django Server.DM-AI.executor": "Run",
+    "JavaScript Debug.extend_view1.html.executor": "Run",
+    "Python.deepseek_langchain.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Study/myCode/py_code/4C/DM-AI/app01/static/img",
+    "last_opened_file_path": "C:/Study/myCode/py_code/4C/DM-AI/app01/templates",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Study\myCode\py_code\4C\DM-AI\app01\templates" />
       <recent name="C:\Study\myCode\py_code\4C\DM-AI\app01\static\img" />
       <recent name="C:\Study\myCode\py_code\4C\DM-AI\app01\views" />
-      <recent name="C:\Study\myCode\py_code\4C\DM-AI\app01\templates" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.extend_view1.html">
+    <configuration name="extend_view1.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/DM-AI/DM-AI/app01/templates/extend_view1.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="deepseek_langchain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="epidemic" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/agent_study" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/agent_study/deepseek_langchain.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="DM-AI" type="Python.DjangoServer" factoryName="Django server">
       <module name="epidemic" />
       <option name="ENV_FILES" value="" />
@@ -101,6 +136,12 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.extend_view1.html" />
+        <item itemvalue="Python.deepseek_langchain" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -118,7 +159,13 @@
       <option name="presentableId" value="Default" />
       <updated>1743864283346</updated>
       <workItem from="1743864284879" duration="319000" />
-      <workItem from="1743864764792" duration="3490000" />
+      <workItem from="1743864764792" duration="5324000" />
+      <workItem from="1743875911749" duration="477000" />
+      <workItem from="1743876701159" duration="2079000" />
+      <workItem from="1743902308349" duration="93000" />
+      <workItem from="1743911157921" duration="2421000" />
+      <workItem from="1743914437351" duration="88000" />
+      <workItem from="1743921850510" duration="20370000" />
     </task>
     <servers />
   </component>
@@ -135,5 +182,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DM_AI$deepseek_langchain.coverage" NAME="deepseek_langchain Coverage Results" MODIFIED="1743931460134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent_study" />
   </component>
 </project>

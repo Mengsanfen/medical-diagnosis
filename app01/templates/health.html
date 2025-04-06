@@ -1,82 +1,170 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block css %}
+<style>
+    :root {
+        --primary-color: #4CAF50;
+        --secondary-color: #2196F3;
+        --accent-color: #FF9800;
+    }
 
+    body {
+        font-family: 'Segoe UI', 微软雅黑, sans-serif;
+        background: #fff;
+    }
+
+    /* 全屏宽度调整 */
+    .full-width-section {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-section {
+        background: linear-gradient(rgba(76, 175, 80, 0.8), rgba(33, 150, 243, 0.8)),
+                    url('https://source.unsplash.com/1600x900/?health') center/cover;
+        color: white;
+        padding: 120px 0;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .feature-card {
+        transition: transform 0.3s;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .health-tips {
+        background: white;
+        padding: 40px 15px; /* 调整左右间距 */
+        margin-top: -80px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 0; /* 移除圆角 */
+    }
+
+    .cta-button {
+        background: var(--primary-color);
+        padding: 15px 40px;
+        border-radius: 30px;
+        color: white;
+        transition: all 0.3s;
+    }
+
+    .cta-button:hover {
+        background: var(--secondary-color);
+        transform: scale(1.05);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+    /* 移除容器最大宽度 */
+    .container-fluid {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* 调整行间距 */
+    .no-gutters {
+        --bs-gutter-x: 0;
+        margin-right: 0;
+        margin-left: 0;
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-            <div class="card">
-                <div class="card-body">
-                    <img src="{% static '/img/healthy.png' %}">
-                </div>
+<body>
+    <!-- 主体内容 -->
+    <main>
+        <!-- 首屏大图 -->
+        <section class="hero-section text-center full-width-section">
+            <div class="container-fluid">
+                <h1 class="display-4 mb-4">拥抱健康生活</h1>
+                <p class="lead mb-4">每天一小步，健康一大步</p>
+                <a href="#tips" class="cta-button text-decoration-none">立即开始</a>
             </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card" style="">
-                <div class="card-body">
-                    <h5 class="card-title">疾病预防和早期诊断</h5>
-                    <p class="card-text">常见疾病的预防措施：提供预防感冒、流感等常见疾病的方法。
-                        定期体检的重要性：解释定期体检如何帮助及早发现潜在的健康问题。
-                        疾病早期症状的识别：列出一些常见疾病的早期警告信号，鼓励用户在出现症状时及时就医。
-                        了解常见癌症的症状和预防措施
-                        保持良好的心理状态,培养兴趣爱好,增强生活的乐趣</p>
-                </div>
-            </div>
+        </section>
 
-            <div class="card" style="margin-top: 25px">
-                <div class="card-body">
-                    <h5 class="card-title">健康生活习惯的培养</h5>
-                    <p class="card-text">
-                        戒烟和限酒的好处：讨论吸烟和过量饮酒对健康的负面影响，并提供戒烟和控制饮酒的建议。
-                        保持良好的个人卫生：强调洗手等个人卫生习惯对预防疾病传播的重要性。
-                        环境保护与健康：讨论如何通过减少污染和保护环境来维护个人和公共健康。
-                        保持积极乐观的心态,减少压力和焦虑。
-                        保持均衡饮食,多吃新鲜蔬果、全谷物和豆类等富含营养的食物。
-                    </p>
+        <!-- 健康统计 -->
+        <section class="container-fluid py-5 full-width-section">
+            <div class="row text-center no-gutters g-0">
+                <div class="col-md-3">
+                    <div class="feature-card p-4 bg-white m-2">  <!-- 添加m-2保持间距 -->
+                        <div class="stat-number">80%</div>
+                        <p>疾病可通过预防避免</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card p-4 bg-white m-2">
+                        <div class="stat-number">30min</div>
+                        <p>每日建议运动时间</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card p-4 bg-white m-2">
+                        <div class="stat-number">5+</div>
+                        <p>每日建议蔬果种类</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card p-4 bg-white m-2">
+                        <div class="stat-number">8h</div>
+                        <p>优质睡眠时间</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="card" style="margin-top: 25px">
-                <div class="card-body">
-                    <h5 class="card-title">定期体检和筛查</h5>
-                    <p class="card-text">
-                        定期进行体检,包括常规体检和癌症筛查检查
-                        对于乳腺癌、宫颈癌、结肠癌等常见癌症,可根据年龄和性别定期进行筛查
-                        及时发现并治疗可以大大提高治愈率
-                    </p>
-                </div>
-            </div>
+        </section>
 
-                       <div class="card" style="margin-top: 25px">
-                            <div class="card-body">
-                              <h5 class="card-title">睡眠健康</h5>
-                                <p class="card-text">
-                                    保持充足的睡眠时间，成年人每天需要7-9小时的睡眠。
-                               养成良好的睡眠习惯，固定的睡眠时间和环境可以帮助提高睡眠质量。
-                                  避免在睡前过度饮食、饮酒、吸烟、看电视或使用电子产品等刺激性活动。
-                             </p>
-                     </div>
-                </div>
-
-                       <div class="card" style="margin-top: 25px">
-                            <div class="card-body">
-                              <h5 class="card-title">心理健康</h5>
-                             <p class="card-text">
-                                建立积极乐观的心态，保持良好的情绪状态。
-                                 学会有效的压力管理方法，如运动、音乐、阅读等。
-                                保持社交和沟通，避免孤独和隔离。
-                              </p>
+        <!-- 健康贴士 -->
+        <section id="tips" class="container-fluid health-tips full-width-section">
+            <h2 class="text-center mb-5">健康生活小贴士</h2>
+            <div class="row no-gutters g-0">
+                <div class="col-md-4 px-2">  <!-- 添加左右间距 -->
+                    <div class="card h-100 border-0">
+                        <img src="{% static '/img/250406/sports.jpg'%}" class="card-img-top" alt="运动">
+                        <div class="card-body">
+                            <h5 class="card-title">坚持运动</h5>
+                            <p class="card-text">每周至少150分钟中等强度有氧运动，保持身体活力</p>
                         </div>
-                  </div>
-        </div>
-    </div>
+                    </div>
+                </div>
+                <div class="col-md-4 px-2">
+                    <div class="card h-100 border-0">
+                        <img src="{% static '/img/250406/veget.png' %}" class="card-img-top" alt="饮食">
+                        <div class="card-body">
+                            <h5 class="card-title">均衡饮食</h5>
+                            <p class="card-text">多吃蔬菜水果，控制油盐摄入，保持饮食多样性</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 px-2">
+                    <div class="card h-100 border-0">
+                        <img src="{% static '/img/250406/sleep.png' %}" class="card-img-top" alt="睡眠">
+                        <div class="card-body">
+                            <h5 class="card-title">充足睡眠</h5>
+                            <p class="card-text">保证7-9小时优质睡眠，建立规律的作息时间</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-
-{% endblock %}
-
-{% block js %}
-
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
 {% endblock %}

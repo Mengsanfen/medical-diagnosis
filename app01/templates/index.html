@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>“医”智视界</title>
+    <title>梦医智联</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -29,7 +29,7 @@
     <style>
         /* 自定义科技感样式 */
         :root {
-            --tech-blue: #1a6286;
+            --tech-blue: #2d9cd3;
             --tech-purple: #9c27b0;
             --gradient-bg: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
         }
@@ -42,7 +42,7 @@
         }
 
         .btn-hover-effect {
-            background: var(--gradient-bg);
+            background: #041933;
             padding: 15px 40px;
             border-radius: 30px;
             position: relative;
@@ -55,16 +55,16 @@
             position: absolute;
             top: 0; left: -100%;
             width: 100%; height: 100%;
-            background: linear-gradient(90deg, 
+            background: linear-gradient(90deg,
                 transparent,
-                rgba(255,255,255,0.3),
+            rgba(159, 43, 43, 0.85),
                 transparent
             );
             transition: left 0.6s;
         }
 
         .hover-card {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
             border-radius: 15px;
             padding: 30px;
             transition: all 0.3s;
@@ -78,7 +78,7 @@
 
 
         @keyframes neon-pulse {
-            from { opacity: 0.8; }
+            from { opacity: 0.5; }
             to { opacity: 1; }
         }
 
@@ -97,7 +97,7 @@
     <div class="loading-spinner"></div>
 </div>
 
-<!-- ======= Header ======= -->
+{#<!-- ======= Header ======= -->#}
 <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container d-flex justify-content-between align-items-center">
         <div id="logo">
@@ -107,35 +107,67 @@
             <ul>
                 <li><a class="nav-link scrollto active" href="#hero">主页</a></li>
                 <!-- ADDED AI问诊导航项 -->
-                <li><a class="nav-link scrollto" href="#ai-diagnosis">AI问诊</a></li>
+                <li><a class="nav-link scrollto" href="#agent">AI问诊</a></li>
                 <li><a class="nav-link scrollto" href="#features">细胞检测</a></li>
                 <li><a class="nav-link scrollto" href="#data">“医智”数据</a></li>
                 <li><a class="nav-link scrollto" href="#more-features">医学病理检测</a></li>
                 <li><a class="nav-link scrollto" href="#pricing">“医智”小贴士</a></li>
-                <li><a class="nav-link scrollto" href="#team">开发团队</a></li>
+                <li><a class="nav-link scrollto" href="#team">科研团队</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
     </div>
 </header>
-
-<!-- ======= Hero Section ======= -->
-<section id="hero">
-    <div class="hero-text" data-aos="zoom-out">
-        <h2 class="neon-text">梦医智联</h2>
-        <div class="typewriter-container">
-            <p class="typewriter">智能医疗可视化综合平台</p>
-        </div>
-        <a href="#features" class="btn-hover-effect scrollto">进入医疗智慧</a>
-    </div>
-    <div id="particles-js"></div>
-</section>
+{##}
+{#<!-- ======= Hero Section ======= -->#}
+{#<section id="hero">#}
+{#    <div class="hero-text" data-aos="zoom-out">#}
+{#        <h2 class="neon-text">梦医智联</h2>#}
+{#        <div class="typewriter-container">#}
+{#            <p class="typewriter">智能医疗可视化综合平台</p>#}
+{#        </div>#}
+{#        <a href="/index" class="btn-hover-effect scrollto">进入智慧医疗</a>#}
+{#    </div>#}
+{#    <div id="particles-js"></div>#}
+{#</section>#}
 
 <main id="main">
 
         <!-- ADDED AI问诊模块 -->
     <!-- ======= Spark AI问诊 ======= -->
-    <div id="ai-diagnosis">
+{#    <div id="ai-diagnosis">#}
+{#        <section id="features" style="margin-bottom: 60px">#}
+{#            <div class="container" data-aos="fade-up">#}
+{#                <div class="row">#}
+{#                    <div class="col-lg-8">#}
+{#                        <div class="section-header">#}
+{#                            <h3 class="section-title">AI智能问诊</h3>#}
+{#                            <span class="section-divider"></span>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="col-lg-8 col-md-7 ">#}
+{#                        <div class="row">#}
+{#                            <div class="box" data-aos="fade-up">#}
+{#                                <div class="icon"><img src="{% static 'img/icon/AIchat.png' %}" alt=""></div>#}
+{#                                <h4 class="title"><a href="/ai-chat">立即开始智能问诊</a></h4>#}
+{#                                <p class="description">#}
+{#                                    基于医疗大语言模型的智能问诊系统，通过症状描述获取初步诊断建议，7×24小时在线医疗咨询服务</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="col-lg-4 col-md-5 features-img">#}
+{#                        <img class="advanced-feature-img-right wow fadeInRight"#}
+{#                             src="{% static 'img/AIchat1.png' %}" alt="">#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </section><!-- End Featuress Section -->#}
+{#    </div>#}
+
+
+{#    <hr>#}
+    <!-- ======= DeepSeek问诊 ======= -->
+    <div id="agent">
         <section id="features" style="margin-bottom: 60px">
             <div class="container" data-aos="fade-up">
                 <div class="row">
@@ -148,10 +180,10 @@
                     <div class="col-lg-8 col-md-7 ">
                         <div class="row">
                             <div class="box" data-aos="fade-up">
-                                <div class="icon"><img src="{% static 'img/icon/AIchat.png' %}" alt=""></div>
-                                <h4 class="title"><a href="/ai-chat">立即开始智能问诊</a></h4>
+                                <div class="icon"><img style="width: 200px" src="{% static 'img/agent1.png' %}" alt=""></div>
+                                <h4 class="title"><a href="/agent">立即开始智能问诊</a></h4>
                                 <p class="description">
-                                    基于医疗大语言模型的智能问诊系统，通过症状描述获取初步诊断建议，7×24小时在线医疗咨询服务</p>
+                                    基于DeepSeek R1与知识库的智能问诊系统，通过症状描述获取初步诊断建议，7×24小时在线医疗咨询服务</p>
                             </div>
                         </div>
                     </div>
@@ -167,42 +199,8 @@
 
     <hr>
     
-    
-    <!-- ======= DeepSeek问诊 ======= -->
-    <div id="ai-diagnosis">
-        <section id="features" style="margin-bottom: 60px">
-            <div class="container" data-aos="fade-up">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="section-header">
-                            <h3 class="section-title">基于DeepSeek的智能问诊</h3>
-                            <span class="section-divider"></span>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-7 ">
-                        <div class="row">
-                            <div class="box" data-aos="fade-up">
-                                <div class="icon"><img style="width: 200px" src="{% static 'img/agent1.png' %}" alt=""></div>
-                                <h4 class="title"><a href="/agent">立即开始智能问诊</a></h4>
-                                <p class="description">
-                                    基于DeepSeek与知识库的智能问诊系统，通过症状描述获取初步诊断建议，7×24小时在线医疗咨询服务</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-5 features-img">
-                        <img class="advanced-feature-img-right wow fadeInRight"
-                             src="{% static 'img/agent3.png' %}" alt="">
-                    </div>
-                </div>
-            </div>
-        </section><!-- End Featuress Section -->
-    </div>
-
-
-    <hr>
-    
     <!-- ======= 细胞检测 ======= -->
-    <section id="features">
+    <section id="features" >
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-8 offset-lg-4">
@@ -217,10 +215,11 @@
                 <div class="col-lg-8 col-md-7 ">
                     <div class="row">
                         <div class="box" data-aos="fade-up">
-                            <div class="icon"><img src="{% static 'img/icon/doctor.png' %}" alt=""></div>
+                            <div class="icon"><img src="{% static 'img/blood.png' %}" alt=""></div>
                             <h4 class="title"><a href="/cell/">血细胞检测入口</a></h4>
                             <p class="description">
-                                通过yolov目标检测算法进行血细胞识别，上传一张图片最终将识别结果展示到页面</p>
+                                通过AOD目标检测算法进行血细胞识别，用户仅需输入文字提示，能基于目标的内在属性、<br>
+                                上下文关系以及动态状态进行精准识别，精准定位其位置和属性。</p>
                         </div>
                     </div>
                 </div>
@@ -243,7 +242,7 @@
                     <div class="col-lg-8 col-md-7 ">
                         <div class="row">
                             <div class="box" data-aos="fade-up">
-                                <div class="icon"><img src="{% static 'img/icon/data.png' %}" alt=""></div>
+                                <div class="icon"><img src="{% static 'img/phone.png' %}" alt="" style="width: 350px"></div>
                                 <h4 class="title"><a href="/screen">基于echarts的数据统计</a></h4>
                                 <p class="description">
                                     通过网络接口事实获取获取数据，利用python进行数据处理，将后端数据返回进行图表渲染</p>
@@ -274,7 +273,7 @@
 
                 <div class="col-lg-6">
                     <div class="box">
-                        <div class="icon"><i class="bi bi-book"></i></div>
+                        <div class="icon"><img src="{% static '/img/250406/book.png' %}" style="width: 80px"></div>
                         <h4 class="title"><a href="/lungkonw/">病理小科普</a></h4>
                         <p class="description">揭秘病理图像分类：AI如何助力疾病诊断</p>
                     </div>
@@ -282,7 +281,7 @@
 
                 <div class="col-lg-6">
                     <div class="box">
-                        <div class="icon"><i class="bi bi-binoculars"></i></div>
+                        <div class="icon"><img src="{%  static 'img/doctor2.png' %}" alt="" style="width: 80px"></div>
                         <h4 class="title"><a href="/lung/">病理检测</a></h4>
                         <p class="description">基于深度学习卷积神经网络的病理检测模型</p>
                     </div>
@@ -385,7 +384,7 @@
     <section id="team" class="section-bg">
         <div class="container" data-aos="fade-up">
             <div class="section-header">
-                <h3 class="section-title">开发团队</h3>
+                <h3 class="section-title">科研团队</h3>
                 <span class="section-divider"></span>
                 <p class="section-description">创新引领健康，技术守护生命 —— 梦医智联平台，与您同行每一步</p>
             </div>

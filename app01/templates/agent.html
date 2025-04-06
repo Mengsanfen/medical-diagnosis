@@ -2,103 +2,30 @@
 
 {% block style %}
 <style>
-:root {
-    --user-color: #1890ff;
-    --assistant-color: #52c41a;
-    --text-dark: rgba(0, 0, 0, 0.85);
-    --text-light: #ffffff;
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
-
-/* 对话气泡增强样式 */
-.chat-bubble {
-    max-width: 75%;
-    margin: 1.5rem auto;
-    border-radius: 1.25rem;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-}
-
-.chat-bubble:hover {
-    transform: translateY(-2px);
-}
-
-.user-bubble {
-    background: var(--user-color);
-    color: var(--text-light);
-    margin-left: auto;
-    border-bottom-right-radius: 5px;
-}
-
-.assistant-bubble {
-    background: #fff;
-    border: 1px solid #e8e8e8;
-    margin-right: auto;
-    border-bottom-left-radius: 5px;
-}
-
-/* Markdown风格内容 */
-.markdown-content {
-    line-height: 1.8;
-    color: var(--text-dark);
-}
-
-.markdown-content h3 {
-    font-size: 1.25rem;
-    color: var(--assistant-color);
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 0.5rem;
-    margin: 1rem 0;
-}
-
-.markdown-content ul {
-    padding-left: 1.5rem;
-    margin: 1rem 0;
-}
-
-.markdown-content li {
-    margin-bottom: 0.5rem;
-    position: relative;
-}
-
-.markdown-content li:before {
-    content: "•";
-    color: var(--user-color);
-    position: absolute;
-    left: -1.2rem;
-}
-
-.markdown-content strong {
-    color: var(--assistant-color);
-}
-
-/* 加载动画优化 */
-.loading-indicator {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.8rem 1.5rem;
-    background: rgba(255,255,255,0.9);
-    border-radius: 2rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
 .spinner-border {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-width: 0.2em;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
 }
-
-/* 输入框优化 */
-.symptom-input {
+.chat-bubble {
+    max-width: 80%;
+    margin: 1rem auto;
     border-radius: 1rem;
-    padding: 1rem 1.5rem;
-    border: 2px solid #e8e8e8;
-    transition: all 0.3s;
 }
-
-.symptom-input:focus {
-    border-color: var(--user-color);
-    box-shadow: 0 0 8px rgba(24,144,255,0.2);
+.user-bubble {
+    background: #e3f2fd;
+    margin-left: auto;
+}
+.assistant-bubble {
+    background: #f8f9fa;
 }
 </style>
 {% endblock %}
@@ -109,8 +36,8 @@
         <h1 class="display-5 fw-bold text-primary">AI智能问诊</h1>
         <p class="text-muted">请输入您的症状描述，获取专业医疗建议</p>
     </div>
-
-    <form method="post" onsubmit="showLoading()">
+    
+        <form method="post" onsubmit="showLoading()">
         {% csrf_token %}
         <div class="form-group mb-4">
             <textarea 
@@ -122,7 +49,7 @@
                 required>{% if symptoms %}{{ symptoms }}{% endif %}</textarea>
         </div>
         
-        <div class="text-center">
+         <div class="text-center">
             <button 
                 type="submit" 
                 class="btn btn-lg btn-primary px-5 rounded-pill"
@@ -131,79 +58,41 @@
             </button>
         </div>
         
-        <div id="loading" class="text-center mt-4" style="display:none;">
-            <div class="loading-indicator">
-                <div class="spinner-border text-primary me-2"></div>
-                <span class="text-muted">AI医生分析中，预计需要10-15秒...</span>
-            </div>
+        <div id="loading" class="mt-3" style="display:none;">
+            <div class="spinner-border text-primary" role="status"></div>
+            <span class="ms-2">AI医生分析中（通常需要10-15秒）...</span>
         </div>
     </form>
 
+    <!-- 对话历史展示 -->
     {% if history %}
-    <div class="mt-5 pt-4 border-top">
+    <div class="mt-4">
         {% for msg in history %}
-        <div class="chat-bubble {% if msg.role == 'user' %}user-bubble{% else %}assistant-bubble{% endif %}">
-            <div class="d-flex align-items-center mb-3">
-                <div class="badge {% if msg.role == 'user' %}bg-light text-primary{% else %}bg-success{% endif %} rounded-pill me-2">
-                    {% if msg.role == 'user' %}您的描述{% else %}诊断建议{% endif %}
-                </div>
-                <small class="text-muted">{{ forloop.counter }}条记录</small>
+        <div class="chat-bubble {% if msg.role == 'user' %}user-bubble{% else %}assistant-bubble{% endif %} p-3">
+            <div class="fw-bold mb-2">
+                {% if msg.role == 'user' %}💬 您的描述{% else %}🩺 诊断建议{% endif %}
             </div>
-            <div class="markdown-content">
-                {{ msg.content|linebreaks }}
-            </div>
+            <div class="whitespace-pre">{{ msg.content|linebreaks }}</div>
         </div>
         {% endfor %}
     </div>
     {% endif %}
 
+    <!-- 错误提示 -->
     {% if error %}
-    <div class="alert alert-danger mt-4 alert-dismissible fade show" role="alert">
-        <i class="fas fa-exclamation-triangle me-2"></i>
-        {{ error }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <div class="alert alert-danger mt-4">
+        ⚠️ 服务异常：{{ error }}
     </div>
     {% endif %}
 </div>
 
 <script>
-// 添加键盘事件监听
-document.getElementById('symptoms').addEventListener('keydown', function(e) {
-    // 检测回车键（Enter）且没有同时按Shift
-    if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();  // 阻止默认换行行为
-        document.getElementById('submit-btn').click(); // 触发提交
-    }
-});
-
-// 修改后的showLoading函数
 function showLoading() {
-    const btn = document.getElementById('submit-btn');
-    const loading = document.getElementById('loading');
-    const textarea = document.getElementById('symptoms');
-    
-    // 禁用输入框
-    textarea.disabled = true;
-    
-    // 更新按钮状态
-    btn.innerHTML = `<div class="spinner-border spinner-border-sm me-2"></div>分析中...`;
-    btn.disabled = true;
-    
-    // 显示加载状态
-    loading.style.display = 'block';
-    
-    // 自动滚动
-    setTimeout(() => {
-        const lastBubble = document.querySelector('.chat-bubble:last-child');
-        if(lastBubble) lastBubble.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'nearest'
-        });
-    }, 100);
-    
-    return true; // 确保表单继续提交
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('submit-btn').disabled = true;
 }
+
+
 </script>
-    
-    
+
 {% endblock %}

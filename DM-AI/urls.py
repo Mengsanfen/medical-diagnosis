@@ -20,7 +20,8 @@ from app01.views import index, mask, screen, lung, tips, chat, cell, agent
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('', index.index),
+    path('', index.entrance),
+    path('index/', index.index),
     #ai问诊
     path('ai-chat/', chat.ai_chat, name='ai_chat'),  # AI问诊主界面
     path('ai-chat/process/', chat.ai_process, name='ai_process'),  # 问诊处理接口

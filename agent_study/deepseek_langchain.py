@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 llm = ChatOpenAI(
-    model='deepseek-chat',
+    model='deepseek-reasoner',
     openai_api_base='https://api.deepseek.com',
     max_tokens=1024
 )

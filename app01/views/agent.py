@@ -4,9 +4,8 @@ from django.shortcuts import render
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai.chat_models import ChatOpenAI
 from ..models import MedicalKnowledge  # 确保已创建模型
-from django.db.models import Q  # 添加这行
-import json
-
+from django.db.models import Q
+from django.utils import timezone
 
 def search_medical_knowledge(symptoms):
     """医疗知识库检索函数"""
@@ -23,6 +22,7 @@ def ai_diagnosis(request):
 
     if request.method == "POST":
         user_input = request.POST.get("symptoms", "")
+        timestamp = timezone.now()
 
         try:
             # 1. 知识库检索
@@ -35,7 +35,7 @@ def ai_diagnosis(request):
             # 2. 构建对话链
             chat = ChatOpenAI(
                 temperature=0.1,
-                model="deepseek-chat",
+                model="deepseek-reasoner",
                 api_key=settings.DEEPSEEK_API_KEY,
                 openai_api_base=settings.BASE_URL
             )
@@ -54,10 +54,13 @@ def ai_diagnosis(request):
 
             # 4. 保存对话记录
             history.extend([
-                {"role": "user", "content": user_input},
-                {"role": "assistant", "content": response.content}
+                {"role": "user", "content": user_input, "timestamp": timestamp},
+                {"role": "assistant", "content": response.content, "timestamp": timezone.now()}
             ])
-            cache.set(f'dialogue_{session_id}', history, timeout=3600)
+            # 限制最大历史记录数
+            if len(history) > 20:
+                history = history[-20:]
+            cache.set(f'dialogue_{session_id}', history, timeout=3600 * 24)
 
             return render(request, "agent.html", {
                 "history": history,
@@ -72,4 +75,3 @@ def ai_diagnosis(request):
             })
 
     return render(request, "agent.html", {"history": history})
-

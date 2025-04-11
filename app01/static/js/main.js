@@ -4,6 +4,12 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
+/*
+主入口函数，封装所有页面初始化逻辑
+ * 使用严格模式保证代码规范
+ */
+
 (function() {
   "use strict";
 
@@ -36,12 +42,18 @@
   /**
    * Easy on scroll event listener 
    */
+
+  // /* 滚动事件监听快捷方法 */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
   }
 
   /**
    * Navbar links active state on scroll
+   */
+  /**
+   * 导航栏链接滚动激活状态控制
+   * 根据页面滚动位置自动切换导航项的active类
    */
   let navbarlinks = select('#navbar .scrollto', true)
   const navbarlinksActive = () => {
@@ -63,6 +75,11 @@
   /**
    * Scrolls to an element with header offset
    */
+
+   /**
+   * 带偏移量的平滑滚动函数
+   * @param {string} el - 目标元素选择器
+   * 自动计算头部高度作为滚动偏移量
   const scrollto = (el) => {
     let header = select('#header')
     let offset = header.offsetHeight

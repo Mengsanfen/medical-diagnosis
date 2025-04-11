@@ -51,7 +51,7 @@ h6 {
 --------------------------------------------------------------*/
 .back-to-top {
   position: fixed;
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(45deg, #0fe0a1, #7e1dcd);
   color: #fff;
   border-radius: 4px 4px 0 0;
   right: 15px;
@@ -88,10 +88,10 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  height: 90px;
+  height: 100px;
   transition: all 0.5s;
   z-index: 997;
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(45deg, #13ee9e, #943bc9);
 }
 
 #header.header-transparent {
@@ -99,17 +99,17 @@ h6 {
 }
 
 #header.header-scrolled {
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
-  height: 70px;
+  background: linear-gradient(45deg, #10e598, #a02bce);
+  height: 90px;
   transition: all 0.5s;
 }
 
 #header #logo h1 {
-  font-size: 36px;
+  font-size: 40px;
   padding: 0;
   margin: 0;
   display: inline-block;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -164,7 +164,7 @@ h6 {
   justify-content: space-between;
   font-family: "Montserrat", sans-serif;
   color: rgba(255, 255, 255, 0.8);
-  font-size: 15px;
+  font-size: 18px;
   padding: 0 2px;
   white-space: nowrap;
   transition: 0.3s;
@@ -836,7 +836,7 @@ section {
 --------------------------------*/
 #call-to-action {
   overflow: hidden;
-  background: linear-gradient(rgba(29, 200, 205, 0.65), rgba(29, 205, 89, 0.2)), url(../img/hero-bg.jpg) fixed center center;
+  background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url(../img/about-img.jpg) fixed center center;
   background-size: cover;
   padding: 80px 0;
 }
@@ -1117,13 +1117,13 @@ section {
 
 #team .member {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #team .member .pic {
   margin-bottom: 15px;
   overflow: hidden;
-  height: 260px;
+  height: 200px;
 }
 
 #team .member .pic img {
@@ -1364,20 +1364,21 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #fff;
+  background: url(../img/foot-bg.jpg) no-repeat center center;
+  background-size: cover;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
   padding: 30px 0;
-  color: #333;
+  color: #ffffff;
   font-size: 14px;
 }
 
 #footer .credits {
   font-size: 13px;
-  color: #888;
+  color: #ffffff;
 }
 
 #footer .footer-links a {
-  color: #666;
+  color: #ffffff;
   padding-left: 15px;
 }
 

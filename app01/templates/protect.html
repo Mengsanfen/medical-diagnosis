@@ -1,50 +1,335 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block css %}
+<style>
+/* 自定义样式 */
+:root {
+    --primary-green: #2e7d32;
+    --secondary-green: #81c784;
+    --gradient-green: linear-gradient(135deg, #2e7d32 0%, #66bb6a 100%);
+}
 
+/* 修改原有.health-container样式 */
+.health-container {
+    background: linear-gradient(150deg, #f5fff5 0%, #e8f5e9 100%);
+    min-height: calc(100vh - 120px);
+    padding: 2rem 1rem; /* 增加左右间距 */
+    max-width: 1200px;  /* 新增最大宽度 */
+    margin: 0 auto;     /* 新增居中效果 */
+    box-shadow: 0 0 30px rgba(46, 125, 50, 0.1); /* 增加立体感 */
+    border-radius: 2rem; /* 统一圆角 */
+}
+
+/* 调整容器内部布局 */
+@media (min-width: 1200px) {
+    .health-container .container {
+        padding: 0 2rem; /* 大屏增加内间距 */
+    }
+}
+
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(76, 175, 80, 0.15);
+    box-shadow: 0 8px 32px rgba(76, 175, 80, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 45px rgba(76, 175, 80, 0.2);
+}
+
+.card-header.green-header {
+    background: var(--gradient-green);
+    border-radius: 1.5rem 1.5rem 0 0 !important;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header.green-header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+}
+
+.search-input-group {
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(46, 125, 50, 0.1);
+    transition: all 0.3s;
+}
+
+.search-input-group:focus-within {
+    box-shadow: 0 6px 25px rgba(46, 125, 50, 0.2);
+}
+
+.search-input {
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.search-input::placeholder {
+    color: #90a4ae;
+}
+
+.search-btn {
+    background: var(--gradient-green);
+    color: white !important;
+    padding: 0 2.5rem;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.search-btn:hover {
+    letter-spacing: 1.5px;
+    opacity: 0.95;
+}
+
+.search-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.search-btn:hover::after {
+    left: 100%;
+}
+
+.accordion-item {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(129, 199, 132, 0.3);
+    border-radius: 15px !important;
+    margin-bottom: 1.2rem;
+    transition: all 0.3s;
+}
+
+.accordion-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(129, 199, 132, 0.15);
+}
+
+.accordion-button {
+    background: rgba(129, 199, 132, 0.1) !important;
+    font-weight: 600;
+    color: var(--primary-green) !important;
+    border-radius: 15px !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background: rgba(129, 199, 132, 0.2) !important;
+    box-shadow: none;
+}
+
+.tip-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(129, 199, 132, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.tip-icon i {
+    transition: transform 0.3s;
+}
+
+.accordion-button:hover .tip-icon {
+    background: rgba(129, 199, 132, 0.3);
+}
+
+.accordion-button:hover .tip-icon i {
+    transform: scale(1.2);
+}
+
+.accordion-body {
+    background: rgba(248, 255, 248, 0.9);
+    border-radius: 0 0 15px 15px;
+}
+
+.health-img {
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.15);
+    transition: transform 0.4s;
+}
+
+.health-img:hover {
+    transform: scale(1.02) rotate(1deg);
+}
+
+.loading-pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+</style>
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-            <div class="card">
-                <div class="card-body">
-                    <img src="{% static '/img/protect.png' %}">
+<div class="health-container">
+    <div class="container">
+        <div class="row g-4">
+            <!-- 左侧图片区 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="glass-card h-100">
+                    <div class="card-body p-4">
+                        <img src="{% static '/img/lh/saf.jpg' %}" 
+                             class="health-img w-100 h-100 object-fit-cover"
+                             alt="健康生活">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">医智指南</h5>
-                    <p class="card-text">
-                        1. 用药时间与饮食搭配贴士 <br><br>
-介绍不同类型药品的最佳服用时间（如饭前、饭后、睡前等）。
-提供药品与食物搭配的建议，比如哪些药物需要避免与特定食物同服，哪些食物可以帮助提高药效。<br><br>
-2. 药品存储与携带指南<br><br>
-说明如何正确存储药品，包括温度、湿度、光照等环境因素对药品的影响。
-提供关于如何妥善携带药品的建议，特别是在旅行或外出时的药品管理技巧。<br><br>
 
-3. 药物相互作用与副作用预防<br><br>
-介绍如何识别和避免可能的药物相互作用。
-提供关于如何监测和管理药物副作用的实用建议，以及在出现副作用时应该如何处理。<br><br>
+            <!-- 右侧搜索区 -->
+            <div class="col-lg-6 col-md-6">
+                <div class="glass-card h-100">
+                    <div class="card-header green-header">
+                        <h3 class="mb-0 text-white">
+                            <i class="bi bi-magic me-2"></i>
+                            健康妙招智能推荐
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- 搜索框 -->
+                        <div class="search-input-group mb-4">
+                            <div class="input-group">
+                                <input type="text"
+                                       id="healthKeyword"
+                                       class="form-control search-input"
+                                       placeholder="🌱 输入健康关键词（如：失眠、头痛）">
+                                <button class="btn search-btn"
+                                        type="button"
+                                        onclick="searchHealthTips()">
+                                    <i class="bi bi-search-heart me-2"></i>
+                                    智能推荐
+                                </button>
+                            </div>
+                        </div>
 
-4. 健康生活方式与药物协同效应<br><br>
-讨论健康饮食、适量运动、良好睡眠等生活方式如何与药物治疗协同作用，提高治疗效果。
-提供关于如何通过改善生活习惯来减少对某些药物的依赖或提高药物疗效的贴士。
-<br><br>
+                        <!-- 加载状态 -->
+                        <div id="tipsLoading" class="text-center py-3" style="display: none;">
+                            <div class="spinner-grow text-success" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="text-muted mt-3 loading-pulse">正在为您智能匹配健康方案...</p>
+                        </div>
 
-                    </p>
-
+                        <!-- 结果展示 -->
+                        <div id="healthTipsResult" class="accordion"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
+</div>
 {% endblock %}
 
 {% block js %}
+<script>
+function searchHealthTips() {
+    const keyword = $('#healthKeyword').val();
+    const resultDiv = $('#healthTipsResult');
+    const loading = $('#tipsLoading');
 
+    loading.show();
+    resultDiv.empty().html('<div class="placeholder-glow"><div class="placeholder col-12" style="height:200px"></div></div>');
 
+    $.ajax({
+        type: "POST",
+        url: "/tips/data/",
+        data: { keyword: keyword },
+        success: function(res) {
+            if(res.code === 200 && res.result.list.length > 0) {
+                const accordion = res.result.list.map((tip, index) => `
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button ${index === 0 ? '' : 'collapsed'}"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#tip${index}">
+                                <div class="tip-icon me-3">
+                                    <i class="bi ${getRandomIcon()} text-success"></i>
+                                </div>
+                                <span class="h6 mb-0">${tip.title}</span>
+                            </button>
+                        </h2>
+                        <div id="tip${index}"
+                             class="accordion-collapse collapse ${index === 0 ? 'show' : ''}"
+                             data-bs-parent="#healthTipsResult">
+                            <div class="accordion-body">
+                                ${formatContent(tip.content)}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                resultDiv.html(accordion);
+            } else {
+                resultDiv.html(`
+                    <div class="alert alert-light d-flex align-items-center">
+                        <i class="bi bi-info-circle-fill me-2 text-success"></i>
+                        暂未找到相关健康妙招，请尝试其他关键词
+                    </div>
+                `);
+            }
+        },
+        error: function() {
+            resultDiv.html(`
+                <div class="alert alert-light d-flex align-items-center">
+                    <i class="bi bi-x-circle-fill me-2 text-danger"></i>
+                    数据加载失败，请检查网络连接
+                </div>
+            `);
+        },
+        complete: function() {
+            loading.hide();
+        }
+    });
+}
+
+// 随机图标增强视觉效果
+function getRandomIcon() {
+    const icons = [
+        'bi-flower1', 'bi-capsule', 'bi-moon-stars', 
+        'bi-brightness-high', 'bi-droplet', 'bi-tree'
+    ];
+    return icons[Math.floor(Math.random() * icons.length)];
+}
+
+// 内容格式化
+function formatContent(content) {
+    return content.split('\n')
+        .filter(line => line.trim())
+        .map(line => {
+            if(line.startsWith('【')) return `<h6 class="text-success mt-3">${line}</h6>`;
+            return `<p class="mb-2">${line}</p>`;
+        })
+        .join('');
+}
+</script>
 {% endblock %}

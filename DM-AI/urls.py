@@ -43,10 +43,14 @@ urlpatterns = [
     path('lung/', lung.lung_index),
     path('lung/upload/', lung.lung_upload),
     path('lung/detect/', lung.lung_detect),
-    # 药品科普
+    # 健康科普
     path('medical/', tips.medical),
     path('medical/data/', tips.get_medical),
     path('health/', tips.health),
     path('protect/', tips.protect),
+    path('air/data/', tips.get_air),
+    path('tips/data/', tips.get_coup),
+    path('get_tips/', tips.get_tips, name='get_tips'),
+
 
 ]

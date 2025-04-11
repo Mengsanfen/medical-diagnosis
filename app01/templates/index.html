@@ -11,18 +11,20 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{% static '/img/doctor1.png' %}" rel="icon">
+    <link href="{% static '/img/icon/sjkc.png' %}" rel="icon">
     <link href="{% static '/img/doctor.png' %}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- 在引入其他JS文件之前添加jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Vendor CSS Files -->
     <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-    
+
     <!-- Main CSS File -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
@@ -33,6 +35,7 @@
             --tech-purple: #9c27b0;
             --gradient-bg: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
         }
+
 
         .neon-text {
             text-shadow: 0 0 10px var(--tech-blue),
@@ -75,6 +78,15 @@
             animation: float 3s ease-in-out infinite;
         }
 
+        .nav-link:hover {
+                transform: scale(1.2);
+        }
+
+        html, body {
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+        }
 
 
         @keyframes neon-pulse {
@@ -86,8 +98,16 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
+        .carousel-item img {
+            width: 100vw;
+            object-fit: cover;
+        }
+
+        .container-fluid {
+          padding-left: 0;
+          padding-right: 0;
+        }
     </style>
-    
 </head>
 
 <body>
@@ -101,11 +121,11 @@
 <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container d-flex justify-content-between align-items-center">
         <div id="logo">
-            <h1><a href="#" class="text-gradient">DreamMed</a></h1>
+            <h1 style="margin-top: auto; margin-left: -80px;"><a href="#" class="text-gradient">DreamMed</a></h1>
         </div>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="#hero">主页</a></li>
+                <li><a class="nav-link scrollto " href="/">主页</a></li>
                 <!-- ADDED AI问诊导航项 -->
                 <li><a class="nav-link scrollto" href="#agent">AI问诊</a></li>
                 <li><a class="nav-link scrollto" href="#features">细胞检测</a></li>
@@ -113,6 +133,16 @@
                 <li><a class="nav-link scrollto" href="#more-features">医学病理检测</a></li>
                 <li><a class="nav-link scrollto" href="#pricing">“医智”小贴士</a></li>
                 <li><a class="nav-link scrollto" href="#team">科研团队</a></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+{#                <li><img src="{% static 'img/icon/sjkc.png' %}" height="50px" border-radius="50%" alt="科创基地"></li>#}
+{#                <li><img src="{% static 'img/icon/yau.png' %}" height="50px" border-radius="50%" alt="延安大学"></li>#}
+                <ul style="display: flex; gap: 5px; margin: 5px; padding: 0; list-style: none;">
+                    <li><img src="{% static 'img/icon/sjkc.png' %}" height="70px" style="margin-left: 50px;"  alt="科创基地"></li>
+                    <li><img src="{% static 'img/logo_2.png' %}" height="70px"  alt="延安大学"></li>
+                </ul>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
@@ -132,6 +162,83 @@
 {#</section>#}
 
 <main id="main">
+    <!-- ======= 功能轮播图 ======= -->
+<section id="carousel" class="section-bg" style="width: 100vw; height: 100%;  margin: 0; padding: 0">
+    <div class="container-fluid" data-aos="fade-up">
+        <div class="section-header">
+{#            <h3 class="section-title">功能导航</h3>#}
+{#            <span class="section-divider"></span>#}
+{#            <p class="section-description">点击图片快速进入对应功能模块</p>#}
+        </div>
+
+        <div id="featureCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-left: 0">
+            <!-- 轮播指示器 -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#featureCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#featureCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#featureCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#featureCarousel" data-bs-slide-to="3"></button>
+            </div>
+
+            <!-- 轮播内容 -->
+            <div class="carousel-inner">
+                <!-- AI问诊 -->
+                <div class="carousel-item active">
+                    <a href="/agent">
+                        <img style="height: 650px;"   src="{% static 'img/lh/34.jpg' %}" class="d-block w-100" alt="AI问诊">
+                        <div class="carousel-caption">
+                            <h5>AI智能问诊</h5>
+                            <p>基于DeepSeek R1的智能问诊系统</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 血细胞检测 -->
+                <div class="carousel-item">
+                    <a href="/cell/">
+                        <img style="height: 650px" src="{% static 'img/lh/22.jpg' %}" class="d-block w-100" alt="血细胞检测">
+                        <div class="carousel-caption">
+                            <h5>血细胞检测</h5>
+                            <p>基于Agent的零样本目标检测算法</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 疾病大数据 -->
+                <div class="carousel-item">
+                    <a href="/screen">
+                        <img style="height: 650px" src="{% static 'img/lh/198.jpg' %}" class="d-block w-100" alt="疾病大数据">
+                        <div class="carousel-caption">
+                            <h5>疾病大数据</h5>
+                            <p>基于echarts的实时数据可视化</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 病理检测 -->
+                <div class="carousel-item">
+                    <a href="/lung/">
+                        <img style="height: 650px" src="{% static 'img/lh/1.jpg' %}" class="d-block w-100" alt="病理检测">
+                        <div class="carousel-caption">
+                            <h5>病理检测</h5>
+                            <p>基于深度学习的病理图像分类</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 轮播控制按钮 -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#featureCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#featureCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
 
         <!-- ADDED AI问诊模块 -->
     <!-- ======= Spark AI问诊 ======= -->
@@ -168,7 +275,8 @@
 {#    <hr>#}
     <!-- ======= DeepSeek问诊 ======= -->
     <div id="agent">
-        <section id="features" style="margin-bottom: 60px">
+        <section id="features" style="   margin-bottom: 60px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/250406/ai.png' %}') fixed center center;
+  background-size: cover;">
             <div class="container" data-aos="fade-up">
                 <div class="row">
                     <div class="col-lg-8">
@@ -183,7 +291,7 @@
                                 <div class="icon"><img style="width: 200px" src="{% static 'img/agent1.png' %}" alt=""></div>
                                 <h4 class="title"><a href="/agent">立即开始智能问诊</a></h4>
                                 <p class="description">
-                                    基于DeepSeek R1与知识库的智能问诊系统，通过症状描述获取初步诊断建议，7×24小时在线医疗咨询服务</p>
+                                    基于DeepSeek与知识库的智能问诊系统，通过症状描述获取初步诊断建议，7×24小时在线医疗咨询服务</p>
                             </div>
                         </div>
                     </div>
@@ -198,9 +306,10 @@
 
 
     <hr>
-    
-    <!-- ======= 细胞检测 ======= -->
-    <section id="features" >
+
+     <!-- ======= yolo细胞检测 ======= -->
+    <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/hong4.png' %}') fixed center center;
+  background-size: cover;">
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-8 offset-lg-4">
@@ -210,57 +319,88 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-5 features-img">
-                    <img src="{% static 'img/hong5.png' %}" alt="" data-aos="fade-right">
+                    <img src="{% static 'img/hong55.png' %}" alt="" data-aos="fade-right">
                 </div>
                 <div class="col-lg-8 col-md-7 ">
                     <div class="row">
                         <div class="box" data-aos="fade-up">
-                            <div class="icon"><img src="{% static 'img/blood.png' %}" alt=""></div>
-                            <h4 class="title"><a href="/cell/">血细胞检测入口</a></h4>
+                            <div class="icon"><img src="{% static 'img/bloodd.png' %}" alt=""></div>
+                            <h4 class="title"><a href="/mask/">血细胞检测入口</a></h4>
                             <p class="description">
-                                通过AOD目标检测算法进行血细胞识别，用户仅需输入文字提示，能基于目标的内在属性、<br>
-                                上下文关系以及动态状态进行精准识别，精准定位其位置和属性。</p>
+                                基于yolo目标检测算法进行血细胞识别，用户上传一张图片，快速精确检测处图片中各细胞类别和位置</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section><!-- End Featuress Section -->
-
-    <hr>
-    <!-- ======= 疫情大数据 ======= -->
-    <div id="data">
-        <section id="features" style="margin-bottom: 60px">
-            <div class="container" data-aos="fade-up">
+    
+    <!-- ======= agent检测 ======= -->
+    <div id="agent">
+        <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/88.jpg' %}') fixed center center;
+      background-size: cover;">
+            <div class="container" data-aos="fade-up"; style="height: 400px;">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="section-header">
-                            <h3 class="section-title">疾病大数据</h3>
+                            <h3 class="section-title">基于Agent的目标检测</h3>
                             <span class="section-divider"></span>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-7 ">
                         <div class="row">
                             <div class="box" data-aos="fade-up">
-                                <div class="icon"><img src="{% static 'img/phone.png' %}" alt="" style="width: 350px"></div>
-                                <h4 class="title"><a href="/screen">基于echarts的数据统计</a></h4>
+                                <div class="icon"><img style="width: 200px" src="{% static 'img/icon/AIchat.png' %}" alt=""></div>
+                                <h4 class="title"><a href="/cell/">Get Started</a></h4>
                                 <p class="description">
-                                    通过网络接口事实获取获取数据，利用python进行数据处理，将后端数据返回进行图表渲染</p>
+                                    基于Agent的零样本目标检测算法进行医学图像识别，用户仅需输入文字提示，能基于目标的内在属性、<br>
+                                    上下文关系以及动态状态进行精准识别，精准定位其位置和属性。</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-5 features-img">
                         <img class="advanced-feature-img-right wow fadeInRight"
-                             src="{% static 'img/data2.png' %}" alt="">
+                             src="{% static 'img/detect.jpg' %}" alt="">
                     </div>
                 </div>
             </div>
         </section><!-- End Featuress Section -->
     </div>
+    <hr>
+    <!-- ======= 疾病大数据 ======= -->
+    <section id="features" style="   margin-bottom: 60px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/198.jpg' %}') fixed center center;
+  background-size: cover;">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-4">
+                    <div class="section-header">
+                        <h3 class="section-title">疾病大数据</h3>
+                        <span class="section-divider"></span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-5 features-img">
+                    <img class="advanced-feature-img-right wow fadeInRight"
+                         src="{% static 'img/data2.png' %}" alt="">
+                </div>
+                <div class="col-lg-8 col-md-7">
+                    <div class="row" style="margin-left: 80px">
+                        <div class="box" data-aos="fade-up">
+                            <div class="icon"><img src="{% static 'img/phonee.png' %}" alt="" style="width: 350px"></div>
+                            <h4 class="title"><a href="/screen">基于echarts的数据统计</a></h4>
+                            <p class="description">
+                                通过网络接口事实获取获取数据，利用python进行数据处理，将后端数据返回进行图表渲染</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Featuress Section -->
 
 
     <!-- ======= 白肺检测======= -->
-    <section id="more-features" class="section-bg">
+    <section id="more-features" style="   margin-bottom: 60px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/1.jpg' %}') fixed center center;
+  background-size: cover;" class="section-bg">
         <div class="container" data-aos="fade-up">
             <div class="section-header">
                 <h3 class="section-title">病理检测</h3>
@@ -274,16 +414,16 @@
                 <div class="col-lg-6">
                     <div class="box">
                         <div class="icon"><img src="{% static '/img/250406/book.png' %}" style="width: 80px"></div>
-                        <h4 class="title"><a href="/lungkonw/">病理小科普</a></h4>
-                        <p class="description">揭秘病理图像分类：AI如何助力疾病诊断</p>
+                        <h4 class="title"><a href="/lungkonw/">MedMamba小科普</a></h4>
+                        <p class="description">揭秘MedMamba：医学图像分类新纪元</p>
                     </div>
                 </div>
 
                 <div class="col-lg-6">
                     <div class="box">
                         <div class="icon"><img src="{%  static 'img/doctor2.png' %}" alt="" style="width: 80px"></div>
-                        <h4 class="title"><a href="/lung/">病理检测</a></h4>
-                        <p class="description">基于深度学习卷积神经网络的病理检测模型</p>
+                        <h4 class="title"><a href="/lung/">基于MedMamba的医学图像分类</a></h4>
+                        <p class="description">Vision Mamba for Medical Image Classification🐍</p>
                     </div>
                 </div>
 
@@ -310,76 +450,220 @@
                         亲爱的用户们，健康之路，始于足下。让我们响应“健康守护”的呼唤，立即行动起来，为自己的健康负责，为家人的幸福努力，为社会的繁荣贡献力量！因为，只有健康，才能赋予生活最美的色彩；只有健康，才能让我们无惧风雨，勇往直前。共赴“健康守护”之旅，让生命之花在悉心呵护下绚丽绽放！</p>
 
                 </div>
-                {#                <div class="col-lg-3 cta-btn-container text-center">#}
-                {#                    <a class="cta-btn align-middle" href="#">Call To Action</a>#}
-                {#                </div>#}
             </div>
-
         </div>
     </section><!-- End Call To Action Section -->
-    <!-- ======= 疫情贴士 ======= -->
-    <section id="pricing" class="section-bg">
-        <div class="container" data-aos="fade-up">
+    <!-- ======= 医智贴士 ======= -->
+{#    <section id="pricing" class="section-bg">#}
+{#        <div class="container" data-aos="fade-up">#}
+{##}
+{#            <div class="section-header">#}
+{#                <h3 class="section-title">"医"智贴士</h3>#}
+{#                <span class="section-divider"></span>#}
+{#                <p class="section-description">为您提供健康医智生活指南</p>#}
+{#            </div>#}
+{##}
+{#            <div class="row">#}
+{##}
+{#                <div class="col-lg-4 col-md-6">#}
+{#                    <div class="box featured">#}
+{#                        <h3>健康小贴士</h3>#}
+                        {#                        <h4><sup>$</sup>0<span> month</span></h4>#}
+{#                        <ul>#}
+{##}
+{##}
+{#                            <li><i class="bi bi-check-circle"></i> 每日健康智囊</li>#}
+{#                            <li><i class="bi bi-check-circle"></i> 健康生活习惯的培养</li>#}
+{#                            <li><i class="bi bi-check-circle"></i> 坚持运动</li>#}
+{#                            <li><i class="bi bi-check-circle"></i> 均衡饮食</li>#}
+{#                            <li><i class="bi bi-check-circle"></i> 充足睡眠</li>#}
+{#                        </ul>#}
+{#                        <a href="/health/" class="get-started-btn">Get Started</a>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{##}
+{#                <div class="col-lg-4 col-md-6">#}
+{#                    <div class="box featured">#}
+{#                        <h3>药品科普</h3>#}
+                        {#                        <h4><sup>$</sup>49<span> month</span></h4>#}
+{#                        <ul>#}
+{#                            <li><i class="bi bi-check-circle"></i> 药品基础知识普及</li>#}
+{#                            <li><i class="bi bi-check-circle"></i> 药品使用注意事项</li>#}
+{#                            <li><i class="bi bi-check-circle"></i> 药品安全与合理用药</li>#}
+{#                            <li><i class="bi bi-check-circle"></i> 药品分类</li>#}
+{#                        </ul>#}
+{#                        <a href="/medical/" class="get-started-btn">Get Started</a>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="col-lg-4 col-md-6">#}
+{#                    <div class="box featured">#}
+{#                        <h3>健康指南</h3>#}
+                        {#                        <h4><sup>$</sup>29<span> month</span></h4>#}
+{#                        <ul>#}
+{#                            <li><i class="bi bi-check-circle"></i> 健康生活智能推荐</li>#}
+{#                            <li><i class="bi bi-check-circle"></i> 养生小妙招查询</li>#}
+{#                            <li><i class="bi bi-check-circle"></i> 饮食、运动、睡眠、减压...</li>#}
+{#                        </ul>#}
+{#                        <a href="/protect/" class="get-started-btn">Get Started</a>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </section><!-- End Pricing Section -->#}
 
-            <div class="section-header">
-                <h3 class="section-title">"医"智贴士</h3>
-                <span class="section-divider"></span>
-                <p class="section-description">为您提供健康医智生活指南</p>
+    <!-- ======= 医智贴士 ======= -->
+<section id="pricing" class="section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h3 class="section-title ">"医"智贴士</h3>
+            <span class="section-divider"></span>
+            <p class="section-description">为您提供健康医智生活指南</p>
+        </div>
+
+        <div class="row gy-4">
+            <!-- 健康小贴士 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="box featured hover-card">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-heart-pulse icon-animate"></i>
+                    </div>
+                    <h3 class="box-title">健康小贴士</h3>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle"></i> 每日健康智囊</li>
+                        <li><i class="bi bi-check-circle"></i> 健康生活习惯的培养</li>
+                        <li><i class="bi bi-check-circle"></i> 坚持运动、均衡饮食、充足睡眠</li>
+                    </ul>
+                    <a href="/health/" class="get-started-btn btn-hover-effect">探索</a>
+                </div>
             </div>
 
-            <div class="row">
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="box featured">
-                        <h3>健康贴士</h3>
-                        {#                        <h4><sup>$</sup>0<span> month</span></h4>#}
-                        <ul>
-
-
-                            <li><i class="bi bi-check-circle"></i> 疾病预防和早期诊断</li>
-                            <li><i class="bi bi-check-circle"></i> 健康生活习惯的培养</li>
-                            <li><i class="bi bi-check-circle"></i> 定期体检和筛查</li>
-                            <li><i class="bi bi-check-circle"></i> 睡眠健康</li>
-                            <li><i class="bi bi-check-circle"></i> 心理健康</li>
-                        </ul>
-                        <a href="/health/" class="get-started-btn">Get Started</a>
+            <!-- 药品科普 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="box featured hover-card">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-capsule icon-animate"></i>
                     </div>
+                    <h3 class="box-title">药品科普</h3>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle"></i> 药品基础知识普及</li>
+                        <li><i class="bi bi-check-circle"></i> 药品使用注意事项</li>
+                        <li><i class="bi bi-check-circle"></i> 药品安全与合理用药</li>
+                    </ul>
+                    <a href="/medical/" class="get-started-btn btn-hover-effect">探索</a>
                 </div>
+            </div>
 
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="box featured">
-                        <h3>药品科普</h3>
-                        {#                        <h4><sup>$</sup>49<span> month</span></h4>#}
-                        <ul>
-                            <li><i class="bi bi-check-circle"></i> 药品基础知识普及</li>
-                            <li><i class="bi bi-check-circle"></i> 药品使用注意事项</li>
-                            <li><i class="bi bi-check-circle"></i> 药品安全与合理用药</li>
-                            <li><i class="bi bi-check-circle"></i> 药品分类</li>
-                        </ul>
-                        <a href="/medical/" class="get-started-btn">Get Started</a>
+            <!-- 健康指南 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="box featured hover-card">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-clipboard2-pulse icon-animate"></i>
                     </div>
+                    <h3 class="box-title">健康小妙招</h3>
+                    <ul class="feature-list">
+                        <li><i class="bi bi-check-circle"></i> 健康生活智能推荐</li>
+                        <li><i class="bi bi-check-circle"></i> 养生小妙招查询</li>
+                        <li><i class="bi bi-check-circle"></i> 饮食、运动、睡眠、减压...</li>
+                    </ul>
+                    <a href="/protect/" class="get-started-btn btn-hover-effect">探索</a>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="box featured">
-                        <h3>“医”智指南</h3>
-                        {#                        <h4><sup>$</sup>29<span> month</span></h4>#}
-                        <ul>
-                            <li><i class="bi bi-check-circle"></i> 健康生活方式与药物协同效应</li>
-                            <li><i class="bi bi-check-circle"></i> 药品使用常见误区解答</li>
-                            <li><i class="bi bi-check-circle"></i>  药物相互作用与副作用预防</li>
-                            <li><i class="bi bi-check-circle"></i> 药品存储与携带指南</li>
-                            <li><i class="bi bi-check-circle"></i> 用药时间与饮食搭配贴士</li>
-                        </ul>
-                        <a href="/protect/" class="get-started-btn">Get Started</a>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </section><!-- End Pricing Section -->
+    </div>
+</section>
 
+<style>
+    /* 新增样式 */
+    .neon-text {
+        text-shadow: 0 0 10px #2d9cd3, 0 0 20px #2d9cd3, 0 0 30px #2d9cd3;
+        animation: neon-pulse 1.5s infinite alternate;
+    }
+
+    .hover-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 30px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .hover-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .icon-wrapper {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .icon-animate {
+        font-size: 3rem;
+        color: #2d9cd3;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .box-title {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #2d9cd3;
+        font-weight: 700;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .feature-list li {
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .feature-list li:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(10px);
+    }
+
+    .btn-hover-effect {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px 24px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #2d9cd3, #6c5ce7);
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-hover-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(45, 156, 211, 0.4);
+    }
+
+    @keyframes neon-pulse {
+        from { opacity: 0.5; }
+        to { opacity: 1; }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+</style>
+
+    
+    
+    <hr>
     <!-- ======= 团队成员 ======= -->
     <section id="team" class="section-bg">
         <div class="container" data-aos="fade-up">
@@ -389,8 +673,8 @@
                 <p class="section-description">创新引领健康，技术守护生命 —— 梦医智联平台，与您同行每一步</p>
             </div>
 
-            <div class="row" style="margin-left: 70px">
-                <div class="col-lg-3 col-md-6" style=" ">
+            <div class="row justify-content-center" style="margin-left: 0">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style=" ">
                     <div class="member">
                         <div class="pic"><img src="{% static 'img/head/wyx.jpg' %}" alt="">
                         </div>
@@ -404,7 +688,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" style="">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style="">
                     <div class="member">
                         <div class="pic"><img src="{% static 'img/head/sjb.jpg' %}" alt="">
                         </div>
@@ -418,7 +702,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" style=" ">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style=" ">
                     <div class="member">
                         <div class="pic"><img src="{% static 'img/head/hyh.jpg' %}" alt="">
                         </div>
@@ -432,7 +716,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" style="">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style="">
                     <div class="member">
                         <div class="pic"><img src="{% static 'img/head/zln.jpg' %}" alt="">
                         </div>
@@ -446,12 +730,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style="">
+                    <div class="member">
+                        <div class="pic"><img src="{% static 'img/head/lxh.jpg' %}" alt="">
+                        </div>
+                        <h4>刘华</h4>
+                        <span>Chief Executive Officer</span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-wechat"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-tencent-qq"></i></a>
+                            <a href=""><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
+
 
 
         </div>
     </section><!-- End Team Section -->
-
 
 </main><!-- End #main -->
 
@@ -459,16 +757,18 @@
 <footer id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 text-lg-start text-center">
+            <div class="col-lg-5 text-lg-start text-center">
                 <div class="copyright">
                     &copy; Copyright <strong>DreamMed</strong>. All Rights Reserved
                 </div>
                 <div class="credits">
-                    Designed by <a href="https://github.com/SFmeng">延安大学：王宇翔</a>
+                    Designed by <a href="https://github.com/SFmeng">延安大学：王宇翔</a><br>
+                    Email: wangyuxiang@ydu.edu.cn
                 </div>
             </div>
-            <div class="col-lg-6">
-                <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <img src="{% static '/img/ft-logo.png' %}" style="height: 64px; width:220px; margin-top: 3px;">
+            <div class="col-lg-5">
+                <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0" style="margin-top: 20px">
                     <a href="#intro" class="scrollto">主页</a>
                     <a href="#about" class="scrollto">关于</a>
                     <a href="#">隐私政策</a>
@@ -481,7 +781,6 @@
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-chevron-up"></i></a>
 
-
 <!-- Vendor JS Files -->
 <script src="{% static 'vendor/aos/aos.js' %}"></script>
 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -489,7 +788,6 @@
 
 <!-- 粒子特效库 -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
 <script>
     // 页面加载动画
     window.addEventListener('load', () => {
@@ -530,10 +828,10 @@
     // 导航栏交互效果
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('mouseover', () => {
-            link.style.transform = 'scale(1.1)';
+            link.style.transform = 'scale(1.3)';
         });
         link.addEventListener('mouseout', () => {
-            link.style.transform = 'scale(1)';
+            link.style.transform = 'scale(1.3)';
         });
     });
     
@@ -565,7 +863,7 @@
     },
     ui:{
         base:{
-            icon:'https://s1.chu0.com/src/img/png/2b/2b5819f91e4e4bb7add03e6978caf38b.png?imageMogr2/auto-orient/thumbnail/!487x487r/gravity/Center/crop/487x487/quality/85/%7CimageView2/2/w/487%7Cwatermark/3/image/aHR0cHM6Ly9zMS5jaHUwLmNvbS93YXRlcm1hcmsvbWlkZGxlLUwxMC5wbmc_ZT0yMDUxMDIwODAwJnRva2VuPTFzcm5aR0xLWjBBcWx6NmRrN3lGNFNraVlmNGVQLVlyRU9kTTFzb2I6bXpXRUo0eExGNVQzeXo1c2YtdTZySE1fb0xJPQ==/dissolve/100/gravity/Center/dx/-16/dy/-16&e=2051020800&token=1srnZGLKZ0Aqlz6dk7yF4SkiYf4eP-YrEOdM1sob:pdzihmxRj-eGjpLMr3w4ZyGoIAo=',
+            icon:'{% static '/img/250406/AI医生.png'%}',
             zIndex: 1000,
         },
         asstBtn: {
@@ -591,7 +889,6 @@
 
   });
 </script>
-
 
 </body>
 </html>

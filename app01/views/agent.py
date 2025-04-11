@@ -35,7 +35,7 @@ def ai_diagnosis(request):
             # 2. 构建对话链
             chat = ChatOpenAI(
                 temperature=0.1,
-                model="deepseek-reasoner",
+                model="deepseek-chat",
                 api_key=settings.DEEPSEEK_API_KEY,
                 openai_api_base=settings.BASE_URL
             )

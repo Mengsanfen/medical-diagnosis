@@ -7,12 +7,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>“医”智视界</title>
+    <title>梦医智联</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{% static '/img/doctor1.png' %}" rel="icon">
+    <link href="{% static '/img/icon/sjkc.png' %}" rel="icon">
     <link href="{% static '/img/doctor.png' %}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -20,10 +20,14 @@
           rel="stylesheet">
 
     <!-- Vendor CSS Files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="{% static '/vendor/aos/aos.css' %}" rel="stylesheet">
     <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
     <link href="{% static '/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/php-email-form/php-email-form.css' %}" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
 
 
     <link href="{% static '/css/style.css' %}" rel="stylesheet">
@@ -31,6 +35,43 @@
     {% block css %}
 
     {% endblock %}
+
+<style>
+  /* 粘性页脚解决方案 */
+  html {
+    height: 100%;
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main {
+    flex: 1;
+    padding-bottom: 60px; /* 留出页脚空间 */
+  }
+
+  .sticky-footer {
+    background: #fff;
+    padding: 20px 0;
+    margin-top: auto;
+    width: 100% !important;
+    height: auto !important;
+      transition: transform 0.3s ease;
+  }
+body.scrolling .sticky-footer {
+  transform: translateY(100%);
+}
+  /* 修复容器冲突 */
+  .custom-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+</style>
+
 
 </head>
 
@@ -72,7 +113,7 @@
     </section><!-- End Breadcrumbs Section -->
 
     <section class="inner-page">
-        <div class="container">
+        <div class="custom-container">
 {#            <p>#}
 {#                Example inner page template#}
 {#            </p>#}
@@ -86,21 +127,23 @@
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
-<footer id="footer" style="margin-top: 15px">
+<footer id="footer" class="sticky-footer">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 text-lg-start text-center">
+            <div class="col-lg-5 text-lg-start text-center">
                 <div class="copyright">
                     &copy; Copyright <strong>DreamMed</strong>. All Rights Reserved
                 </div>
                 <div class="credits">
-                    Designed by <a href="https://blog.csdn.net/m0_72256122?type=blog">延安大学：王宇翔</a>
+                    Designed by <a href="https://github.com/SFmeng">延安大学：王宇翔</a><br>
+                    Email: wangyuxiang@ydu.edu.cn
                 </div>
             </div>
-            <div class="col-lg-6">
-                <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-                    <a href="#" class="scrollto">主页</a>
-                    <a href="#" class="scrollto">关于</a>
+            <img src="{% static '/img/ft-logo.png' %}" style="height: 64px; width:220px; margin-top: 3px;">
+            <div class="col-lg-5">
+                <nav class="footer-links text-lg-right text-center pt-3" style="margin-top: 20px">
+                    <a href="#intro" class="scrollto">主页</a>
+                    <a href="#about" class="scrollto">关于</a>
                     <a href="#">隐私政策</a>
                     <a href="#">使用条款</a>
                 </nav>
@@ -118,7 +161,15 @@
 <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
 <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
-
+<script>
+    // 在layout.html的js中添加
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  document.body.classList.toggle('scrolling', currentScroll > lastScroll);
+  lastScroll = currentScroll;
+});
+</script>
 
 {#<script src="{% static 'plugins/bootstrap-5.2.3-dist/js/bootstrap.bundle.js' %}"></script>#}
 <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
@@ -143,7 +194,7 @@
     ui:{
         base:{
             {#icon:'https://s1.chu0.com/src/img/png/2b/2b5819f91e4e4bb7add03e6978caf38b.png?imageMogr2/auto-orient/thumbnail/!487x487r/gravity/Center/crop/487x487/quality/85/%7CimageView2/2/w/487%7Cwatermark/3/image/aHR0cHM6Ly9zMS5jaHUwLmNvbS93YXRlcm1hcmsvbWlkZGxlLUwxMC5wbmc_ZT0yMDUxMDIwODAwJnRva2VuPTFzcm5aR0xLWjBBcWx6NmRrN3lGNFNraVlmNGVQLVlyRU9kTTFzb2I6bXpXRUo0eExGNVQzeXo1c2YtdTZySE1fb0xJPQ==/dissolve/100/gravity/Center/dx/-16/dy/-16&e=2051020800&token=1srnZGLKZ0Aqlz6dk7yF4SkiYf4eP-YrEOdM1sob:pdzihmxRj-eGjpLMr3w4ZyGoIAo=',#}
-            icon:'{% static '/img/250406/骷髅医生.png'%}',
+            icon:'{% static '/img/250406/骷髅.png'%}',
             zIndex: 1000,
         },
         asstBtn: {

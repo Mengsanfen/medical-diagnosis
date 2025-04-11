@@ -814,7 +814,8 @@ option = {
                 show: false
             },
             itemStyle: {
-                opacity: 0.7
+                opacity: 0.7,
+                color: '\t#6495ED'
             },
             emphasis: {
                 label: {

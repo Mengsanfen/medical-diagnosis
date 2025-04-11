@@ -1,159 +1,186 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block css %}
-
+<style>
+    .med-card {
+        background: rgba(255,255,255,0.98);
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,75,112,0.1);
+        border: 1px solid rgba(58,159,212,0.1);
+    }
+    .upload-section {
+        border: 2px dashed #3a9fd4;
+        background: rgba(58,159,212,0.05);
+        min-height: 380px;
+    }
+    .result-table {
+        --bs-table-bg: rgba(242,249,255,0.8);
+        --bs-table-striped-bg: rgba(232,244,255,0.6);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .status-badge {
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: 600;
+        background: linear-gradient(45deg, #3a9fd4, #6c5ce7);
+        color: white;
+    }
+    .instruction-box {
+        background: rgba(242,249,255,0.9);
+        border-left: 4px solid #3a9fd4;
+        padding: 1.2rem;
+        border-radius: 8px;
+    }
+    .gradient-btn {
+        background: linear-gradient(45deg, #3a9fd4, #6c5ce7);
+        color: white!important;
+        border: none;
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-
-    <div class="container" style="margin-bottom: 100px;">
-        <div class="container ">
-            <div class="row justify-content-evenly">
-                <div class="col-sm-5">
-                    <div class="card" style="width: 35rem; height: 420px">
-                        <div class="card-body">
-                            <img id="image" src="{% static '/img/doctor1.png' %}"
-                                 class="rounded card-img-top d-block" alt="输入图片"
-                                 style="height: 380px">
-                        </div>
-                    </div>
-                    <label for="formFile" class="form-label">请选择一张图片</label>
-                    <form method="post" id="imgform" enctype="multipart/form-data" action="/lung/upload/">
-                        <div class="input-group">
-                            <input type="file" class="form-control" id="uploadImage"
-                                   aria-describedby="inputGroupFileAddon" aria-label="Upload"
-                                   onchange="selectImage(this);">
-                            <button class="btn btn-outline-info" type="button" onclick="gosubmit()" id="imgbtn">上传
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-sm-5">
-                    {#                    <div class="card" style="width: 35rem; height: 420px">#}
-                    {#                        <div class="card-body">#}
-                    {#                            <img src="{% static '/img/doctor.png' %}" class="rounded mx-auto d-block"#}
-                    {#                                 id="outputImage"#}
-                    {#                                 alt="输出图片" style="height: 380px; width: 32rem;">#}
-                    {#                        </div>#}
-                    {#                    </div>#}
-                    <div class="card" style="width: 35rem; height: 420px">
-
-                        <div class="card-body">
-                            <table class="table table-success">
-                                <thead>
-                                <tr>
-                                    <th scope="col">名称</th>
-                                    <th scope="col">返回参数</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>名称:</td>
-                                    <td colspan="2" id="rname">~</td>
-                                </tr>
-                                <tr>
-                                    <td>置信度:</td>
-                                    <td colspan="2" id="rtrust">~</td>
-                                </tr>
-                                <tr>
-                                    <td>类别:</td>
-                                    <td colspan="2" id="rtype">~</td>
-                                </tr>
-                                <tr>
-                                    <td>tips:</td>
-                                    <td colspan="2" id="rtip" style="width: 60%">~</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <h5 class="card-title" style="color: #cf1a57">Tips:</h5>
-                            <p class="card-text" style="color: #06ae16">
-                                识别类型说明:   </p>
-                            <p class="card-text" style="color: #0bb35f">
-                                0 为正常  
-                                1 为锯齿状  
-                                2 为腺癌  
-                                3 为腺瘤 </p>
-                            （模型诊断存在一定误差，请以实际诊断结果为准）
-                            </p>
-
-                        </div>
-                    </div>
-
-                    <label for="formFile" class="form-label">结果展示</label>
-
-                    <div class="input-group">
-                        <button class="btn btn-outline-info " type="button" onclick="FlushImg();">检测
+<div class="container py-5">
+    <div class="row g-4 justify-content-center">
+        <!-- 上传区域 -->
+        <div class="col-lg-6">
+            <div class="med-card p-3 h-100">
+                <h4 class="mb-4 text-primary">
+                    <i class="bi bi-cloud-upload me-2"></i>
+                    医学影像上传
+                </h4>
+                
+                <div class="upload-section d-flex flex-column align-items-center justify-content-center p-4">
+                    <img id="previewImage" src="{% static '/img/medmamba.png' %}" 
+                         class="img-fluid rounded-3 mb-4" 
+                         alt="影像预览"
+                         style="max-height: 280px">
+                    
+                    <div class="w-100">
+                        <input type="file" id="fileInput" 
+                               class="form-control visually-hidden" 
+                               onchange="previewFile()">
+                        <label for="fileInput" class="btn gradient-btn w-100 mb-3">
+                            <i class="bi bi-folder2-open me-2"></i>
+                            选择医学影像文件
+                        </label>
+                        <button type="button" onclick="simulateAnalysis()" 
+                                class="btn btn-light w-100 border">
+                            <i class="bi bi-upload me-2"></i>
+                            模拟诊断
                         </button>
                     </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- 结果区域 -->
+        <div class="col-lg-6">
+            <div class="med-card p-3 h-100">
+                <h4 class="mb-4 text-primary">
+                    <i class="bi bi-clipboard2-data me-2"></i>
+                    模拟诊断报告
+                </h4>
 
+                <div class="result-table-wrapper">
+                    <table class="table result-table">
+                        <tbody>
+                            <tr>
+                                <th scope="row" style="width: 120px">病例名称</th>
+                                <td id="caseName" class="text-muted">demo_case</td>
+                            </tr>
+                            <tr>
+                                <th>置信度</th>
+                                <td><span class="status-badge" id="confidence">--%</span></td>
+                            </tr>
+                            <tr>
+                                <th>分类结果</th>
+                                <td><span class="text-primary fw-bold" id="classification">--</span></td>
+                            </tr>
+                            <tr>
+                                <th>诊断建议</th>
+                                <td id="diagnosisTips" class="text-secondary">等待模拟分析...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="instruction-box mt-4">
+                    <h6 class="text-primary mb-3">
+                        <i class="bi bi-info-circle me-2"></i>
+                        分类说明
+                    </h6>
+                    <ul class="list-unstyled">
+                        <li><span class="badge bg-primary me-2">0</span> 正常组织</li>
+                        <li><span class="badge bg-warning me-2">1</span> 锯齿状病变</li>
+                        <li><span class="badge bg-danger me-2">2</span> 腺癌</li>
+                        <li><span class="badge bg-success me-2">3</span> 腺瘤</li>
+                    </ul>
+                    <p class="text-muted small mt-2">
+
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-
-
+</div>
 {% endblock %}
 
 {% block js %}
+<script>
+    // 模拟数据生成器
+    // 修改后的模拟数据生成器
+    const generateMockData = () => {
+        const classes = [
+            {id: 0, name: '正常组织', tips: '未见异常特征', color: 'primary'},
+            {id: 1, name: '锯齿状病变', tips: '检测到边缘不规则', color: 'warning'},
+            {id: 2, name: '腺癌', tips: '发现恶性病变特征', color: 'danger'},
+            {id: 3, name: '腺瘤', tips: '检测到良性肿瘤', color: 'success'}
+        ];
+        
+        const randomClass = classes[Math.floor(Math.random() * classes.length)];
+        return {
+            confidence: (Math.random() * 14 + 85).toFixed(1) + '%', // 85-99%
+            class: randomClass.id,
+            className: randomClass.name,
+            tips: randomClass.tips,
+            color: randomClass.color
+        };
+    }
 
-    <script type="text/javascript">
-        var image = '';
 
-        function selectImage(file) {
-            if (!file.files || !file.files[0]) {
-                alert("未选择任何文件")
-                return;
-            }
-            var reader = new FileReader();
-            reader.onload = function (evt) {
-                document.getElementById('image').src = evt.target.result;
-                image = evt.target.result;
-            }
-            reader.readAsDataURL(file.files[0]);
-        }
-    </script>
-    <script type="text/javascript">
-        function gosubmit() {
-            var formdata = new FormData();
-            //formdata.append('name', 'uploadImage');
-            formdata.append('uploadImage', $('#uploadImage').get(0).files[0]);
-            //formdata.append('recid', str);
-            $.ajax({
-                url: '/lung/upload/',
-                type: 'post',
-                contentType: false,
-                data: formdata,
-                processData: false,
-                success: function (info) {
-                    if (info.status) {
-                        alert("上传成功");
-                    } else {
-                        alert("上传失败");
-                    }
-                    console.log(info)
+    // 模拟诊断分析
+    function simulateAnalysis() {
+        // 显示加载状态
+        $('#diagnosisTips').text('分析中...').addClass('text-muted');
+        
+        // 模拟异步处理
+        setTimeout(() => {
+            const mockData = generateMockData();
+            
+            $('#confidence').text(mockData.confidence);
+            $('#classification').html(`
+                <span class="badge bg-${mockData.color}">${mockData.class}</span>
+                ${mockData.className}
+            `);
+            $('#diagnosisTips').text(mockData.tips).removeClass('text-muted');
+        }, 800);
+    }
 
-                },
-                error: function (err) {
-                    console.log(err)
-                }
-            });
+    // 文件预览功能
+    function previewFile() {
+        const file = document.getElementById('fileInput').files[0];
+        const preview = document.getElementById('previewImage');
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            preview.src = reader.result;
+            preview.style.display = 'block';
+            $('#caseName').text(file.name || '未命名病例');
         }
-    </script>
-    <script>
-        function FlushImg() {
-            $.ajax({
-                url: "/lung/detect/",
-                type: 'GET',
-                dataType: '',
-                success: function (data) {
-                    console.log(data);
-                    $('#rname').text(data.name)
-                    $('#rtrust').text(data.rate)
-                    $('#rtype').text(data.kind)
-                    $('#rtip').text(data.tips)
-                },
-            })
-        }
-    </script>
+
+        if (file) reader.readAsDataURL(file);
+    }
+</script>
 {% endblock %}

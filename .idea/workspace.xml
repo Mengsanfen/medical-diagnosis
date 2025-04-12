@@ -5,11 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb46b976-79ff-4e6b-ab7c-51acb4c587d3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app01/healthy_tips/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/healthy_tips/健康小妙招.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/healthy_tips/健康小提示.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/healthy_tips/空气质量指数.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app01/static/img/icon/sjkc.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../MedMamba/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../MedMamba/.idea/MedMamba.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../MedMamba/.idea/deployment.xml" afterDir="false" />
@@ -19,65 +14,10 @@
       <change afterPath="$PROJECT_DIR$/../MedMamba/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../PATHOLOGY/.idea/epidemic.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DM-AI/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DM-AI/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/lung/data/images/input.png" beforeDir="false" afterPath="$PROJECT_DIR$/app01/lung/data/images/input.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/css/comon0.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/font/DS-DIGIT.TTF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/images/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/images/head_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/images/line(1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/js/area_echarts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/js/china.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/js/echarts.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/js/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/js/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/js/js.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/picture/jt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/picture/lbx.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/picture/loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/picture/map.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/bigscreen/picture/weather.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app01/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/250406/ChatGPT Image 2025年4月6日 15_40_34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/250406/医生.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/250406/骷髅医生.png" beforeDir="false" afterPath="$PROJECT_DIR$/app01/static/img/250406/骷髅医生.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/Snipaste_2024-04-15_01-36-48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/clients/client-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/clients/client-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/clients/client-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/clients/client-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/clients/client-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/clients/client-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/doctor3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/hero-bg1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/hero-bg2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/icon/cell.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/index-lung.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/mask_man.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/product-screen-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/product-screen-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/product-screen-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/protect.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/team/team-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/team/team-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/team/team-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/team/team-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/img/touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app01/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/templates/cell_labels.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/cell_labels.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/agent.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/agent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app01/templates/entrance.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/entrance.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/templates/health.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/health.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/templates/health_11.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app01/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/templates/lungKonw.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/lungKonw.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app01/templates/lung_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/lung_index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/templates/medical.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/medical.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/templates/protect.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/protect.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/templates/screen.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/screen.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/views/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/views/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app01/views/tips.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01/views/tips.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,36 +53,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django Server.DM-AI.executor": "Run",
-    "JavaScript Debug.extend_view1.html.executor": "Run",
-    "JavaScript Debug.health_tips.html.executor": "Run",
-    "Python.deepseek_langchain.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.健康小妙招.executor": "Run",
-    "Python.健康小提示 (1).executor": "Run",
-    "Python.健康小提示 (2).executor": "Run",
-    "Python.空气质量指数 (1).executor": "Run",
-    "Python.空气质量指数.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Study/myCode/py_code/4C/DM-AI/app01/templates",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.DM-AI.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.extend_view1.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.health_tips.html.executor&quot;: &quot;Run&quot;,
+    &quot;Python.deepseek_langchain.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.健康小妙招.executor&quot;: &quot;Run&quot;,
+    &quot;Python.健康小提示 (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.健康小提示 (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.空气质量指数 (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.空气质量指数.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Study/myCode/py_code/4C/DM-AI/app01/templates&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Study\myCode\py_code\4C\DM-AI\app01\templates" />
@@ -333,7 +273,10 @@
       <workItem from="1743921850510" duration="20484000" />
       <workItem from="1743997032081" duration="35184000" />
       <workItem from="1744204016732" duration="5845000" />
-      <workItem from="1744250233969" duration="70426000" />
+      <workItem from="1744250233969" duration="70717000" />
+      <workItem from="1744380921550" duration="6000" />
+      <workItem from="1744384426305" duration="208000" />
+      <workItem from="1744445573546" duration="16880000" />
     </task>
     <servers />
   </component>

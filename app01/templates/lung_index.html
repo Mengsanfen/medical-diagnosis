@@ -37,6 +37,23 @@
         color: white!important;
         border: none;
     }
+    .bg-purple { background-color: #6f42c1; }
+    .bg-pink { background-color: #e83e8c; }
+    .bg-orange { background-color: #fd7e14; }
+    .status-badge {
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: 600;
+        background: linear-gradient(45deg, #3a9fd4, #6c5ce7);
+        color: white;
+        min-width: 80px;
+        display: inline-block;
+        text-align: center;
+        transition: transform 0.2s;
+    }
+    .status-badge:hover {
+        transform: translateY(-2px);
+    }
 </style>
 {% endblock %}
 
@@ -47,8 +64,8 @@
         <div class="col-lg-6">
             <div class="med-card p-3 h-100">
                 <h4 class="mb-4 text-primary">
-                    <i class="bi bi-cloud-upload me-2"></i>
-                    医学影像上传
+                    <i class="bi bi-microscope me-2"></i>
+                    血液细胞分析系统
                 </h4>
                 
                 <div class="upload-section d-flex flex-column align-items-center justify-content-center p-4">
@@ -62,8 +79,8 @@
                                class="form-control visually-hidden" 
                                onchange="previewFile()">
                         <label for="fileInput" class="btn gradient-btn w-100 mb-3">
-                            <i class="bi bi-folder2-open me-2"></i>
-                            选择医学影像文件
+                            <i class="bi bi-droplet me-2"></i>
+                            选择血液细胞图像
                         </label>
                         <button type="button" onclick="simulateAnalysis()" 
                                 class="btn btn-light w-100 border">
@@ -87,7 +104,7 @@
                     <table class="table result-table">
                         <tbody>
                             <tr>
-                                <th scope="row" style="width: 120px">病例名称</th>
+                                <th scope="row" style="width: 120px">样本编号</th>
                                 <td id="caseName" class="text-muted">demo_case</td>
                             </tr>
                             <tr>
@@ -95,32 +112,98 @@
                                 <td><span class="status-badge" id="confidence">--%</span></td>
                             </tr>
                             <tr>
-                                <th>分类结果</th>
-                                <td><span class="text-primary fw-bold" id="classification">--</span></td>
+                                <th>细胞类型</th>
+                                <td>
+                                    <div class="d-flex align-items-center" id="classification">
+                                        <span class="badge bg-info me-2">--</span>
+                                        <span class="fw-bold">等待分析</span>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <th>诊断建议</th>
-                                <td id="diagnosisTips" class="text-secondary">等待模拟分析...</td>
+                                <th>临床建议</th>
+                                <td id="diagnosisTips" class="text-secondary">请上传血液细胞图像进行分析</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-
                 <div class="instruction-box mt-4">
                     <h6 class="text-primary mb-3">
-                        <i class="bi bi-info-circle me-2"></i>
-                        分类说明
+                        <i class="bi bi-droplet-fill me-2"></i>
+                        血细胞分类说明
                     </h6>
-                    <ul class="list-unstyled">
-                        <li><span class="badge bg-primary me-2">0</span> 正常组织</li>
-                        <li><span class="badge bg-warning me-2">1</span> 锯齿状病变</li>
-                        <li><span class="badge bg-danger me-2">2</span> 腺癌</li>
-                        <li><span class="badge bg-success me-2">3</span> 腺瘤</li>
-                    </ul>
-                    <p class="text-muted small mt-2">
-
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 d-flex align-items-center">
+                                    <span class="badge bg-info me-2">0</span>
+                                    <div class="d-flex flex-column">
+                                        <span>中性粒细胞</span>
+                                        <small class="text-muted">Neutrophil</small>
+                                    </div>
+                                </li>
+                                <li class="mb-2 d-flex align-items-center">
+                                    <span class="badge bg-warning me-2">1</span>
+                                    <div class="d-flex flex-column">
+                                        <span>嗜酸性粒细胞</span>
+                                        <small class="text-muted">Eosinophil</small>
+                                    </div>
+                                </li>
+                                <li class="mb-2 d-flex align-items-center">
+                                    <span class="badge bg-danger me-2">2</span>
+                                    <div class="d-flex flex-column">
+                                        <span>嗜碱性粒细胞</span>
+                                        <small class="text-muted">Basophil</small>
+                                    </div>
+                                </li>
+                                <li class="mb-2 d-flex align-items-center">
+                                    <span class="badge bg-purple me-2">3</span>
+                                    <div class="d-flex flex-column">
+                                        <span>淋巴细胞</span>
+                                        <small class="text-muted">Lymphocyte</small>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 d-flex align-items-center">
+                                    <span class="badge bg-success me-2">4</span>
+                                    <div class="d-flex flex-column">
+                                        <span>单核细胞</span>
+                                        <small class="text-muted">Monocyte</small>
+                                    </div>
+                                </li>
+                                <li class="mb-2 d-flex align-items-center">
+                                    <span class="badge bg-secondary me-2">5</span>
+                                    <div class="d-flex flex-column">
+                                        <span>未成熟粒细胞</span>
+                                        <small class="text-muted">Immature Granulocytes</small>
+                                    </div>
+                                </li>
+                                <li class="mb-2 d-flex align-items-center">
+                                    <span class="badge bg-pink me-2">6</span>
+                                    <div class="d-flex flex-column">
+                                        <span>幼红细胞</span>
+                                        <small class="text-muted">Erythroblast</small>
+                                    </div>
+                                </li>
+                                <li class="mb-2 d-flex align-items-center">
+                                    <span class="badge bg-orange me-2">7</span>
+                                    <div class="d-flex flex-column">
+                                        <span>血小板</span>
+                                        <small class="text-muted">Platelet</small>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="text-muted small mt-3 mb-0">
+                        <i class="bi bi-lightbulb me-1"></i>
+                        点击分类标签可查看详细形态特征说明
                     </p>
                 </div>
+{##}
             </div>
         </div>
     </div>
@@ -132,24 +215,27 @@
     // 模拟数据生成器
     // 修改后的模拟数据生成器
     const generateMockData = () => {
-        const classes = [
-            {id: 0, name: '正常组织', tips: '未见异常特征', color: 'primary'},
-            {id: 1, name: '锯齿状病变', tips: '检测到边缘不规则', color: 'warning'},
-            {id: 2, name: '腺癌', tips: '发现恶性病变特征', color: 'danger'},
-            {id: 3, name: '腺瘤', tips: '检测到良性肿瘤', color: 'success'}
-        ];
-        
-        const randomClass = classes[Math.floor(Math.random() * classes.length)];
-        return {
-            confidence: (Math.random() * 14 + 85).toFixed(1) + '%', // 85-99%
-            class: randomClass.id,
-            className: randomClass.name,
-            tips: randomClass.tips,
-            color: randomClass.color
-        };
-    }
-
-
+    const bloodClasses = [
+        {id: 0, name: '中性粒细胞', tips: '检测到中性粒细胞比例升高，可能提示细菌感染', color: 'info'},
+        {id: 1, name: '嗜酸性粒细胞', tips: '嗜酸性粒细胞增多，考虑过敏或寄生虫感染', color: 'warning'},
+        {id: 2, name: '嗜碱性粒细胞', tips: '嗜碱性粒细胞异常，建议结合骨髓检查', color: 'danger'},
+        {id: 3, name: '淋巴细胞', tips: '淋巴细胞比例增高，可能为病毒感染', color: 'purple'},
+        {id: 4, name: '单核细胞', tips: '单核细胞增多，需排查慢性感染可能', color: 'success'},
+        {id: 5, name: '未成熟粒细胞', tips: '发现未成熟粒细胞，警惕血液系统疾病', color: 'secondary'},
+        {id: 6, name: '幼红细胞', tips: '检出幼红细胞，建议骨髓穿刺检查', color: 'pink'},
+        {id: 7, name: '血小板', tips: '血小板形态异常，建议凝血功能检查', color: 'orange'}
+    ];
+    
+    const randomClass = bloodClasses[Math.floor(Math.random() * bloodClasses.length)];
+    return {
+        confidence: (Math.random() * 3 + 97).toFixed(1) + '%', // 96-99%
+        class: randomClass.id,
+        className: randomClass.name,
+        tips: randomClass.tips,
+        color: randomClass.color
+    };
+}
+    
     // 模拟诊断分析
     function simulateAnalysis() {
         // 显示加载状态

@@ -1,31 +1,122 @@
 {% extends "layout.html" %}
 
 {% block style %}
-<style>
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+<style>/* 动态气泡样式 */
+@keyframes messageAppear {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
-.spinner-border {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    border: 0.25em solid currentColor;
-    border-right-color: transparent;
-    border-radius: 50%;
-    animation: spin 0.75s linear infinite;
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 20px;
 }
+
 .chat-bubble {
-    max-width: 80%;
-    margin: 1rem auto;
-    border-radius: 1rem;
+    max-width: 75%;
+    padding: 1.25rem;
+    border-radius: 1.5rem;
+    position: relative;
+    animation: messageAppear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .user-bubble {
-    background: #e3f2fd;
+    background: linear-gradient(135deg, #2d9cd3, #257bff);
+    color: white;
     margin-left: auto;
+    border-bottom-right-radius: 4px;
 }
+
+.user-bubble::before {
+    content: '👤';
+    position: absolute;
+    left: -45px;
+    font-size: 1.8rem;
+}
+
 .assistant-bubble {
-    background: #f8f9fa;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+}
+
+.assistant-bubble::before {
+    content: '🩺';
+    position: absolute;
+    right: -45px;
+    font-size: 1.8rem;
+}
+
+/* 悬停效果 */
+.chat-bubble:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 消息内容样式 */
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.message-content {
+    line-height: 1.6;
+    font-size: 1rem;
+    white-space: pre-wrap;
+}
+
+/* 加载动画增强 */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading-dots {
+    display: inline-flex;
+    gap: 0.3rem;
+}
+
+.loading-dots span {
+    width: 8px;
+    height: 8px;
+    background: #2d9cd3;
+    border-radius: 50%;
+    animation: pulse 1.4s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+/* 输入框动态效果 */
+.symptom-input {
+    transition: all 0.3s ease;
+    border: 2px solid #e0e0e0;
+}
+
+.symptom-input:focus {
+    border-color: #2d9cd3;
+    box-shadow: 0 0 15px rgba(45, 156, 211, 0.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .chat-bubble {
+        max-width: 85%;
+    }
+    
+    .user-bubble::before,
+    .assistant-bubble::before {
+        display: none;
+    }
 }
 </style>
 {% endblock %}
@@ -36,43 +127,54 @@
         <h1 class="display-5 fw-bold text-primary">AI智能问诊</h1>
         <p class="text-muted">请输入您的症状描述，获取专业医疗建议</p>
     </div>
-    
-        <form method="post" onsubmit="showLoading()">
+
+        <form method="post" onsubmit="handleSubmit(event)">
         {% csrf_token %}
         <div class="form-group mb-4">
-            <textarea 
-                class="form-control symptom-input" 
-                id="symptoms" 
-                name="symptoms" 
+            <textarea
+                class="form-control symptom-input"
+                id="symptoms"
+                name="symptoms"
                 rows="3"
                 placeholder="例：三天前开始咳嗽，伴有低烧（37.5-38℃），痰液呈黄色..."
                 required>{% if symptoms %}{{ symptoms }}{% endif %}</textarea>
         </div>
-        
+
          <div class="text-center">
-            <button 
-                type="submit" 
+            <button
+                type="submit"
                 class="btn btn-lg btn-primary px-5 rounded-pill"
                 id="submit-btn">
                 <i class="fas fa-stethoscope me-2"></i>开始诊断
             </button>
         </div>
-        
+
         <div id="loading" class="mt-3" style="display:none;">
-            <div class="spinner-border text-primary" role="status"></div>
-            <span class="ms-2">AI医生分析中（通常需要10-15秒）...</span>
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="spinner-border text-primary" role="status"></div>
+                <div class="loading-dots ms-3">
+                    <span></span><span></span><span></span>
+                </div>
+                <span class="ms-2">深度分析中，请稍候...</span>
+            </div>
         </div>
     </form>
 
-    <!-- 对话历史展示 -->
+    <!-- 增强的对话历史展示 -->
     {% if history %}
-    <div class="mt-4">
+    <div class="chat-container mt-4">
         {% for msg in history %}
-        <div class="chat-bubble {% if msg.role == 'user' %}user-bubble{% else %}assistant-bubble{% endif %} p-3">
-            <div class="fw-bold mb-2">
-                {% if msg.role == 'user' %}💬 您的描述{% else %}🩺 诊断建议{% endif %}
+        <div class="chat-bubble {% if msg.role == 'user' %}user-bubble{% else %}assistant-bubble{% endif %}">
+            <div class="message-header">
+                {% if msg.role == 'user' %}
+                <i class="bi bi-person-circle"></i>
+                <span>患者描述</span>
+                {% else %}
+                <i class="bi bi-robot"></i>
+                <span>AI诊断建议</span>
+                {% endif %}
             </div>
-            <div class="whitespace-pre">{{ msg.content|linebreaks }}</div>
+            <div class="message-content">{{ msg.content|linebreaks }}</div>
         </div>
         {% endfor %}
     </div>
@@ -86,13 +188,34 @@
     {% endif %}
 </div>
 
-<script>
-function showLoading() {
-    document.getElementById('loading').style.display = 'block';
-    document.getElementById('submit-btn').disabled = true;
+<script>function handleSubmit(e) {
+    const form = e.target;
+    const submitBtn = form.querySelector('#submit-btn');
+    const loading = document.getElementById('loading');
+    
+    // 禁用按钮并显示加载状态
+    submitBtn.disabled = true;
+    loading.style.display = 'flex';
+    
+    // 添加视觉反馈
+    submitBtn.style.transform = 'scale(0.95)';
+    submitBtn.style.opacity = '0.7';
+    
+    // 自动滚动到底部
+    setTimeout(() => {
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth'
+        });
+    }, 100);
 }
 
-
+// 自动保持滚动位置
+document.addEventListener('DOMContentLoaded', () => {
+    const chatContainer = document.querySelector('.chat-container');
+    if (chatContainer) {
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+});
 </script>
-
 {% endblock %}

@@ -31,8 +31,8 @@
     <style>
         /* 自定义科技感样式 */
         :root {
-            --tech-blue: #2d9cd3;
-            --tech-purple: #9c27b0;
+            --tech-blue: rgb(255, 255, 255);
+            --tech-purple: #1c1e1e;
             --gradient-bg: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
         }
 
@@ -107,6 +107,79 @@
           padding-left: 0;
           padding-right: 0;
         }
+  
+/* 在现有样式中添加 */
+.title a {
+  position: relative;
+  display: inline-block;
+  color: var(--tech-blue);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.title a::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--tech-purple);
+  transition: width 0.3s ease;
+}
+
+.title a:hover {
+  color: #fff !important;
+  transform: translateY(-3px);
+  text-shadow: 0 0 15px rgba(45,156,211,0.5);
+}
+
+.title a:hover::before {
+  width: 100%;
+}
+
+/* 增强整个区块的悬停反馈 */
+.box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(45,156,211,0.2);
+}
+
+.box {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 添加流光效果 */
+.box::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 25%,
+    rgba(45,156,211,0.1) 50%,
+    transparent 75%
+  );
+  animation: flow 4s infinite linear;
+  z-index: 1;
+}
+
+@keyframes flow {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 确保内容在流光层之上 */
+.box > * {
+  position: relative;
+  z-index: 2;
+}
+
     </style>
 </head>
 
@@ -128,17 +201,16 @@
                 <li><a class="nav-link scrollto " href="/">主页</a></li>
                 <!-- ADDED AI问诊导航项 -->
                 <li><a class="nav-link scrollto" href="#agent">AI问诊</a></li>
-                <li><a class="nav-link scrollto" href="#features">细胞检测</a></li>
-                <li><a class="nav-link scrollto" href="#data">“医智”数据</a></li>
-                <li><a class="nav-link scrollto" href="#more-features">医学病理检测</a></li>
-                <li><a class="nav-link scrollto" href="#pricing">“医智”小贴士</a></li>
-                <li><a class="nav-link scrollto" href="#team">科研团队</a></li>
+                <li><a class="nav-link scrollto" href="#cell">细胞检测</a></li>
+                <li><a class="nav-link scrollto" href="#detect">Agent检测</a></li>
+                <li><a class="nav-link scrollto" href="#data">疾病大数据</a></li>
+                <li><a class="nav-link scrollto" href="#medmamba">血细胞分析</a></li>
+                <li><a class="nav-link scrollto" href="#tips">“医智”小贴士</a></li>
+                <li><a class="nav-link scrollto" href="#teams">科研团队</a></li>
                 <li></li>
                 <li></li>
                 <li></li>
                 <li></li>
-{#                <li><img src="{% static 'img/icon/sjkc.png' %}" height="50px" border-radius="50%" alt="科创基地"></li>#}
-{#                <li><img src="{% static 'img/icon/yau.png' %}" height="50px" border-radius="50%" alt="延安大学"></li>#}
                 <ul style="display: flex; gap: 5px; margin: 5px; padding: 0; list-style: none;">
                     <li><img src="{% static 'img/icon/sjkc.png' %}" height="70px" style="margin-left: 50px;"  alt="科创基地"></li>
                     <li><img src="{% static 'img/logo_2.png' %}" height="70px"  alt="延安大学"></li>
@@ -166,9 +238,6 @@
 <section id="carousel" class="section-bg" style="width: 100vw; height: 100%;  margin: 0; padding: 0">
     <div class="container-fluid" data-aos="fade-up">
         <div class="section-header">
-{#            <h3 class="section-title">功能导航</h3>#}
-{#            <span class="section-divider"></span>#}
-{#            <p class="section-description">点击图片快速进入对应功能模块</p>#}
         </div>
 
         <div id="featureCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-left: 0">
@@ -218,10 +287,10 @@
                 <!-- 病理检测 -->
                 <div class="carousel-item">
                     <a href="/lung/">
-                        <img style="height: 650px" src="{% static 'img/lh/1.jpg' %}" class="d-block w-100" alt="病理检测">
+                        <img style="height: 650px" src="{% static 'img/lh/1.jpg' %}" class="d-block w-100" alt="MedMamba">
                         <div class="carousel-caption">
-                            <h5>病理检测</h5>
-                            <p>基于深度学习的病理图像分类</p>
+                            <h5>MedMamba</h5>
+                            <p>基于MedMamba的血细胞图像分类</p>
                         </div>
                     </a>
                 </div>
@@ -271,12 +340,10 @@
 {#        </section><!-- End Featuress Section -->#}
 {#    </div>#}
 
-
-{#    <hr>#}
     <!-- ======= DeepSeek问诊 ======= -->
     <div id="agent">
-        <section id="features" style="   margin-bottom: 60px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/250406/ai.png' %}') fixed center center;
-  background-size: cover;">
+        <section id="features" style="margin-bottom: 80px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/250406/ai.png' %}') fixed center center;
+  background-size: cover; height: 550px">
             <div class="container" data-aos="fade-up">
                 <div class="row">
                     <div class="col-lg-8">
@@ -305,11 +372,10 @@
     </div>
 
 
-    <hr>
-
      <!-- ======= yolo细胞检测 ======= -->
+    <div id="cell">
     <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/hong4.png' %}') fixed center center;
-  background-size: cover;">
+  background-size: cover; height: 550px">
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-8 offset-lg-4">
@@ -334,11 +400,11 @@
             </div>
         </div>
     </section><!-- End Featuress Section -->
-    
+    </div>
     <!-- ======= agent检测 ======= -->
-    <div id="agent">
+    <div id="detect">
         <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/88.jpg' %}') fixed center center;
-      background-size: cover;">
+      background-size: cover; height: 550px">
             <div class="container" data-aos="fade-up"; style="height: 400px;">
                 <div class="row">
                     <div class="col-lg-8">
@@ -366,10 +432,11 @@
             </div>
         </section><!-- End Featuress Section -->
     </div>
-    <hr>
     <!-- ======= 疾病大数据 ======= -->
+    <div id="data">
+    
     <section id="features" style="   margin-bottom: 60px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/198.jpg' %}') fixed center center;
-  background-size: cover;">
+  background-size: cover; height: 550px">
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-8 offset-lg-4">
@@ -396,17 +463,18 @@
             </div>
         </div>
     </section><!-- End Featuress Section -->
+    </div>
 
-
-    <!-- ======= 白肺检测======= -->
-    <section id="more-features" style="   margin-bottom: 60px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/1.jpg' %}') fixed center center;
-  background-size: cover;" class="section-bg">
+    <!-- ======= MedMamba======= -->
+    <div id="medmamba">
+    <section id="more-features" style=" margin-bottom: 60px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/1.jpg' %}') fixed center center;
+  background-size: cover; height: 550px" class="section-bg">
         <div class="container" data-aos="fade-up">
             <div class="section-header">
-                <h3 class="section-title">病理检测</h3>
+                <h3 class="section-title">血液细胞分析</h3>
                 <span class="section-divider"></span>
                 <p class="section-description">
-                    病理图像分类是一项先进的技术应用，旨在通过深度学习和图像分析技术自动识别和分类病理切片图像中的不同类型的细胞和组织，从而辅助医生进行更快速、准确的疾病诊断。</p>
+                    基于MedMamba架构的血细胞图像分类是一项前沿技术应用，通过结合状态空间模型（SSM）与深度学习算法，实现血液显微图像中不同血细胞类型（如中性粒细胞、淋巴细胞等）的自动化识别与精准分类，从而为血液疾病诊断提供高效、可靠的辅助决策支持。</p>
             </div>
 
             <div class="row gy-4">
@@ -431,6 +499,7 @@
             </div>
         </div>
     </section><!-- End More Features Section -->
+    </div>
     <!-- ======= Call To Action Section ======= -->
 
     <section id="call-to-action">
@@ -515,6 +584,7 @@
 {#    </section><!-- End Pricing Section -->#}
 
     <!-- ======= 医智贴士 ======= -->
+    <div id="tips">
 <section id="pricing" class="section-bg">
     <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -574,6 +644,7 @@
         </div>
     </div>
 </section>
+        </div>
 
 <style>
     /* 新增样式 */
@@ -661,10 +732,8 @@
     }
 </style>
 
-    
-    
-    <hr>
     <!-- ======= 团队成员 ======= -->
+    <div id="teams">
     <section id="team" class="section-bg">
         <div class="container" data-aos="fade-up">
             <div class="section-header">
@@ -745,12 +814,12 @@
                     </div>
                 </div>
             </div>
-
-
-
-        </div>
+</div>
+        
     </section><!-- End Team Section -->
-
+ </div>
+    
+    
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->

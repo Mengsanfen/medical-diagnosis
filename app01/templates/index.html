@@ -101,6 +101,7 @@
         .carousel-item img {
             width: 100vw;
             object-fit: cover;
+            opacity: 1; /* 新增图片透明度 */
         }
 
         .container-fluid {
@@ -180,6 +181,47 @@
   z-index: 2;
 }
 
+/* 修改#agent部分的背景渐变 */
+#agent section {
+    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
+                url('{% static 'img/250406/ai.png' %}') fixed center center;
+}
+
+/* 修改#cell部分的背景渐变 */
+#cell section {
+    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
+                url('{% static 'img/hong4.png' %}') fixed center center;
+}
+
+/* 修改#detect部分的背景渐变 */
+#detect section {
+    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
+                url('{% static 'img/lh/88.jpg' %}') fixed center center;
+}
+
+/* 修改#data部分的背景渐变 */
+#data section {
+    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
+                url('{% static 'img/lh/198.jpg' %}') fixed center center;
+}
+
+/* 修改#medmamba部分的背景渐变 */
+#medmamba section {
+    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
+                url('{% static 'img/lh/1.jpg' %}') fixed center center;
+}
+
+/* 修改#tips部分的背景渐变 */
+#tips section {
+    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
+                initial; /* 移除原有背景图片 */
+}
+
+/* 修改#teams部分的背景 */
+#teams section {
+    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8));
+}
+
     </style>
 </head>
 
@@ -207,14 +249,13 @@
                 <li><a class="nav-link scrollto" href="#medmamba">血细胞分析</a></li>
                 <li><a class="nav-link scrollto" href="#tips">“医智”小贴士</a></li>
                 <li><a class="nav-link scrollto" href="#teams">科研团队</a></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <ul style="display: flex; gap: 5px; margin: 5px; padding: 0; list-style: none;">
-                    <li><img src="{% static 'img/icon/sjkc.png' %}" height="70px" style="margin-left: 50px;"  alt="科创基地"></li>
-                    <li><img src="{% static 'img/logo_2.png' %}" height="70px"  alt="延安大学"></li>
-                </ul>
+                <li>
+                    <ul style="display: flex; gap: 5px; margin: 5px; padding: 0; list-style: none;">
+                        <li><img src="{% static 'img/icon/sjkc.png' %}" height="70px" style="margin-left: 50px;"  alt="科创基地"></li>
+                        <li><img src="{% static 'img/logo_2.png' %}" height="70px"  alt="延安大学"></li>
+                    </ul>
+                </li>
+                
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
@@ -342,7 +383,7 @@
 
     <!-- ======= DeepSeek问诊 ======= -->
     <div id="agent">
-        <section id="features" style="margin-bottom: 80px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/250406/ai.png' %}') fixed center center;
+        <section id="features" style="margin-bottom: 80px; background: linear-gradient(rgba(34,232,235,0.67), rgba(255,255,255,0.95)), url('{% static 'img/250406/ai.png' %}') fixed center center;
   background-size: cover; height: 550px">
             <div class="container" data-aos="fade-up">
                 <div class="row">
@@ -374,7 +415,7 @@
 
      <!-- ======= yolo细胞检测 ======= -->
     <div id="cell">
-    <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/hong4.png' %}') fixed center center;
+    <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(34,232,235,0.67), rgba(255,255,255,0.95)), url('{% static 'img/hong4.png' %}') fixed center center;
   background-size: cover; height: 550px">
         <div class="container" data-aos="fade-up">
             <div class="row">
@@ -403,7 +444,7 @@
     </div>
     <!-- ======= agent检测 ======= -->
     <div id="detect">
-        <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/88.jpg' %}') fixed center center;
+        <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(34,232,235,0.67), rgba(255,255,255,0.95)), url('{% static 'img/lh/88.jpg' %}') fixed center center;
       background-size: cover; height: 550px">
             <div class="container" data-aos="fade-up"; style="height: 400px;">
                 <div class="row">
@@ -435,7 +476,7 @@
     <!-- ======= 疾病大数据 ======= -->
     <div id="data">
     
-    <section id="features" style="   margin-bottom: 60px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/198.jpg' %}') fixed center center;
+    <section id="features" style="   margin-bottom: 60px; background: linear-gradient(rgba(34,232,235,0.67), rgba(255,255,255,0.95)), url('{% static 'img/lh/198.jpg' %}') fixed center center;
   background-size: cover; height: 550px">
         <div class="container" data-aos="fade-up">
             <div class="row">
@@ -467,7 +508,7 @@
 
     <!-- ======= MedMamba======= -->
     <div id="medmamba">
-    <section id="more-features" style=" margin-bottom: 60px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/1.jpg' %}') fixed center center;
+    <section id="more-features" style=" margin-bottom: 60px; background: linear-gradient(rgba(34,232,235,0.67), rgba(255,255,255,0.95)), url('{% static 'img/lh/1.jpg' %}') fixed center center;
   background-size: cover; height: 550px" class="section-bg">
         <div class="container" data-aos="fade-up">
             <div class="section-header">

@@ -1,0 +1,50 @@
+{% block content %}
+<div id="loading-screen">
+  <div class="dot-spinner" id="spinner">
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="image-box" id="upload-preview">
+    <label class="upload-label" for="image-upload">点击上传图片或拖拽到此</label>
+    <input type="file" id="image-upload" name="image" accept="image/*" style="display:none">
+  </div>
+  <div class="image-box" id="output-preview">
+    <span class="upload-label">识别后的图像将在此显示</span>
+  </div>
+  <!-- 修改：将.controls移到.container内部 -->
+  <div class="controls">
+    <input type="text" id="target-select" placeholder="请输入要检测的对象">
+    <button id="detect-btn">开始识别</button>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block css %}
+<style>
+  .container {
+    display: flex;
+    flex-direction: column; /* 新增垂直排列 */
+    justify-content: space-between;
+    align-items: center; /* 水平居中 */
+    padding: 20px;
+    position: relative;
+  }
+
+  .controls {
+    margin-top: 20px; /* 与图片框保持适当距离 */
+    display: flex;
+    gap: 10px; /* 输入框和按钮之间的间距 */
+    align-items: center; /* 垂直居中对齐 */
+  }
+</style>
+{% endblock %}

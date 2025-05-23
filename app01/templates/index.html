@@ -101,7 +101,6 @@
         .carousel-item img {
             width: 100vw;
             object-fit: cover;
-            opacity: 1; /* 新增图片透明度 */
         }
 
         .container-fluid {
@@ -181,47 +180,6 @@
   z-index: 2;
 }
 
-/* 修改#agent部分的背景渐变 */
-#agent section {
-    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
-                url('{% static 'img/250406/ai.png' %}') fixed center center;
-}
-
-/* 修改#cell部分的背景渐变 */
-#cell section {
-    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
-                url('{% static 'img/hong4.png' %}') fixed center center;
-}
-
-/* 修改#detect部分的背景渐变 */
-#detect section {
-    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
-                url('{% static 'img/lh/88.jpg' %}') fixed center center;
-}
-
-/* 修改#data部分的背景渐变 */
-#data section {
-    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
-                url('{% static 'img/lh/198.jpg' %}') fixed center center;
-}
-
-/* 修改#medmamba部分的背景渐变 */
-#medmamba section {
-    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
-                url('{% static 'img/lh/1.jpg' %}') fixed center center;
-}
-
-/* 修改#tips部分的背景渐变 */
-#tips section {
-    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8)), 
-                initial; /* 移除原有背景图片 */
-}
-
-/* 修改#teams部分的背景 */
-#teams section {
-    background: linear-gradient(to bottom, rgba(0, 255, 127, 0.6), rgba(255, 255, 255, 0.8));
-}
-
     </style>
 </head>
 
@@ -249,13 +207,14 @@
                 <li><a class="nav-link scrollto" href="#medmamba">血细胞分析</a></li>
                 <li><a class="nav-link scrollto" href="#tips">“医智”小贴士</a></li>
                 <li><a class="nav-link scrollto" href="#teams">科研团队</a></li>
-                <li>
-                    <ul style="display: flex; gap: 5px; margin: 5px; padding: 0; list-style: none;">
-                        <li><img src="{% static 'img/icon/sjkc.png' %}" height="70px" style="margin-left: 50px;"  alt="科创基地"></li>
-                        <li><img src="{% static 'img/logo_2.png' %}" height="70px"  alt="延安大学"></li>
-                    </ul>
-                </li>
-                
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <ul style="display: flex; gap: 5px; margin: 5px; padding: 0; list-style: none;">
+                    <li><img src="{% static 'img/icon/sjkc.png' %}" height="70px" style="margin-left: 50px;"  alt="科创基地"></li>
+                    <li><img src="{% static 'img/logo_2.png' %}" height="70px"  alt="延安大学"></li>
+                </ul>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
@@ -383,7 +342,7 @@
 
     <!-- ======= DeepSeek问诊 ======= -->
     <div id="agent">
-        <section id="features" style="margin-bottom: 80px; background: linear-gradient(rgba(34,232,235,0.67), rgba(255,255,255,0.95)), url('{% static 'img/250406/ai.png' %}') fixed center center;
+        <section id="features" style="margin-bottom: 80px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/250406/ai.png' %}') fixed center center;
   background-size: cover; height: 550px">
             <div class="container" data-aos="fade-up">
                 <div class="row">
@@ -415,7 +374,7 @@
 
      <!-- ======= yolo细胞检测 ======= -->
     <div id="cell">
-    <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(34,232,235,0.67), rgba(255,255,255,0.95)), url('{% static 'img/hong4.png' %}') fixed center center;
+    <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/hong4.png' %}') fixed center center;
   background-size: cover; height: 550px">
         <div class="container" data-aos="fade-up">
             <div class="row">
@@ -444,7 +403,7 @@
     </div>
     <!-- ======= agent检测 ======= -->
     <div id="detect">
-        <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(34,232,235,0.67), rgba(255,255,255,0.95)), url('{% static 'img/lh/88.jpg' %}') fixed center center;
+        <section id="features" style=" margin-bottom: 60px;  background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/88.jpg' %}') fixed center center;
       background-size: cover; height: 550px">
             <div class="container" data-aos="fade-up"; style="height: 400px;">
                 <div class="row">
@@ -476,7 +435,7 @@
     <!-- ======= 疾病大数据 ======= -->
     <div id="data">
     
-    <section id="features" style="   margin-bottom: 60px; background: linear-gradient(rgba(34,232,235,0.67), rgba(255,255,255,0.95)), url('{% static 'img/lh/198.jpg' %}') fixed center center;
+    <section id="features" style="   margin-bottom: 60px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/198.jpg' %}') fixed center center;
   background-size: cover; height: 550px">
         <div class="container" data-aos="fade-up">
             <div class="row">
@@ -508,7 +467,7 @@
 
     <!-- ======= MedMamba======= -->
     <div id="medmamba">
-    <section id="more-features" style=" margin-bottom: 60px; background: linear-gradient(rgba(34,232,235,0.67), rgba(255,255,255,0.95)), url('{% static 'img/lh/1.jpg' %}') fixed center center;
+    <section id="more-features" style=" margin-bottom: 60px; background: linear-gradient(rgba(18, 233, 239, 0.65), rgba(15, 210, 149, 0.2)), url('{% static 'img/lh/1.jpg' %}') fixed center center;
   background-size: cover; height: 550px" class="section-bg">
         <div class="container" data-aos="fade-up">
             <div class="section-header">
@@ -784,21 +743,6 @@
             </div>
 
             <div class="row justify-content-center" style="margin-left: 0">
-                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style="">
-                    <div class="member">
-                        <div class="pic"><img src="{% static 'img/head/sjb.jpg' %}" alt="">
-                        </div>
-                        <h4>孙健柏</h4>
-                        <span>Chief Executive Officer</span>
-                        <div class="social">
-                            <a href=""><i class="bi bi-wechat"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-tencent-qq"></i></a>
-                            <a href=""><i class="bi bi-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style=" ">
                     <div class="member">
                         <div class="pic"><img src="{% static 'img/head/wyx.jpg' %}" alt="">
@@ -813,7 +757,63 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style="">
+                    <div class="member">
+                        <div class="pic"><img src="{% static 'img/head/sjb.jpg' %}" alt="">
+                        </div>
+                        <h4>孙健柏</h4>
+                        <span>Chief Executive Officer</span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-wechat"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-tencent-qq"></i></a>
+                            <a href=""><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style=" ">
+                    <div class="member">
+                        <div class="pic"><img src="{% static 'img/head/hyh.jpg' %}" alt="">
+                        </div>
+                        <h4>胡雨皓</h4>
+                        <span>Chief Executive Officer</span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-wechat"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-tencent-qq"></i></a>
+                            <a href=""><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style="">
+                    <div class="member">
+                        <div class="pic"><img src="{% static 'img/head/zln.jpg' %}" alt="">
+                        </div>
+                        <h4>张丽娜</h4>
+                        <span>Chief Executive Officer</span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-wechat"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-tencent-qq"></i></a>
+                            <a href=""><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style="">
+                    <div class="member">
+                        <div class="pic"><img src="{% static 'img/head/lxh.jpg' %}" alt="">
+                        </div>
+                        <h4>刘华</h4>
+                        <span>Chief Executive Officer</span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-wechat"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-tencent-qq"></i></a>
+                            <a href=""><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </div>
         
     </section><!-- End Team Section -->
@@ -831,8 +831,8 @@
                     &copy; Copyright <strong>DreamMed</strong>. All Rights Reserved
                 </div>
                 <div class="credits">
-                    Designed by <a href="https://github.com/SFmeng">梓仁沐白</a><br>
-                    Email: 2274540432@qq.com
+                    Designed by <a href="https://github.com/SFmeng">延安大学：王宇翔</a><br>
+                    Email: wangyuxiang@ydu.edu.cn
                 </div>
             </div>
             <img src="{% static '/img/ft-logo.png' %}" style="height: 64px; width:220px; margin-top: 3px;">
@@ -911,54 +911,53 @@
 <script src="{% static 'js/main.js' %}"></script>
 
 
-
-    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
-    <script>
-      new CozeWebSDK.WebChatClient({
-        config: {
-          bot_id: '7489007335110164532',
-          isIframe: false,
+<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
+<script>
+  new CozeWebSDK.WebChatClient({
+    config: {
+      bot_id: '7489007335110164532',
+      isIframe: false,
+    },
+    auth: {
+      type: 'token',
+      token: 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ',
+      onRefreshToken: function () {
+        return 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ'
+      }
+    },
+    userInfo: {
+    id: 'wyx0110',
+    url: 'https://c-ssl.dtstatic.com/uploads/blog/202303/19/20230319221800_5a5f2.thumb.1000_0.jpg',
+    nickname: '三分梦',
+    },
+    ui:{
+        base:{
+            icon:'{% static '/img/250406/AI医生.png'%}',
+            zIndex: 1000,
         },
-        auth: {
-          type: 'token',
-          token: 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ',
-          onRefreshToken: function () {
-            return 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ'
-          }
+        asstBtn: {
+          isNeed: true,    // 是否在页面右下角展示悬浮球
         },
-        userInfo: {
-        id: 'wyx0110',
-        url: 'https://c-ssl.dtstatic.com/uploads/blog/202303/19/20230319221800_5a5f2.thumb.1000_0.jpg',
-        nickname: '梓仁沐白',
-        },
-        ui:{
-            base:{
-                icon:'{% static '/img/250406/AI医生.png'%}',
-                zIndex: 1000,
-            },
-            asstBtn: {
-              isNeed: true,    // 是否在页面右下角展示悬浮球
-            },
-            footer: {
-                isShow: true,
-                expressionText: 'Designed by {{'梓仁沐白'}}',
-                linkvars: {
-                    name: {
-                        text: '梓仁沐白',
-                        link: 'https://github.com/SunJianBai'
-                    }
+        footer: {
+            isShow: true,
+            expressionText: 'Designed by {{'延安大学：王宇翔'}}',
+            linkvars: {
+                name: {
+                    text: '三分梦',
+                    link: 'https://github.com/SFmeng'
                 }
-            },
-            chatBot: {
-                title: "灵枢智诊",
-                uploadable: true,
-                width: 400,
             }
-    
         },
-    
-      });
-    </script>
+        chatBot: {
+            title: "灵枢智诊",
+            uploadable: true,
+            width: 400,
+        }
+
+    },
+
+  });
+</script>
 
 </body>
 </html>

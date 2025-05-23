@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb46b976-79ff-4e6b-ab7c-51acb4c587d3" name="Changes" comment="优化了index界面的背景图片显示">
-      <change beforePath="$PROJECT_DIR$/.idea/epidemic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/epidemic.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fb46b976-79ff-4e6b-ab7c-51acb4c587d3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../MedMamba/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MedMamba/.idea/MedMamba.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MedMamba/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MedMamba/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MedMamba/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MedMamba/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MedMamba/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PATHOLOGY/.idea/epidemic.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/agent.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/agent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/entrance.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/entrance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app01/templates/lung_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app01/templates/lung_index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +46,7 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2vJXj5Z9s2JWVNlFC7pT3xAeMmw" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -48,7 +58,6 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Django Server.DM-AI.executor&quot;: &quot;Run&quot;,
-    &quot;Django 服务器.DM-AI.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.extend_view1.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.health_tips.html.executor&quot;: &quot;Run&quot;,
     &quot;Python.deepseek_langchain.executor&quot;: &quot;Run&quot;,
@@ -85,7 +94,7 @@
       <recent name="C:\Study\myCode\py_code\4C\DM-AI\app01\static" />
     </key>
   </component>
-  <component name="RunManager" selected="Django 服务器.DM-AI">
+  <component name="RunManager" selected="Django Server.DM-AI">
     <configuration name="health_tips.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/DM-AI/DM-AI/app01/templates/health_tips.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -213,7 +222,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="myyolo" />
+      <option name="SDK_NAME" value="apply" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -229,28 +238,20 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Django 服务器.DM-AI" />
-      <item itemvalue="JavaScript 调试.health_tips.html" />
-      <item itemvalue="Python.test" />
-      <item itemvalue="Python.健康小妙招" />
-      <item itemvalue="Python.健康小提示 (2)" />
-      <item itemvalue="Python.空气质量指数 (1)" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.健康小提示 (2)" />
         <item itemvalue="Python.健康小妙招" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.空气质量指数 (1)" />
+        <item itemvalue="JavaScript Debug.health_tips.html" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
-        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+        <option value="bundled-python-sdk-5a2391486177-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
       </set>
     </attachedChunks>
   </component>
@@ -276,18 +277,7 @@
       <workItem from="1744380921550" duration="6000" />
       <workItem from="1744384426305" duration="208000" />
       <workItem from="1744445573546" duration="16880000" />
-      <workItem from="1745245665434" duration="1433000" />
-      <workItem from="1747310322737" duration="715000" />
     </task>
-    <task id="LOCAL-00001" summary="优化了index界面的背景图片显示">
-      <option name="closed" value="true" />
-      <created>1744634910060</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1744634910060</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,27 +288,11 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="优化了index界面的背景图片显示" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化了index界面的背景图片显示" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DM_AI$deepseek_langchain.coverage" NAME="deepseek_langchain Coverage Results" MODIFIED="1743931460134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agent_study" />

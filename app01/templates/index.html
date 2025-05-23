@@ -784,20 +784,6 @@
             </div>
 
             <div class="row justify-content-center" style="margin-left: 0">
-                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style=" ">
-                    <div class="member">
-                        <div class="pic"><img src="{% static 'img/head/wyx.jpg' %}" alt="">
-                        </div>
-                        <h4>王宇翔</h4>
-                        <span>Chief Executive Officer</span>
-                        <div class="social">
-                            <a href=""><i class="bi bi-wechat"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-tencent-qq"></i></a>
-                            <a href=""><i class="bi bi-github"></i></a>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style="">
                     <div class="member">
                         <div class="pic"><img src="{% static 'img/head/sjb.jpg' %}" alt="">
@@ -812,11 +798,12 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style=" ">
                     <div class="member">
-                        <div class="pic"><img src="{% static 'img/head/hyh.jpg' %}" alt="">
+                        <div class="pic"><img src="{% static 'img/head/wyx.jpg' %}" alt="">
                         </div>
-                        <h4>胡雨皓</h4>
+                        <h4>王宇翔</h4>
                         <span>Chief Executive Officer</span>
                         <div class="social">
                             <a href=""><i class="bi bi-wechat"></i></a>
@@ -826,35 +813,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style="">
-                    <div class="member">
-                        <div class="pic"><img src="{% static 'img/head/zln.jpg' %}" alt="">
-                        </div>
-                        <h4>张丽娜</h4>
-                        <span>Chief Executive Officer</span>
-                        <div class="social">
-                            <a href=""><i class="bi bi-wechat"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-tencent-qq"></i></a>
-                            <a href=""><i class="bi bi-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" style="">
-                    <div class="member">
-                        <div class="pic"><img src="{% static 'img/head/lxh.jpg' %}" alt="">
-                        </div>
-                        <h4>刘华</h4>
-                        <span>Chief Executive Officer</span>
-                        <div class="social">
-                            <a href=""><i class="bi bi-wechat"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-tencent-qq"></i></a>
-                            <a href=""><i class="bi bi-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
 </div>
         
     </section><!-- End Team Section -->
@@ -872,8 +831,8 @@
                     &copy; Copyright <strong>DreamMed</strong>. All Rights Reserved
                 </div>
                 <div class="credits">
-                    Designed by <a href="https://github.com/SFmeng">延安大学：王宇翔</a><br>
-                    Email: wangyuxiang@ydu.edu.cn
+                    Designed by <a href="https://github.com/SFmeng">梓仁沐白</a><br>
+                    Email: 2274540432@qq.com
                 </div>
             </div>
             <img src="{% static '/img/ft-logo.png' %}" style="height: 64px; width:220px; margin-top: 3px;">
@@ -952,53 +911,54 @@
 <script src="{% static 'js/main.js' %}"></script>
 
 
-<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
-<script>
-  new CozeWebSDK.WebChatClient({
-    config: {
-      bot_id: '7489007335110164532',
-      isIframe: false,
-    },
-    auth: {
-      type: 'token',
-      token: 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ',
-      onRefreshToken: function () {
-        return 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ'
-      }
-    },
-    userInfo: {
-    id: 'wyx0110',
-    url: 'https://c-ssl.dtstatic.com/uploads/blog/202303/19/20230319221800_5a5f2.thumb.1000_0.jpg',
-    nickname: '三分梦',
-    },
-    ui:{
-        base:{
-            icon:'{% static '/img/250406/AI医生.png'%}',
-            zIndex: 1000,
+
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
+    <script>
+      new CozeWebSDK.WebChatClient({
+        config: {
+          bot_id: '7489007335110164532',
+          isIframe: false,
         },
-        asstBtn: {
-          isNeed: true,    // 是否在页面右下角展示悬浮球
+        auth: {
+          type: 'token',
+          token: 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ',
+          onRefreshToken: function () {
+            return 'pat_QfNTIS6zP3uNErBSk9VKIaEG1kkN2hnI5ZvzS9jOBsvYUx9miN7e6m2aVXMszMgQ'
+          }
         },
-        footer: {
-            isShow: true,
-            expressionText: 'Designed by {{'延安大学：王宇翔'}}',
-            linkvars: {
-                name: {
-                    text: '三分梦',
-                    link: 'https://github.com/SFmeng'
+        userInfo: {
+        id: 'wyx0110',
+        url: 'https://c-ssl.dtstatic.com/uploads/blog/202303/19/20230319221800_5a5f2.thumb.1000_0.jpg',
+        nickname: '梓仁沐白',
+        },
+        ui:{
+            base:{
+                icon:'{% static '/img/250406/AI医生.png'%}',
+                zIndex: 1000,
+            },
+            asstBtn: {
+              isNeed: true,    // 是否在页面右下角展示悬浮球
+            },
+            footer: {
+                isShow: true,
+                expressionText: 'Designed by {{'梓仁沐白'}}',
+                linkvars: {
+                    name: {
+                        text: '梓仁沐白',
+                        link: 'https://github.com/SunJianBai'
+                    }
                 }
+            },
+            chatBot: {
+                title: "灵枢智诊",
+                uploadable: true,
+                width: 400,
             }
+    
         },
-        chatBot: {
-            title: "灵枢智诊",
-            uploadable: true,
-            width: 400,
-        }
-
-    },
-
-  });
-</script>
+    
+      });
+    </script>
 
 </body>
 </html>

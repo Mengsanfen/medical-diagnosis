@@ -79,3 +79,71 @@ medical-diagnosis/
 ├── manage.py                 # Django 入口文件
 ├── requirements.txt          # 依赖库清单
 └── README.md                 # 项目说明文档
+```
+
+## 🚀 快速启动 (Getting Started)
+
+### 1. 环境准备
+确保您的本地环境具备 Python 3.10.15 并支持 GPU 加速：
+
+```bash
+# 克隆仓库
+git clone [https://github.com/Mengsanfen/medical-diagnosis.git](https://github.com/Mengsanfen/medical-diagnosis.git)
+cd medical-diagnosis
+
+# 创建并激活虚拟环境
+conda create -n dreammed python=3.10.15
+conda activate dreammed
+
+# 安装依赖
+pip install -r requirements.txt
+```
+
+### 2. 模型权重下载与配置
+由于权重文件较大，未包含在 Git 仓库中。请将训练好的权重放入 `weights/` 目录：
+
+- **YOLOv5 检测权重**：`yolov5_blood.pt`
+- **MedMamba 分类权重**：`bloodmnist_medmamba.pt`
+
+*(注：项目主要使用了 BCCD 与 MedMNIST 数据集进行训练)*
+
+### 3. 数据迁移与运行服务
+
+```bash
+# 执行数据库迁移
+python manage.py makemigrations
+python manage.py migrate
+
+# 启动 Django 测试服务器
+python manage.py runserver 0.0.0.0:8000
+```
+访问 `http://127.0.0.1:8000/` 即可进入系统主页（免登录访问）。
+
+---
+
+## 📈 性能评测 (Performance Metrics)
+
+- **智能问诊**: 诊断响应时间 < 15 秒，常见病覆盖率 ≥ 95%。
+- **血细胞检测**: YOLO 单图推理时间 ≤ 1 秒，检测准确率 MAP@0.5 高达 91.3%。
+- **MedMamba 分类**: 图像分类耗时 ≤ 200ms/图，准确率达 98.6% 以上。
+- **Agent 推理**: 复杂医学图像未知病灶定位平均误差 ≤ 10 像素。
+
+---
+
+## 🤝 参与贡献 (Contributing)
+
+欢迎提交 Pull Requests 或开启 Issue 探讨项目优化。
+
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 发起 Pull Request
+
+---
+
+## 📄 许可证与版权 (License & Copyright)
+
+- 本项目基于 [MIT License](LICENSE) 协议开源。
+- Copyright © DreamMed Research. All Rights Reserved.
+- **联系方式**: sfmeng1208@163.com (王宇翔开发团队)
